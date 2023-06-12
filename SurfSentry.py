@@ -161,10 +161,10 @@ class NetworkTrafficMonitor:
     def stop_sniffing(self):
         self.running = False
         main_window.readonly_label.setText(
-            "Ready for sniffing, please start analysis.")
+            "Status: Ready for sniffing, please start analysis.")
 
     def sniff_packets(self):
-        sniff(iface=main_window.selected_adapter, prn=self.packet_callback,
+        sniff(iface=main_window.current_adapter, prn=self.packet_callback,
               stop_filter=lambda _: not self.running, store=0)
 
 
@@ -172,7 +172,7 @@ class LoadingScreenDialog(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowFlags(Qt.CustomizeWindowHint | Qt.WindowTitleHint)
-        self.setWindowTitle('Updating IP List')
+        self.setWindowTitle('Updating Malicious Data')
 
         layout = QVBoxLayout(self)
         self.label = QLabel()
@@ -211,22 +211,12 @@ class MainWindow(QWidget):
     def initUI(self):
         self.setWindowTitle('SurfSentry')
         self.setFixedSize(400, 550)
+        self.current_adapter = self.get_current_adapter()
 
         main_layout = QVBoxLayout(self)
         main_layout.setAlignment(Qt.AlignCenter)
 
-        network_layout = QVBoxLayout()
-        network_label = QLabel('Select Network Adapter')
-        network_label.setFont(QFont("Arial", 10, QFont.Bold))
-        self.combo = QComboBox()
-        self.combo.currentIndexChanged.connect(self.on_combo_index_changed)
-        adapters = self.get_network_adapters()
-        self.combo.addItems(adapters)
-        network_layout.addWidget(network_label)
-        network_layout.addWidget(self.combo)
-        main_layout.addLayout(network_layout)
-
-        malicious_domains_label = QLabel('Malicious Domains:')
+        malicious_domains_label = QLabel('Malicious Datas:')
         malicious_domains_label.setFont(QFont("Arial", 10, QFont.Bold))
         main_layout.addWidget(malicious_domains_label)
 
@@ -260,6 +250,13 @@ class MainWindow(QWidget):
         self.readonly_label.setStyleSheet("background-color: lightgray;")
         main_layout.addWidget(self.readonly_label)
 
+        self.readonly_label2 = QLabel()
+        self.readonly_label2.setAlignment(Qt.AlignLeft)
+        self.readonly_label2.setWordWrap(True)
+        self.readonly_label2.setText(f"Active Adapter: {self.current_adapter}")
+        self.readonly_label2.setStyleSheet("background-color: lightgray;")
+        main_layout.addWidget(self.readonly_label2)
+
         self.show()
 
     def get_network_adapters(self):
@@ -270,20 +267,17 @@ class MainWindow(QWidget):
                     adapters.append(iface)
                     break
         return adapters
-
-    def on_combo_index_changed(self, index):
-        self.selected_adapter = self.combo.itemText(index)
-
-    def start_analysis(self):
-        self.monitor = NetworkTrafficMonitor(self, "ip-list.txt")
-        self.monitor.start_sniffing()
-        self.start_analysis_button.setEnabled(False)
-        self.stop_analysis_button.setEnabled(True)
-
-    def stop_analysis(self):
-        self.monitor.stop_sniffing()
-        self.start_analysis_button.setEnabled(True)
-        self.stop_analysis_button.setEnabled(False)
+    
+    def get_current_adapter(self):
+        active_ip = socket.gethostbyname(socket.gethostname())
+        adapters = self.get_network_adapters()
+        for adapter in adapters:
+            iface = psutil.net_if_addrs()[adapter]
+            for nic in iface:
+                if nic.family == socket.AF_INET and nic.address == active_ip:
+                    return adapter
+        
+        return None
 
     def download_update_ip_list(self, downloader, loading_screen):
         downloader.run()
@@ -293,6 +287,7 @@ class MainWindow(QWidget):
         main_window.readonly_label.setText(
             "Ready for sniffing, please start analysis.")
         self.start_analysis_button.setEnabled(True)
+        
 
     def update_ip_list(self):
         downloader = MaliciousIpDownloader(
@@ -331,6 +326,19 @@ class MainWindow(QWidget):
                     count += 1
             self.plain_text.setPlainText("\n".join(numbered_list))
 
+    def start_analysis(self):
+        self.monitor = NetworkTrafficMonitor(self, "ip-list.txt")
+        self.monitor.start_sniffing()
+        self.start_analysis_button.setEnabled(False)
+        self.stop_analysis_button.setEnabled(True)
+        self.update_ip_list_button.setEnabled(False)
+
+    def stop_analysis(self):
+        self.monitor.stop_sniffing()
+        self.start_analysis_button.setEnabled(True)
+        self.stop_analysis_button.setEnabled(False)
+        self.update_ip_list_button.setEnabled(True)
+
     def closeEvent(self, event):
         try:
             if self.monitor and self.monitor.is_running():
@@ -349,7 +357,6 @@ if __name__ == "__main__":
     icon_path = "path/to/your/icon.png"
     app.setWindowIcon(QIcon(icon_path))
     main_window = MainWindow()
-
     main_window.show()
     loading_screen = LoadingScreenDialog()
     loading_screen.hide()

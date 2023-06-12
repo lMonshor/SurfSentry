@@ -85,7 +85,7 @@ class MaliciousIpDownloader:
     def run(self):
         loading_screen.update_label(
             "Searching For Malicious Datas from USOM \n Please Wait...")
-        time.sleep(1)
+        time.sleep(5)
         self.get_malicious_data()
         self.urls_count = self.parse_resolve()
 

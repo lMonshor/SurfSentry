@@ -13,7 +13,7 @@ from PyQt5.QtCore import (
 from PyQt5.QtGui import QFont, QIcon
 from PyQt5.QtWidgets import (
     QApplication, QDialog, QLabel, QPlainTextEdit,
-    QPushButton, QVBoxLayout, QWidget, QMessageBox,QComboBox
+    QPushButton, QVBoxLayout, QWidget, QMessageBox, QComboBox
 )
 
 
@@ -59,7 +59,6 @@ class MaliciousIpDownloader:
                     url = model["url"]
                     desc = model["desc"]
                     criticality_level = model["criticality_level"]
-
                     try:
                         ip = socket.gethostbyname(url)
                         g.write(ip + "\n")
@@ -86,7 +85,7 @@ class MaliciousIpDownloader:
     def run(self):
         loading_screen.update_label(
             "Searching For Malicious Datas from USOM \n Please Wait...")
-        time.sleep(2)
+        time.sleep(1)
         self.get_malicious_data()
         self.urls_count = self.parse_resolve()
 
@@ -137,7 +136,7 @@ class NetworkTrafficMonitor:
                             domain_info[target_ip]['Criticality Level'] = int(
                                 line.split('Criticality Level: ')[1])
         return domain_info
-    
+
     def packet_callback(self, packet):
         if IP in packet:
             ip_src = packet[IP].src
@@ -153,8 +152,6 @@ class NetworkTrafficMonitor:
                             Q_ARG(str, "Warning"),
                             Q_ARG(str, message))
 
-    
-
     def start_sniffing(self):
         self.running = True
         sniff_thread = threading.Thread(target=self.sniff_packets)
@@ -167,7 +164,7 @@ class NetworkTrafficMonitor:
             "Ready for sniffing, please start analysis.")
 
     def sniff_packets(self):
-        sniff(iface=main_window.selected_adapter,prn=self.packet_callback,
+        sniff(iface=main_window.selected_adapter, prn=self.packet_callback,
               stop_filter=lambda _: not self.running, store=0)
 
 
@@ -263,8 +260,6 @@ class MainWindow(QWidget):
         self.readonly_label.setStyleSheet("background-color: lightgray;")
         main_layout.addWidget(self.readonly_label)
 
-      
-
         self.show()
 
     def get_network_adapters(self):
@@ -274,7 +269,7 @@ class MainWindow(QWidget):
                 if addr.family == socket.AF_INET:
                     adapters.append(iface)
                     break
-        return adapters 
+        return adapters
 
     def on_combo_index_changed(self, index):
         self.selected_adapter = self.combo.itemText(index)

@@ -13,7 +13,7 @@ from PyQt5.QtCore import (
 from PyQt5.QtGui import QFont, QIcon
 from PyQt5.QtWidgets import (
     QApplication, QDialog, QLabel, QPlainTextEdit,
-    QPushButton, QVBoxLayout, QWidget, QMessageBox, QComboBox
+    QPushButton, QVBoxLayout, QWidget, QMessageBox
 )
 
 

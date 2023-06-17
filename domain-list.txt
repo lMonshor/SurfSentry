@@ -1,514 +1,540 @@
-URL: danxzatr1.net
-IP: 31.210.39.150
+URL: trafiksiqortanetten.xyz
+IP: 154.49.245.24
 Title: Financial Phishing
 Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
 
-URL: paribu-mail-ile-baglanti-kur-hesabi-bagla.net
-IP: 172.67.166.54
+URL: ingilizsiqorta.xyz
+IP: 154.49.245.24
 Title: Financial Phishing
 Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
 
-URL: nxc-rendfdvlaral.net
-IP: 172.67.157.122
+URL: bayrm-ikramiyesi.online
+IP: 89.117.169.32
 Title: Financial Phishing
 Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
 
-URL: webgiris.de
-IP: 217.182.183.148
+URL: bizimlefirsatlarburda.net
+IP: 31.210.39.124
 Title: Financial Phishing
 Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
 
-URL: dvlttaidt-onlineii-iadelri-portaleei235.b-cdn.net
+URL: teklifhizmetleri.net.tr
+IP: 31.170.161.145
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: teklifhizmetleri.name.tr
+IP: 31.170.161.145
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: teklifhizmetleri.com.tr
+IP: 31.170.161.145
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: teklifhizmetleri.gen.tr
+IP: 31.170.161.145
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: teklifhizmetleri.org.tr
+IP: 31.170.161.145
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: 808belicoff.com.tr
+IP: 172.67.196.206
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: iadenizburdasistem.de
+IP: 77.83.201.134
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: sahibinden.paramtr.com
+IP: 104.21.39.40
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: webbildiri-info.com
+IP: 172.67.151.191
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: masdgasgzxbnwqwq.net
+IP: 104.21.45.172
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: tuvrandevu.net
+IP: 213.14.227.50
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: nevsehir-saglik.xyz
+IP: 104.21.95.211
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: sigortamnetvivp.site
+IP: 104.21.28.11
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: elmllakvergi.net
+IP: 104.21.93.236
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: nvckrdmtdmrnv.net
+IP: 104.21.35.10
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: indirim-marketi-a1o1.net
+IP: 68.65.122.100
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: kuvveytturkkimmobbilimmggiriisimm.online
+IP: 104.21.18.65
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: e-islemleri-gazete.online
+IP: 162.241.194.174
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: dvlportallarim.net
+IP: 31.210.39.124
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: xn--imdigelhaberinial-yjd.app
+IP: 194.31.59.76
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: illegalist.store
+IP: 104.21.95.135
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: firsatcampanyhediyebasvur.net
+IP: 172.67.221.20
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: acikdeniz-kredi-online.xyz
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: sahlbindenguvende.com
+IP: 51.68.188.181
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: acikdeniz-kredi-online.cyou
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: izvilvililvik.net
+IP: 172.67.179.173
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: acikdeniz-kredi-online.life
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: ileriadimvakfi.com
+IP: 185.230.63.171
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: eshxsccx1xzxmmrmr.net
+IP: 104.21.63.95
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: acikdeniz-kredi-online.buzz
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: vrgnihizliodeme.net
+IP: 172.67.171.203
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: acikdeniz-kredi-online.top
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: oglnreklmvaktmx.net
+IP: 104.21.12.5
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: firsatdunyasia1o1.net
+IP: 68.65.122.100
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: trdenizfirsathersey.xyz
+IP: 18.193.7.240
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: agagagaragnti.com.tr
+IP: 5.199.139.141
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: basvuru.kredi-hizmeti.com
+IP: 104.21.31.190
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: kredi-hizmeti.com
+IP: 104.21.31.190
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: asdhjhjdasfhj.net
+IP: 172.67.184.82
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: lvbelcone.net
+IP: 104.21.3.121
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: denizbank-mobil-basvur.top
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: denizbank-mobil-basvur.buzz
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: webgirisdvltorgvxtr2.xyz
+IP: 31.210.39.124
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: denizbank-basvur.xyz
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: denizfirsatlarhersey.xyz
+IP: 18.193.7.240
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: denizbank-basvur.top
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: denizbank-basvur.icu
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: russigortam.xyz
+IP: 154.49.245.24
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: uzmansigortacim.website
+IP: 172.67.220.93
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: sivasigorta.xyz
+IP: 154.49.245.24
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: denizbank-basvur.cyou
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: denizbank-basvur.buzz
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: onlinehemen.b-cdn.net
+IP: 169.150.247.38
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: acikdeniz-basvur.xyz
+IP: 190.14.39.154
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: yksiqorta.xyz
+IP: 154.49.245.24
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: get-sahibindenparamguvende.net
+IP: 172.174.69.251
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: mobildeniz-basvuru-kredi.xyz
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: acikdeniz-basvuru-kredi.life
+IP: 190.14.39.154
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: zorunlusigortas.cfd
+IP: 104.21.90.40
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: zorunlusigortas.website
+IP: 172.67.177.113
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: aidat-online-iadeleri-portaliiee141.b-cdn.net
 IP: 169.150.215.115
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: mobildeniz-basvuru-kredi.life
+IP: 190.14.39.154
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: azsijorta.xyz
+IP: 154.49.245.24
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: mymds.ml
+IP: 172.67.162.28
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: mobildeniz-basvuru-kredi.top
+IP: 190.14.39.154
 Title: Financial Phishing
 Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
 
-URL: xn--tyeyuzylbasladihaberler-oqdgb.net
-IP: 5.252.154.20
+URL: okksigorta.xyz
+IP: 154.49.245.24
 Title: Financial Phishing
 Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
 
-URL: givmeyourmoney.app
-IP: 20.199.106.2
+URL: teklifaninda.net.tr
+IP: 31.170.161.145
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: hasewvlokwev.net
+IP: 172.67.190.195
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: askimnisa-15.net
+IP: 20.100.178.231
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: haziraan-campanyhediyebasvur.net
+IP: 172.67.156.46
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: eventtenkampayayabasvurmondayoftuesday.net
+IP: 104.21.79.17
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: uksiqorta.xyz
+IP: 154.49.245.24
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: lvbelctwo.net
+IP: 172.67.143.179
 Title: Financial Phishing
 Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
 
-URL: easylexztr7.net
+URL: portal-grs-denetleme.com
+IP: 66.235.200.251
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: eleverelim.net
+IP: 190.14.39.159
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: dnzmsdnnndckcllliehashasa.net
+IP: 20.127.121.108
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: campaign-july-verified.net
+IP: 172.67.191.176
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: webmarket-giris-sayfa.me
+IP: 15.237.142.37
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: hizmetkredisorguonlinevarlik.net
+IP: 181.174.164.221
+Title: Phishing
+Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: webgirisdvltorgvxtr2.one
 IP: 31.210.39.124
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: ndasdasdasdasn.net
-IP: 104.21.34.221
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: dinowar.anondns.net
-IP: 134.19.179.235
-Criticality Level: 7
-
-URL: dolap.life
-IP: 89.117.60.8
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: webelade.de
-IP: 217.182.183.148
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: guvende-alisverisi-bireysel.com
-IP: 31.210.39.251
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: ndasdsadsadasn.net
-IP: 172.67.198.97
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: campnytodayfirsatbrda.net
-IP: 104.21.53.254
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: bizimleheryere.net
-IP: 104.21.23.135
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: evlerepaketleme.site
-IP: 77.95.113.12
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: alwayswinner.xyz
-IP: 172.67.134.54
 Title: Phishing
 Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
 
-URL: ile-s-al.com
-IP: 80.78.23.222
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: hemensigortateklifial.filokurumsal.co
-IP: 104.21.35.49
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: filokurumsal.co
-IP: 104.21.35.49
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: hefelektrik.com
-IP: 151.106.117.152
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: sigortamnetkors.com.tr
-IP: 172.67.208.229
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: cryptohedgefund.us
-IP: 5.34.178.21
-Criticality Level: 8
-
-URL: member-turkiyefinansbank.com
-IP: 91.195.240.123
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: tapucum.net
-IP: 104.21.41.53
+URL: 63-125-257-33.com
+IP: 104.21.89.147
 Title: Phishing
 Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
 
-URL: manuelcheck.com
-IP: 104.21.85.45
+URL: mobildeniz-basvuru-kredi.cyou
+IP: 190.14.39.154
+Title: Financial Phishing
+Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
+Criticality Level: 4
+
+URL: adcvt-cvlrt.com
+IP: 172.67.153.170
 Title: Phishing
 Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
 
-URL: 98.66.137.58
-IP: 98.66.137.58
-Title: Phishing
-Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: 3.72.21.30
-IP: 3.72.21.30
-Title: Phishing
-Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: 18.157.157.157
-IP: 18.157.157.157
-Title: Phishing
-Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: paramguvendeservis.com
-IP: 5.180.184.132
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: thelivemusicgroup.com
-IP: 34.102.136.180
-Criticality Level: 8
-
-URL: 103.75.117.250
-IP: 103.75.117.250
-Criticality Level: 8
-
-URL: webmanufacturers.com
-IP: 91.245.255.84
-Criticality Level: 8
-
-URL: toppaperservices.com
-IP: 146.70.113.144
-Criticality Level: 8
-
-URL: appointmentmedia.com
-IP: 198.252.107.103
-Criticality Level: 8
-
-URL: flotsms.rf.gd
-IP: 185.27.134.55
-Criticality Level: 8
-
-URL: postegro.world
-IP: 104.21.27.153
-Title: Phishing
-Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: bemcellyukle.blogspot.com
-IP: 142.250.187.161
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: bimmagazalari.net
-IP: 104.21.36.149
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: edevletiletisimbakanligi.xyz
-IP: 31.210.39.124
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: nviidaarebaskanligin.net
-IP: 104.21.34.149
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: sahibinden.anindateslimat-guvenliticaret.com
-IP: 172.67.205.89
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: anindateslimat-guvenliticaret.com
-IP: 172.67.205.89
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: emalskce.net
-IP: 104.21.85.215
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: nviidaarebaskanligi13.net
-IP: 172.67.133.154
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: alexeimgir.pw
-IP: 104.21.51.163
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: 92.118.36.210
-IP: 92.118.36.210
-Criticality Level: 8
-
-URL: 92.118.36.213
-IP: 92.118.36.213
-Criticality Level: 8
-
-URL: 92.118.36.249
-IP: 92.118.36.249
-Criticality Level: 8
-
-URL: rosmaitoge.net
-IP: 31.210.39.124
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: connectzoomdownload.com
-IP: 45.128.234.117
-Title: Malware Distribution Domain
-Desc: Zararlı yazılımların çalışması için bir bölümünün veya tamamının indirildiği alan adlarına ait kategoridir.
-Criticality Level: 8
-
-URL: zoom.voyage
-IP: 193.42.33.206
-Title: Malware Distribution Domain
-Desc: Zararlı yazılımların çalışması için bir bölümünün veya tamamının indirildiği alan adlarına ait kategoridir.
-Criticality Level: 8
-
-URL: rtyrthfd.com
-IP: 172.67.164.32
-Title: Phishing
-Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: deniz.xn--bay-lua.com.tr
-IP: 213.142.149.32
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: yryghbd.com
-IP: 104.21.29.17
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: carkbasvusu-todayfirstkmpanyasi.net
-IP: 172.67.136.227
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: tlsksltkslktlsktlklnm.net
-IP: 172.67.148.118
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: denizislemsizeozel1.net
+URL: kinginannesikasar.xyz
 IP: 20.210.108.218
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: sizdebizimlegelinberaber.net
-IP: 104.21.35.176
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: second1.app
-IP: 20.199.106.2
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: metoatesogluworldddd.net
-IP: 172.67.156.60
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: sranksyz.net
-IP: 104.21.82.175
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: dysonline.com.tr
-IP: 68.65.122.142
 Title: Phishing
 Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
 
-URL: ahhahshsd.com
-IP: 104.21.3.235
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: onlinenimgeldi.net
-IP: 172.67.152.3
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: paribuathewallet.net
-IP: 104.21.57.100
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: xn--gelburayaegirie-m6c.app
-IP: 5.252.154.20
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: kvyttenkcliklzieejhahaakasuan.net
-IP: 3.72.50.75
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: xn--trkiyegiri24-dlb90l.app
-IP: 5.252.154.20
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: dztwoshop.shop
-IP: 104.21.19.56
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: evlilik-kredicisi.com
-IP: 104.21.5.207
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: epic-blackwell.85-239-34-154.plesk.page
-IP: 85.239.34.154
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: wolfchecker.pro
-IP: 172.67.163.11
+URL: teklifaninda.web.tr
+IP: 31.170.161.145
 Title: Phishing
 Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
 
-URL: irademegir.de
-IP: 217.182.183.148
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: dnzislemlericib2023.org
-IP: 20.210.108.218
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: xn--girisizkalmatrkiye-y6b48q.app
-IP: 87.121.98.37
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: anadolumsigortaciniz.com
-IP: 151.106.117.152
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: arackiralamakampanyalari.anadolumsigortaciniz.com
-IP: 151.106.117.152
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: irademkredi.de
-IP: 217.182.183.148
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: adalet-iade.com.tr
-IP: 38.107.215.85
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: finansalcozumleri.com
-IP: 104.21.81.37
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: evlilikkredi.com
-IP: 172.67.175.56
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: dnzislem2023ozelixib.net
-IP: 20.210.108.218
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: 1waif.top
-IP: 23.234.28.124
-Criticality Level: 7
-
-URL: bdqcarfilo.com
-IP: 161.97.163.255
+URL: ansiqorta.xyz
+IP: 154.49.245.24
 Title: Phishing
 Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
 Criticality Level: 4
-
-URL: xn--56trirt-q2ad75aly.net
-IP: 209.38.217.127
-Title: Phishing
-Desc: Finans sektörünün dışındaki sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: tlsktlstlsktsltnm.net
-IP: 172.67.132.36
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: guncelkrediler.net
-IP: 104.21.71.141
-Title: Financial Phishing
-Desc: Finsans sektörüne özel olarak gerçekleştirilen sosyal mühendislik saldırılarına yönelik zararlı alan adı, IP adresi veya bağlantıların bulunduğu kategoridir.
-Criticality Level: 4
-
-URL: naderosal.xyz
-IP: 109.123.121.243
-Criticality Level: 7
 

@@ -1,4 +1,5 @@
 import socket
+import os
 import time
 import requests
 import psutil
@@ -97,7 +98,7 @@ class NetworkTrafficMonitor:
         self.malicious_ips = set()
         self.warning_shown = set()
         self.load_malicious_ips(ip_list_file)
-        self.domain_info = self.parse_domain_info("domain-list.txt")
+        self.domain_info = self.parse_domain_info("Datas/domain-list.txt")
 
     def is_running(self):
         return self.running
@@ -291,7 +292,7 @@ class MainWindow(QWidget):
 
     def update_ip_list(self):
         downloader = MaliciousIpDownloader(
-            "domain-list.txt", "ip-list.txt", "data.json")
+            "Datas/domain-list.txt", "Datas/ip-list.txt", "Datas/data.json")
 
         downloader_thread = threading.Thread(
             target=self.download_update_ip_list, args=(downloader, loading_screen))
@@ -302,7 +303,7 @@ class MainWindow(QWidget):
 
     def load_domain_list(self):
         self.plain_text.clear()
-        with open("domain-list.txt", "r", encoding="utf-8") as f:
+        with open("Datas/domain-list.txt", "r", encoding="utf-8") as f:
             lines = f.readlines()
             numbered_list = []
             count = 1
@@ -327,7 +328,7 @@ class MainWindow(QWidget):
             self.plain_text.setPlainText("\n".join(numbered_list))
 
     def start_analysis(self):
-        self.monitor = NetworkTrafficMonitor(self, "ip-list.txt")
+        self.monitor = NetworkTrafficMonitor(self, "Datas/ip-list.txt")
         self.monitor.start_sniffing()
         self.start_analysis_button.setEnabled(False)
         self.stop_analysis_button.setEnabled(True)
@@ -354,7 +355,7 @@ class MainWindow(QWidget):
 
 if __name__ == "__main__":
     app = QApplication([])
-    icon_path = "path/to/your/icon.png"
+    icon_path = os.path.abspath("Icons/icon.png")
     app.setWindowIcon(QIcon(icon_path))
     main_window = MainWindow()
     main_window.show()

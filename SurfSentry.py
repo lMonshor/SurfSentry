@@ -206,7 +206,7 @@ class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
-        self.setWindowIcon(QIcon("icon.png"))
+        self.setWindowIcon(QIcon("Assets/icon.png"))
         self.show_warning_signal.connect(self.show_warning)
 
     def initUI(self):
@@ -355,7 +355,7 @@ class MainWindow(QWidget):
 
 if __name__ == "__main__":
     app = QApplication([])
-    icon_path = os.path.abspath("Icons/icon.png")
+    icon_path = os.path.abspath("Assets/icon.png")
     app.setWindowIcon(QIcon(icon_path))
     main_window = MainWindow()
     main_window.show()

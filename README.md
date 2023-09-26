@@ -1,4 +1,4 @@
-Surfsentry
+ip based basic host-based intrusion detection system
 Surfsentry is a Windows application developed to detect malicious websites and protect users.
 
 Project Description

@@ -11,7 +11,7 @@ Surfsentry not only blocks domain connections by writing them to the hosts file,
 To use Surfsentry, follow these steps:
 
 1. Clone the project repository or download the ZIP file.
-2. Navigate to the project/dist folder and run the `surfsentry.exe` application (you should run with administration permissions).
+2. Navigate to the project/dist folder and run the `surfsentry.exe` application (you should run with administration permissions for blocking operations).
 4. Start using the application.
 
 ## Usage

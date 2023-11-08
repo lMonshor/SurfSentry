@@ -12,1374 +12,1335 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(840, 500)
+        MainWindow.resize(940, 528)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(840, 500))
-        MainWindow.setMaximumSize(QtCore.QSize(9999, 9999))
+        MainWindow.setMinimumSize(QtCore.QSize(940, 528))
+        MainWindow.setMaximumSize(QtCore.QSize(940, 528))
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
         self.centralwidget.setSizePolicy(sizePolicy)
-        self.centralwidget.setMinimumSize(QtCore.QSize(840, 500))
-        self.centralwidget.setMaximumSize(QtCore.QSize(840, 500))
+        self.centralwidget.setMinimumSize(QtCore.QSize(940, 528))
+        self.centralwidget.setMaximumSize(QtCore.QSize(940, 528))
         self.centralwidget.setObjectName("centralwidget")
-        self.horizontalLayoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 842, 502))
-        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
-        self.hmain_layout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
-        self.hmain_layout.setSizeConstraint(QtWidgets.QLayout.SizeConstraint.SetDefaultConstraint)
-        self.hmain_layout.setContentsMargins(0, 0, 0, 0)
-        self.hmain_layout.setSpacing(0)
-        self.hmain_layout.setObjectName("hmain_layout")
-        self.menu_page = QtWidgets.QWidget(parent=self.horizontalLayoutWidget)
+        self.layoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
+        self.layoutWidget.setGeometry(QtCore.QRect(0, 0, 941, 531))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.menu_page = QtWidgets.QWidget(parent=self.layoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.menu_page.sizePolicy().hasHeightForWidth())
         self.menu_page.setSizePolicy(sizePolicy)
         self.menu_page.setMinimumSize(QtCore.QSize(0, 0))
-        self.menu_page.setMaximumSize(QtCore.QSize(999, 999))
-        self.menu_page.setStyleSheet("background-color:#1F1F1F;")
+        self.menu_page.setMaximumSize(QtCore.QSize(300, 999))
+        self.menu_page.setStyleSheet("background-color:#393E46;")
         self.menu_page.setObjectName("menu_page")
         self.verticalLayoutWidget = QtWidgets.QWidget(parent=self.menu_page)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 110, 171, 242))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 30, 171, 241))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.vmenu_layout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.vmenu_layout.setContentsMargins(0, 0, 0, 0)
         self.vmenu_layout.setSpacing(0)
         self.vmenu_layout.setObjectName("vmenu_layout")
-        self.menu_general_button = QtWidgets.QRadioButton(parent=self.verticalLayoutWidget)
+        self.menu_gen_button = QtWidgets.QRadioButton(parent=self.verticalLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.menu_general_button.sizePolicy().hasHeightForWidth())
-        self.menu_general_button.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.menu_gen_button.sizePolicy().hasHeightForWidth())
+        self.menu_gen_button.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
-        font.setBold(False)
-        self.menu_general_button.setFont(font)
-        self.menu_general_button.setStyleSheet("QRadioButton {\n"
-"    padding: 10px;\n"
+        self.menu_gen_button.setFont(font)
+        self.menu_gen_button.setStyleSheet("QRadioButton {\n"
 "    border: none;\n"
-"    color: white; \n"
+"    color: white;\n"
 "}\n"
 "QRadioButton:hover {\n"
-"    background-color: #484848;\n"
+"    background-color: #DDDDDD;\n"
+"    color: #0f0f0f;\n"
 "}\n"
 "QRadioButton::indicator {\n"
-" \n"
-"\n"
 "    border: none;\n"
 "}\n"
 "\n"
 "QRadioButton::indicator:checked {\n"
-"     border-left: 6px solid #1e90ff; \n"
+"     border-left: 6px solid #4088D6;\n"
 "}\n"
-"\n"
 "")
-        self.menu_general_button.setChecked(True)
-        self.menu_general_button.setObjectName("menu_general_button")
-        self.vmenu_layout.addWidget(self.menu_general_button)
-        self.menu_mal_data_button = QtWidgets.QRadioButton(parent=self.verticalLayoutWidget)
+        self.menu_gen_button.setChecked(True)
+        self.menu_gen_button.setObjectName("menu_gen_button")
+        self.vmenu_layout.addWidget(self.menu_gen_button)
+        self.menu_md_button = QtWidgets.QRadioButton(parent=self.verticalLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.menu_mal_data_button.sizePolicy().hasHeightForWidth())
-        self.menu_mal_data_button.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.menu_md_button.sizePolicy().hasHeightForWidth())
+        self.menu_md_button.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
         font.setBold(False)
-        self.menu_mal_data_button.setFont(font)
-        self.menu_mal_data_button.setStyleSheet("QRadioButton {\n"
-"    padding: 10px;\n"
+        self.menu_md_button.setFont(font)
+        self.menu_md_button.setStyleSheet("QRadioButton {\n"
 "    border: none;\n"
-"    color: white; \n"
+"    color: white;\n"
 "}\n"
 "QRadioButton:hover {\n"
-"    background-color: #484848;\n"
+"    background-color: #DDDDDD;\n"
+"    color: #0f0f0f;\n"
 "}\n"
 "QRadioButton::indicator {\n"
-" \n"
-"\n"
 "    border: none;\n"
 "}\n"
 "\n"
 "QRadioButton::indicator:checked {\n"
-"     border-left: 6px solid #1e90ff; \n"
+"     border-left: 6px solid #4088D6;\n"
 "}\n"
-"\n"
 "")
-        self.menu_mal_data_button.setChecked(False)
-        self.menu_mal_data_button.setObjectName("menu_mal_data_button")
-        self.vmenu_layout.addWidget(self.menu_mal_data_button)
-        self.menu_fw_button = QtWidgets.QRadioButton(parent=self.verticalLayoutWidget)
+        self.menu_md_button.setChecked(False)
+        self.menu_md_button.setObjectName("menu_md_button")
+        self.vmenu_layout.addWidget(self.menu_md_button)
+        self.menu_bd_button = QtWidgets.QRadioButton(parent=self.verticalLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.menu_fw_button.sizePolicy().hasHeightForWidth())
-        self.menu_fw_button.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.menu_bd_button.sizePolicy().hasHeightForWidth())
+        self.menu_bd_button.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
         font.setBold(False)
-        self.menu_fw_button.setFont(font)
-        self.menu_fw_button.setStyleSheet("QRadioButton {\n"
-"    padding: 10px;\n"
+        self.menu_bd_button.setFont(font)
+        self.menu_bd_button.setStyleSheet("QRadioButton {\n"
 "    border: none;\n"
-"    color: white; \n"
+"    color: white;\n"
 "}\n"
 "QRadioButton:hover {\n"
-"    background-color: #484848;\n"
+"    background-color: #DDDDDD;\n"
+"    color: #0f0f0f;\n"
 "}\n"
 "QRadioButton::indicator {\n"
-" \n"
-"\n"
 "    border: none;\n"
 "}\n"
 "\n"
 "QRadioButton::indicator:checked {\n"
-"     border-left: 6px solid #1e90ff; \n"
+"     border-left: 6px solid #4088D6;\n"
 "}\n"
-"\n"
 "")
-        self.menu_fw_button.setChecked(False)
-        self.menu_fw_button.setObjectName("menu_fw_button")
-        self.vmenu_layout.addWidget(self.menu_fw_button)
-        self.menu_stat_button = QtWidgets.QRadioButton(parent=self.verticalLayoutWidget)
+        self.menu_bd_button.setChecked(False)
+        self.menu_bd_button.setObjectName("menu_bd_button")
+        self.vmenu_layout.addWidget(self.menu_bd_button)
+        self.menu_fb_button = QtWidgets.QRadioButton(parent=self.verticalLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.menu_stat_button.sizePolicy().hasHeightForWidth())
-        self.menu_stat_button.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.menu_fb_button.sizePolicy().hasHeightForWidth())
+        self.menu_fb_button.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
         font.setBold(False)
-        self.menu_stat_button.setFont(font)
-        self.menu_stat_button.setStyleSheet("QRadioButton {\n"
-"    padding: 10px;\n"
+        self.menu_fb_button.setFont(font)
+        self.menu_fb_button.setStyleSheet("QRadioButton {\n"
 "    border: none;\n"
-"    color: white; \n"
+"    color: white;\n"
 "}\n"
 "QRadioButton:hover {\n"
-"    background-color: #484848;\n"
+"    background-color: #DDDDDD;\n"
+"    color: #0f0f0f;\n"
 "}\n"
 "QRadioButton::indicator {\n"
-" \n"
-"\n"
 "    border: none;\n"
 "}\n"
 "\n"
 "QRadioButton::indicator:checked {\n"
-"     border-left: 6px solid #1e90ff; \n"
+"     border-left: 6px solid #4088D6;\n"
 "}\n"
-"\n"
 "")
-        self.menu_stat_button.setChecked(False)
-        self.menu_stat_button.setObjectName("menu_stat_button")
-        self.vmenu_layout.addWidget(self.menu_stat_button)
-        self.menu_feedback_button = QtWidgets.QRadioButton(parent=self.verticalLayoutWidget)
+        self.menu_fb_button.setChecked(False)
+        self.menu_fb_button.setObjectName("menu_fb_button")
+        self.vmenu_layout.addWidget(self.menu_fb_button)
+        self.menu_ab_button = QtWidgets.QRadioButton(parent=self.verticalLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.menu_feedback_button.sizePolicy().hasHeightForWidth())
-        self.menu_feedback_button.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.menu_ab_button.sizePolicy().hasHeightForWidth())
+        self.menu_ab_button.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
         font.setBold(False)
-        self.menu_feedback_button.setFont(font)
-        self.menu_feedback_button.setStyleSheet("QRadioButton {\n"
-"    padding: 10px;\n"
+        self.menu_ab_button.setFont(font)
+        self.menu_ab_button.setStyleSheet("QRadioButton {\n"
 "    border: none;\n"
-"    color: white; \n"
+"    color: white;\n"
 "}\n"
 "QRadioButton:hover {\n"
-"    background-color: #484848;\n"
+"    background-color: #DDDDDD;\n"
+"    color: #0f0f0f;\n"
 "}\n"
 "QRadioButton::indicator {\n"
-" \n"
-"\n"
 "    border: none;\n"
 "}\n"
 "\n"
 "QRadioButton::indicator:checked {\n"
-"     border-left: 6px solid #1e90ff; \n"
+"     border-left: 6px solid #4088D6;\n"
 "}\n"
-"\n"
 "")
-        self.menu_feedback_button.setChecked(False)
-        self.menu_feedback_button.setObjectName("menu_feedback_button")
-        self.vmenu_layout.addWidget(self.menu_feedback_button)
-        self.menu_about_button = QtWidgets.QRadioButton(parent=self.verticalLayoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        self.menu_ab_button.setChecked(False)
+        self.menu_ab_button.setObjectName("menu_ab_button")
+        self.vmenu_layout.addWidget(self.menu_ab_button)
+        self.menu_version_label = QtWidgets.QLabel(parent=self.menu_page)
+        self.menu_version_label.setGeometry(QtCore.QRect(10, 500, 101, 16))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.menu_about_button.sizePolicy().hasHeightForWidth())
-        self.menu_about_button.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.menu_version_label.sizePolicy().hasHeightForWidth())
+        self.menu_version_label.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.menu_about_button.setFont(font)
-        self.menu_about_button.setStyleSheet("QRadioButton {\n"
-"    padding: 10px;\n"
-"    border: none;\n"
-"    color: white; \n"
-"}\n"
-"QRadioButton:hover {\n"
-"    background-color: #484848;\n"
-"}\n"
-"QRadioButton::indicator {\n"
-" \n"
-"\n"
-"    border: none;\n"
-"}\n"
-"\n"
-"QRadioButton::indicator:checked {\n"
-"     border-left: 6px solid #1e90ff; \n"
-"}\n"
-"\n"
-"")
-        self.menu_about_button.setChecked(False)
-        self.menu_about_button.setObjectName("menu_about_button")
-        self.vmenu_layout.addWidget(self.menu_about_button)
-        self.stackedWidget = QtWidgets.QStackedWidget(parent=self.menu_page)
+        font.setPointSize(10)
+        self.menu_version_label.setFont(font)
+        self.menu_version_label.setStyleSheet("color:#777777;")
+        self.menu_version_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.menu_version_label.setObjectName("menu_version_label")
+        self.horizontalLayout.addWidget(self.menu_page)
+        self.stackedWidget = QtWidgets.QStackedWidget(parent=self.layoutWidget)
         self.stackedWidget.setEnabled(True)
-        self.stackedWidget.setGeometry(QtCore.QRect(170, 0, 672, 500))
         self.stackedWidget.setMinimumSize(QtCore.QSize(0, 0))
         self.stackedWidget.setMaximumSize(QtCore.QSize(999, 999))
-        self.stackedWidget.setStyleSheet("background-color:black;")
+        self.stackedWidget.setStyleSheet("background-color: #0f0f0f;")
         self.stackedWidget.setObjectName("stackedWidget")
         self.general_page = QtWidgets.QWidget()
-        self.general_page.setStyleSheet("background-color:black;")
+        self.general_page.setStyleSheet("")
         self.general_page.setObjectName("general_page")
-        self.general_apply_button = QtWidgets.QPushButton(parent=self.general_page)
-        self.general_apply_button.setGeometry(QtCore.QRect(500, 433, 141, 31))
-        self.general_apply_button.setStyleSheet("QPushButton{\n"
-"    background-color:#1F1F1F;\n"
-"    color:white;\n"
+        self.gen_apply_button = QtWidgets.QPushButton(parent=self.general_page)
+        self.gen_apply_button.setEnabled(False)
+        self.gen_apply_button.setGeometry(QtCore.QRect(540, 470, 191, 27))
+        self.gen_apply_button.setStyleSheet("QPushButton{\n"
+"    background-color:#393E46;\n"
+"    color: white;\n"
 "}\n"
 "QPushButton:hover{\n"
-"    background-color: #484848;\n"
+"    background-color: #DDDDDD;\n"
+"    color: #0f0f0f;\n"
+"}\n"
+"QPushButton:disabled { \n"
+"    background-color: #101112; \n"
 "}")
-        self.general_apply_button.setObjectName("general_apply_button")
-        self.layoutWidget_2 = QtWidgets.QWidget(parent=self.general_page)
-        self.layoutWidget_2.setGeometry(QtCore.QRect(50, 190, 421, 121))
-        self.layoutWidget_2.setObjectName("layoutWidget_2")
-        self.vgeneral_bottom_layout = QtWidgets.QVBoxLayout(self.layoutWidget_2)
-        self.vgeneral_bottom_layout.setContentsMargins(0, 0, 0, 0)
-        self.vgeneral_bottom_layout.setObjectName("vgeneral_bottom_layout")
-        self.general_mal_inf_title = QtWidgets.QLabel(parent=self.layoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(20)
-        font.setBold(True)
-        self.general_mal_inf_title.setFont(font)
-        self.general_mal_inf_title.setStyleSheet("color:white;")
-        self.general_mal_inf_title.setObjectName("general_mal_inf_title")
-        self.vgeneral_bottom_layout.addWidget(self.general_mal_inf_title)
-        self.ggeneral_bottom_layout = QtWidgets.QGridLayout()
-        self.ggeneral_bottom_layout.setHorizontalSpacing(6)
-        self.ggeneral_bottom_layout.setObjectName("ggeneral_bottom_layout")
-        self.general_last_upt_title = QtWidgets.QLabel(parent=self.layoutWidget_2)
+        self.gen_apply_button.setObjectName("gen_apply_button")
+        self.gen_second_hline = QtWidgets.QFrame(parent=self.general_page)
+        self.gen_second_hline.setGeometry(QtCore.QRect(20, 355, 721, 1))
+        self.gen_second_hline.setStyleSheet("background-color:#1F1F1F;")
+        self.gen_second_hline.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.gen_second_hline.setLineWidth(0)
+        self.gen_second_hline.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.gen_second_hline.setObjectName("gen_second_hline")
+        self.gen_first_hline = QtWidgets.QFrame(parent=self.general_page)
+        self.gen_first_hline.setGeometry(QtCore.QRect(20, 190, 721, 1))
+        self.gen_first_hline.setStyleSheet("background-color:#1F1F1F;")
+        self.gen_first_hline.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.gen_first_hline.setLineWidth(0)
+        self.gen_first_hline.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.gen_first_hline.setObjectName("gen_first_hline")
+        self.layoutWidget1 = QtWidgets.QWidget(parent=self.general_page)
+        self.layoutWidget1.setGeometry(QtCore.QRect(40, 100, 311, 74))
+        self.layoutWidget1.setObjectName("layoutWidget1")
+        self.gen_top_glayout = QtWidgets.QGridLayout(self.layoutWidget1)
+        self.gen_top_glayout.setContentsMargins(0, 0, 0, 0)
+        self.gen_top_glayout.setHorizontalSpacing(6)
+        self.gen_top_glayout.setObjectName("gen_top_glayout")
+        self.gen_adapter_title = QtWidgets.QLabel(parent=self.layoutWidget1)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
         font.setBold(False)
-        self.general_last_upt_title.setFont(font)
-        self.general_last_upt_title.setStyleSheet("color:white;")
-        self.general_last_upt_title.setObjectName("general_last_upt_title")
-        self.ggeneral_bottom_layout.addWidget(self.general_last_upt_title, 2, 0, 1, 1)
-        self.general_tot_domain_label = QtWidgets.QLabel(parent=self.layoutWidget_2)
+        self.gen_adapter_title.setFont(font)
+        self.gen_adapter_title.setStyleSheet("color:white;")
+        self.gen_adapter_title.setObjectName("gen_adapter_title")
+        self.gen_top_glayout.addWidget(self.gen_adapter_title, 2, 0, 1, 1)
+        self.gen_ip_label = QtWidgets.QLabel(parent=self.layoutWidget1)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.general_tot_domain_label.sizePolicy().hasHeightForWidth())
-        self.general_tot_domain_label.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.gen_ip_label.sizePolicy().hasHeightForWidth())
+        self.gen_ip_label.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
-        self.general_tot_domain_label.setFont(font)
-        self.general_tot_domain_label.setStyleSheet("color:#777777;")
-        self.general_tot_domain_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.general_tot_domain_label.setWordWrap(True)
-        self.general_tot_domain_label.setObjectName("general_tot_domain_label")
-        self.ggeneral_bottom_layout.addWidget(self.general_tot_domain_label, 0, 2, 1, 1)
-        self.general_tot_ip_title = QtWidgets.QLabel(parent=self.layoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.general_tot_ip_title.setFont(font)
-        self.general_tot_ip_title.setStyleSheet("color:white;")
-        self.general_tot_ip_title.setObjectName("general_tot_ip_title")
-        self.ggeneral_bottom_layout.addWidget(self.general_tot_ip_title, 1, 0, 1, 1)
-        self.general_tot_ip_label = QtWidgets.QComboBox(parent=self.layoutWidget_2)
-        self.general_tot_ip_label.setObjectName("general_tot_ip_label")
-        self.ggeneral_bottom_layout.addWidget(self.general_tot_ip_label, 1, 2, 1, 1)
-        self.general_last_upt_label = QtWidgets.QComboBox(parent=self.layoutWidget_2)
-        self.general_last_upt_label.setObjectName("general_last_upt_label")
-        self.ggeneral_bottom_layout.addWidget(self.general_last_upt_label, 2, 2, 1, 1)
-        self.general_colon4 = QtWidgets.QLabel(parent=self.layoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.general_colon4.setFont(font)
-        self.general_colon4.setStyleSheet("color:white;")
-        self.general_colon4.setObjectName("general_colon4")
-        self.ggeneral_bottom_layout.addWidget(self.general_colon4, 0, 1, 1, 1)
-        self.general_colon5 = QtWidgets.QLabel(parent=self.layoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.general_colon5.setFont(font)
-        self.general_colon5.setStyleSheet("color:white;")
-        self.general_colon5.setObjectName("general_colon5")
-        self.ggeneral_bottom_layout.addWidget(self.general_colon5, 1, 1, 1, 1)
-        self.general_colon6 = QtWidgets.QLabel(parent=self.layoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.general_colon6.setFont(font)
-        self.general_colon6.setStyleSheet("color:white;")
-        self.general_colon6.setObjectName("general_colon6")
-        self.ggeneral_bottom_layout.addWidget(self.general_colon6, 2, 1, 1, 1)
-        self.general_tot_domain_title = QtWidgets.QLabel(parent=self.layoutWidget_2)
+        self.gen_ip_label.setFont(font)
+        self.gen_ip_label.setStyleSheet("color:#777777;")
+        self.gen_ip_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.gen_ip_label.setWordWrap(True)
+        self.gen_ip_label.setObjectName("gen_ip_label")
+        self.gen_top_glayout.addWidget(self.gen_ip_label, 0, 2, 1, 1)
+        self.gen_status_title = QtWidgets.QLabel(parent=self.layoutWidget1)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
         font.setBold(False)
-        self.general_tot_domain_title.setFont(font)
-        self.general_tot_domain_title.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-        self.general_tot_domain_title.setStyleSheet("color:white;")
-        self.general_tot_domain_title.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.general_tot_domain_title.setObjectName("general_tot_domain_title")
-        self.ggeneral_bottom_layout.addWidget(self.general_tot_domain_title, 0, 0, 1, 1)
-        self.vgeneral_bottom_layout.addLayout(self.ggeneral_bottom_layout)
-        self.layoutWidget = QtWidgets.QWidget(parent=self.general_page)
-        self.layoutWidget.setGeometry(QtCore.QRect(50, 60, 251, 115))
-        self.layoutWidget.setObjectName("layoutWidget")
-        self.vgeneral_top_layout = QtWidgets.QVBoxLayout(self.layoutWidget)
-        self.vgeneral_top_layout.setContentsMargins(0, 0, 0, 0)
-        self.vgeneral_top_layout.setObjectName("vgeneral_top_layout")
-        self.general_information_title = QtWidgets.QLabel(parent=self.layoutWidget)
+        self.gen_status_title.setFont(font)
+        self.gen_status_title.setStyleSheet("color:white;")
+        self.gen_status_title.setObjectName("gen_status_title")
+        self.gen_top_glayout.addWidget(self.gen_status_title, 1, 0, 1, 1)
+        self.gen_mode_cbox = QtWidgets.QComboBox(parent=self.layoutWidget1)
+        self.gen_mode_cbox.setObjectName("gen_mode_cbox")
+        self.gen_top_glayout.addWidget(self.gen_mode_cbox, 1, 2, 1, 1)
+        self.gen_adapter_cbox = QtWidgets.QComboBox(parent=self.layoutWidget1)
+        self.gen_adapter_cbox.setObjectName("gen_adapter_cbox")
+        self.gen_top_glayout.addWidget(self.gen_adapter_cbox, 2, 2, 1, 1)
+        self.gen_colon1 = QtWidgets.QLabel(parent=self.layoutWidget1)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(20)
-        font.setBold(True)
-        self.general_information_title.setFont(font)
-        self.general_information_title.setStyleSheet("color:white;")
-        self.general_information_title.setObjectName("general_information_title")
-        self.vgeneral_top_layout.addWidget(self.general_information_title)
-        self.ggeneral_top_layout = QtWidgets.QGridLayout()
-        self.ggeneral_top_layout.setHorizontalSpacing(6)
-        self.ggeneral_top_layout.setObjectName("ggeneral_top_layout")
-        self.general_adapter_title = QtWidgets.QLabel(parent=self.layoutWidget)
+        font.setPointSize(12)
+        self.gen_colon1.setFont(font)
+        self.gen_colon1.setStyleSheet("color:white;")
+        self.gen_colon1.setObjectName("gen_colon1")
+        self.gen_top_glayout.addWidget(self.gen_colon1, 0, 1, 1, 1)
+        self.gen_colon2 = QtWidgets.QLabel(parent=self.layoutWidget1)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.gen_colon2.setFont(font)
+        self.gen_colon2.setStyleSheet("color:white;")
+        self.gen_colon2.setObjectName("gen_colon2")
+        self.gen_top_glayout.addWidget(self.gen_colon2, 1, 1, 1, 1)
+        self.gen_colon3 = QtWidgets.QLabel(parent=self.layoutWidget1)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.gen_colon3.setFont(font)
+        self.gen_colon3.setStyleSheet("color:white;")
+        self.gen_colon3.setObjectName("gen_colon3")
+        self.gen_top_glayout.addWidget(self.gen_colon3, 2, 1, 1, 1)
+        self.gen_ip_title = QtWidgets.QLabel(parent=self.layoutWidget1)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
         font.setBold(False)
-        self.general_adapter_title.setFont(font)
-        self.general_adapter_title.setStyleSheet("color:white;")
-        self.general_adapter_title.setObjectName("general_adapter_title")
-        self.ggeneral_top_layout.addWidget(self.general_adapter_title, 2, 0, 1, 1)
-        self.general_ip_label = QtWidgets.QLabel(parent=self.layoutWidget)
+        self.gen_ip_title.setFont(font)
+        self.gen_ip_title.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.gen_ip_title.setStyleSheet("color:white;")
+        self.gen_ip_title.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.gen_ip_title.setObjectName("gen_ip_title")
+        self.gen_top_glayout.addWidget(self.gen_ip_title, 0, 0, 1, 1)
+        self.gen_information_title = QtWidgets.QLabel(parent=self.general_page)
+        self.gen_information_title.setGeometry(QtCore.QRect(30, 61, 222, 33))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        self.gen_information_title.setFont(font)
+        self.gen_information_title.setStyleSheet("color:white;")
+        self.gen_information_title.setObjectName("gen_information_title")
+        self.layoutWidget2 = QtWidgets.QWidget(parent=self.general_page)
+        self.layoutWidget2.setGeometry(QtCore.QRect(40, 250, 491, 74))
+        self.layoutWidget2.setObjectName("layoutWidget2")
+        self.gen_bottom_glayout = QtWidgets.QGridLayout(self.layoutWidget2)
+        self.gen_bottom_glayout.setContentsMargins(0, 0, 0, 0)
+        self.gen_bottom_glayout.setHorizontalSpacing(6)
+        self.gen_bottom_glayout.setObjectName("gen_bottom_glayout")
+        self.gen_last_upt_title = QtWidgets.QLabel(parent=self.layoutWidget2)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.gen_last_upt_title.setFont(font)
+        self.gen_last_upt_title.setStyleSheet("color:white;")
+        self.gen_last_upt_title.setObjectName("gen_last_upt_title")
+        self.gen_bottom_glayout.addWidget(self.gen_last_upt_title, 2, 0, 1, 1)
+        self.gen_tot_domain_label = QtWidgets.QLabel(parent=self.layoutWidget2)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.general_ip_label.sizePolicy().hasHeightForWidth())
-        self.general_ip_label.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.gen_tot_domain_label.sizePolicy().hasHeightForWidth())
+        self.gen_tot_domain_label.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
-        self.general_ip_label.setFont(font)
-        self.general_ip_label.setStyleSheet("color:#777777;")
-        self.general_ip_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.general_ip_label.setWordWrap(True)
-        self.general_ip_label.setObjectName("general_ip_label")
-        self.ggeneral_top_layout.addWidget(self.general_ip_label, 0, 2, 1, 1)
-        self.general_status_title = QtWidgets.QLabel(parent=self.layoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.general_status_title.setFont(font)
-        self.general_status_title.setStyleSheet("color:white;")
-        self.general_status_title.setObjectName("general_status_title")
-        self.ggeneral_top_layout.addWidget(self.general_status_title, 1, 0, 1, 1)
-        self.general_mode_cbox = QtWidgets.QComboBox(parent=self.layoutWidget)
-        self.general_mode_cbox.setObjectName("general_mode_cbox")
-        self.ggeneral_top_layout.addWidget(self.general_mode_cbox, 1, 2, 1, 1)
-        self.general_adapter_cbox = QtWidgets.QComboBox(parent=self.layoutWidget)
-        self.general_adapter_cbox.setObjectName("general_adapter_cbox")
-        self.ggeneral_top_layout.addWidget(self.general_adapter_cbox, 2, 2, 1, 1)
-        self.general_colon1 = QtWidgets.QLabel(parent=self.layoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.general_colon1.setFont(font)
-        self.general_colon1.setStyleSheet("color:white;")
-        self.general_colon1.setObjectName("general_colon1")
-        self.ggeneral_top_layout.addWidget(self.general_colon1, 0, 1, 1, 1)
-        self.general_colon2 = QtWidgets.QLabel(parent=self.layoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.general_colon2.setFont(font)
-        self.general_colon2.setStyleSheet("color:white;")
-        self.general_colon2.setObjectName("general_colon2")
-        self.ggeneral_top_layout.addWidget(self.general_colon2, 1, 1, 1, 1)
-        self.general_colon3 = QtWidgets.QLabel(parent=self.layoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.general_colon3.setFont(font)
-        self.general_colon3.setStyleSheet("color:white;")
-        self.general_colon3.setObjectName("general_colon3")
-        self.ggeneral_top_layout.addWidget(self.general_colon3, 2, 1, 1, 1)
-        self.general_ip_title = QtWidgets.QLabel(parent=self.layoutWidget)
+        self.gen_tot_domain_label.setFont(font)
+        self.gen_tot_domain_label.setStyleSheet("color:#777777;")
+        self.gen_tot_domain_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.gen_tot_domain_label.setWordWrap(True)
+        self.gen_tot_domain_label.setObjectName("gen_tot_domain_label")
+        self.gen_bottom_glayout.addWidget(self.gen_tot_domain_label, 0, 2, 1, 1)
+        self.gen_tot_ip_title = QtWidgets.QLabel(parent=self.layoutWidget2)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
         font.setBold(False)
-        self.general_ip_title.setFont(font)
-        self.general_ip_title.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-        self.general_ip_title.setStyleSheet("color:white;")
-        self.general_ip_title.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.general_ip_title.setObjectName("general_ip_title")
-        self.ggeneral_top_layout.addWidget(self.general_ip_title, 0, 0, 1, 1)
-        self.vgeneral_top_layout.addLayout(self.ggeneral_top_layout)
+        self.gen_tot_ip_title.setFont(font)
+        self.gen_tot_ip_title.setStyleSheet("color:white;")
+        self.gen_tot_ip_title.setObjectName("gen_tot_ip_title")
+        self.gen_bottom_glayout.addWidget(self.gen_tot_ip_title, 1, 0, 1, 1)
+        self.gen_colon4 = QtWidgets.QLabel(parent=self.layoutWidget2)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.gen_colon4.setFont(font)
+        self.gen_colon4.setStyleSheet("color:white;")
+        self.gen_colon4.setObjectName("gen_colon4")
+        self.gen_bottom_glayout.addWidget(self.gen_colon4, 0, 1, 1, 1)
+        self.gen_colon5 = QtWidgets.QLabel(parent=self.layoutWidget2)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.gen_colon5.setFont(font)
+        self.gen_colon5.setStyleSheet("color:white;")
+        self.gen_colon5.setObjectName("gen_colon5")
+        self.gen_bottom_glayout.addWidget(self.gen_colon5, 1, 1, 1, 1)
+        self.gen_colon6 = QtWidgets.QLabel(parent=self.layoutWidget2)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.gen_colon6.setFont(font)
+        self.gen_colon6.setStyleSheet("color:white;")
+        self.gen_colon6.setObjectName("gen_colon6")
+        self.gen_bottom_glayout.addWidget(self.gen_colon6, 2, 1, 1, 1)
+        self.gen_tot_domain_title = QtWidgets.QLabel(parent=self.layoutWidget2)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.gen_tot_domain_title.setFont(font)
+        self.gen_tot_domain_title.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.gen_tot_domain_title.setStyleSheet("color:white;")
+        self.gen_tot_domain_title.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.gen_tot_domain_title.setObjectName("gen_tot_domain_title")
+        self.gen_bottom_glayout.addWidget(self.gen_tot_domain_title, 0, 0, 1, 1)
+        self.gen_tot_ip_label = QtWidgets.QLabel(parent=self.layoutWidget2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.gen_tot_ip_label.sizePolicy().hasHeightForWidth())
+        self.gen_tot_ip_label.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.gen_tot_ip_label.setFont(font)
+        self.gen_tot_ip_label.setStyleSheet("color:#777777;")
+        self.gen_tot_ip_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.gen_tot_ip_label.setWordWrap(True)
+        self.gen_tot_ip_label.setObjectName("gen_tot_ip_label")
+        self.gen_bottom_glayout.addWidget(self.gen_tot_ip_label, 1, 2, 1, 1)
+        self.gen_last_upt_label = QtWidgets.QLabel(parent=self.layoutWidget2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.gen_last_upt_label.sizePolicy().hasHeightForWidth())
+        self.gen_last_upt_label.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.gen_last_upt_label.setFont(font)
+        self.gen_last_upt_label.setStyleSheet("color:#777777;")
+        self.gen_last_upt_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.gen_last_upt_label.setWordWrap(True)
+        self.gen_last_upt_label.setObjectName("gen_last_upt_label")
+        self.gen_bottom_glayout.addWidget(self.gen_last_upt_label, 2, 2, 1, 1)
+        self.gen_mal_inf_title = QtWidgets.QLabel(parent=self.general_page)
+        self.gen_mal_inf_title.setGeometry(QtCore.QRect(30, 211, 403, 33))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        self.gen_mal_inf_title.setFont(font)
+        self.gen_mal_inf_title.setStyleSheet("color:white;")
+        self.gen_mal_inf_title.setObjectName("gen_mal_inf_title")
         self.stackedWidget.addWidget(self.general_page)
-        self.about_me_page = QtWidgets.QWidget()
-        self.about_me_page.setStyleSheet("background-color:grey")
-        self.about_me_page.setObjectName("about_me_page")
-        self.about_github_button = QtWidgets.QPushButton(parent=self.about_me_page)
-        self.about_github_button.setGeometry(QtCore.QRect(440, 460, 195, 24))
-        self.about_github_button.setStyleSheet("QPushButton{\n"
-"    background-color:#1F1F1F;\n"
-"    color:white;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    background-color: #484848;\n"
-"}")
-        self.about_github_button.setObjectName("about_github_button")
-        self.listWidget = QtWidgets.QListWidget(parent=self.about_me_page)
-        self.listWidget.setGeometry(QtCore.QRect(60, 90, 256, 192))
-        self.listWidget.setObjectName("listWidget")
-        self.stackedWidget.addWidget(self.about_me_page)
         self.mal_data_page = QtWidgets.QWidget()
-        self.mal_data_page.setStyleSheet("background-color:black;")
+        self.mal_data_page.setStyleSheet("")
         self.mal_data_page.setObjectName("mal_data_page")
-        self.mal_detail_title2 = QtWidgets.QLabel(parent=self.mal_data_page)
-        self.mal_detail_title2.setGeometry(QtCore.QRect(270, 210, 141, 24))
+        self.md_detail_title = QtWidgets.QLabel(parent=self.mal_data_page)
+        self.md_detail_title.setGeometry(QtCore.QRect(320, 110, 141, 24))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(14)
         font.setBold(False)
-        self.mal_detail_title2.setFont(font)
-        self.mal_detail_title2.setStyleSheet("color:white;")
-        self.mal_detail_title2.setObjectName("mal_detail_title2")
-        self.mal_detail_title1 = QtWidgets.QLabel(parent=self.mal_data_page)
-        self.mal_detail_title1.setGeometry(QtCore.QRect(270, 100, 192, 24))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.mal_detail_title1.sizePolicy().hasHeightForWidth())
-        self.mal_detail_title1.setSizePolicy(sizePolicy)
-        self.mal_detail_title1.setMinimumSize(QtCore.QSize(53, 24))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(14)
-        font.setBold(False)
-        self.mal_detail_title1.setFont(font)
-        self.mal_detail_title1.setStyleSheet("color:white;")
-        self.mal_detail_title1.setObjectName("mal_detail_title1")
-        self.formLayoutWidget_2 = QtWidgets.QWidget(parent=self.mal_data_page)
-        self.formLayoutWidget_2.setGeometry(QtCore.QRect(280, 240, 381, 111))
-        self.formLayoutWidget_2.setObjectName("formLayoutWidget_2")
-        self.gmal_bottom_layout = QtWidgets.QGridLayout(self.formLayoutWidget_2)
-        self.gmal_bottom_layout.setContentsMargins(0, 0, 0, 0)
-        self.gmal_bottom_layout.setSpacing(6)
-        self.gmal_bottom_layout.setObjectName("gmal_bottom_layout")
-        self.mal_detail_date_title = QtWidgets.QLabel(parent=self.formLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.mal_detail_date_title.setFont(font)
-        self.mal_detail_date_title.setStyleSheet("color:white;")
-        self.mal_detail_date_title.setObjectName("mal_detail_date_title")
-        self.gmal_bottom_layout.addWidget(self.mal_detail_date_title, 2, 0, 1, 1)
-        self.mal_detail_date_label = QtWidgets.QLabel(parent=self.formLayoutWidget_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.mal_detail_date_label.sizePolicy().hasHeightForWidth())
-        self.mal_detail_date_label.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.mal_detail_date_label.setFont(font)
-        self.mal_detail_date_label.setStyleSheet("color:#777777;")
-        self.mal_detail_date_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.mal_detail_date_label.setText("")
-        self.mal_detail_date_label.setObjectName("mal_detail_date_label")
-        self.gmal_bottom_layout.addWidget(self.mal_detail_date_label, 2, 2, 1, 1)
-        self.mal_detail_colon3 = QtWidgets.QLabel(parent=self.formLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.mal_detail_colon3.setFont(font)
-        self.mal_detail_colon3.setStyleSheet("color:white;")
-        self.mal_detail_colon3.setObjectName("mal_detail_colon3")
-        self.gmal_bottom_layout.addWidget(self.mal_detail_colon3, 0, 1, 1, 1)
-        self.mal_detail_type_label = QtWidgets.QLabel(parent=self.formLayoutWidget_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.mal_detail_type_label.sizePolicy().hasHeightForWidth())
-        self.mal_detail_type_label.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.mal_detail_type_label.setFont(font)
-        self.mal_detail_type_label.setStyleSheet("color:#777777;")
-        self.mal_detail_type_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.mal_detail_type_label.setText("")
-        self.mal_detail_type_label.setObjectName("mal_detail_type_label")
-        self.gmal_bottom_layout.addWidget(self.mal_detail_type_label, 0, 2, 1, 1)
-        self.mal_detail_desc_title = QtWidgets.QLabel(parent=self.formLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.mal_detail_desc_title.setFont(font)
-        self.mal_detail_desc_title.setStyleSheet("color:white;")
-        self.mal_detail_desc_title.setObjectName("mal_detail_desc_title")
-        self.gmal_bottom_layout.addWidget(self.mal_detail_desc_title, 3, 0, 1, 1)
-        self.mal_detail_colon6 = QtWidgets.QLabel(parent=self.formLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.mal_detail_colon6.setFont(font)
-        self.mal_detail_colon6.setStyleSheet("color:white;")
-        self.mal_detail_colon6.setObjectName("mal_detail_colon6")
-        self.gmal_bottom_layout.addWidget(self.mal_detail_colon6, 3, 1, 1, 1)
-        self.mal_detail_source_title = QtWidgets.QLabel(parent=self.formLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.mal_detail_source_title.setFont(font)
-        self.mal_detail_source_title.setStyleSheet("color:white;")
-        self.mal_detail_source_title.setObjectName("mal_detail_source_title")
-        self.gmal_bottom_layout.addWidget(self.mal_detail_source_title, 0, 0, 1, 1)
-        self.mal_detail_colon5 = QtWidgets.QLabel(parent=self.formLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.mal_detail_colon5.setFont(font)
-        self.mal_detail_colon5.setStyleSheet("color:white;")
-        self.mal_detail_colon5.setObjectName("mal_detail_colon5")
-        self.gmal_bottom_layout.addWidget(self.mal_detail_colon5, 2, 1, 1, 1)
-        self.mal_detail_type_title = QtWidgets.QLabel(parent=self.formLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.mal_detail_type_title.setFont(font)
-        self.mal_detail_type_title.setStyleSheet("color:white;")
-        self.mal_detail_type_title.setObjectName("mal_detail_type_title")
-        self.gmal_bottom_layout.addWidget(self.mal_detail_type_title, 1, 0, 1, 1)
-        self.mal_detail_colon4 = QtWidgets.QLabel(parent=self.formLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.mal_detail_colon4.setFont(font)
-        self.mal_detail_colon4.setStyleSheet("color:white;")
-        self.mal_detail_colon4.setObjectName("mal_detail_colon4")
-        self.gmal_bottom_layout.addWidget(self.mal_detail_colon4, 1, 1, 1, 1)
-        self.mal_detail_source_label = QtWidgets.QLabel(parent=self.formLayoutWidget_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.mal_detail_source_label.sizePolicy().hasHeightForWidth())
-        self.mal_detail_source_label.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.mal_detail_source_label.setFont(font)
-        self.mal_detail_source_label.setStyleSheet("color:#777777;")
-        self.mal_detail_source_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.mal_detail_source_label.setText("")
-        self.mal_detail_source_label.setObjectName("mal_detail_source_label")
-        self.gmal_bottom_layout.addWidget(self.mal_detail_source_label, 1, 2, 1, 1)
-        self.mal_threat_level_title = QtWidgets.QLabel(parent=self.mal_data_page)
-        self.mal_threat_level_title.setGeometry(QtCore.QRect(340, 60, 261, 31))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(True)
-        self.mal_threat_level_title.setFont(font)
-        self.mal_threat_level_title.setStyleSheet("background-color:#1F1F1F;\n"
-"color:white;")
-        self.mal_threat_level_title.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.mal_threat_level_title.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
-        self.mal_threat_level_title.setScaledContents(False)
-        self.mal_threat_level_title.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.mal_threat_level_title.setObjectName("mal_threat_level_title")
-        self.mal_source_button = QtWidgets.QPushButton(parent=self.mal_data_page)
-        self.mal_source_button.setEnabled(False)
-        self.mal_source_button.setGeometry(QtCore.QRect(370, 450, 210, 24))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(10)
-        self.mal_source_button.setFont(font)
-        self.mal_source_button.setStyleSheet("QPushButton{\n"
-"    background-color:#1F1F1F;\n"
-"    color:white;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    background-color: #484848;\n"
-"}")
-        self.mal_source_button.setObjectName("mal_source_button")
-        self.mal_data_title = QtWidgets.QLabel(parent=self.mal_data_page)
-        self.mal_data_title.setGeometry(QtCore.QRect(11, 20, 279, 33))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.mal_data_title.sizePolicy().hasHeightForWidth())
-        self.mal_data_title.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(20)
-        font.setBold(True)
-        self.mal_data_title.setFont(font)
-        self.mal_data_title.setStyleSheet("color:white;")
-        self.mal_data_title.setObjectName("mal_data_title")
-        self.mal_data_update_button = QtWidgets.QPushButton(parent=self.mal_data_page)
-        self.mal_data_update_button.setGeometry(QtCore.QRect(30, 450, 210, 24))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(10)
-        self.mal_data_update_button.setFont(font)
-        self.mal_data_update_button.setStyleSheet("QPushButton{\n"
-"    background-color:#1F1F1F;\n"
-"    color:white;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    background-color: #484848;\n"
-"}")
-        self.mal_data_update_button.setFlat(False)
-        self.mal_data_update_button.setObjectName("mal_data_update_button")
-        self.mal_first_hline = QtWidgets.QFrame(parent=self.mal_data_page)
-        self.mal_first_hline.setGeometry(QtCore.QRect(270, 198, 390, 1))
-        self.mal_first_hline.setStyleSheet("background-color:#1F1F1F;")
-        self.mal_first_hline.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.mal_first_hline.setLineWidth(0)
-        self.mal_first_hline.setFrameShape(QtWidgets.QFrame.Shape.HLine)
-        self.mal_first_hline.setObjectName("mal_first_hline")
-        self.mal_second_hline = QtWidgets.QFrame(parent=self.mal_data_page)
-        self.mal_second_hline.setGeometry(QtCore.QRect(270, 438, 390, 2))
-        self.mal_second_hline.setStyleSheet("background-color:#1F1F1F;")
-        self.mal_second_hline.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.mal_second_hline.setLineWidth(0)
-        self.mal_second_hline.setFrameShape(QtWidgets.QFrame.Shape.HLine)
-        self.mal_second_hline.setObjectName("mal_second_hline")
-        self.mal_urls_list = QtWidgets.QListWidget(parent=self.mal_data_page)
-        self.mal_urls_list.setGeometry(QtCore.QRect(11, 60, 250, 379))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.mal_urls_list.sizePolicy().hasHeightForWidth())
-        self.mal_urls_list.setSizePolicy(sizePolicy)
-        self.mal_urls_list.setStyleSheet("QListWidget {\n"
-"    background-color:#1F1F1F;\n"
-"    color: #FFFFFF;\n"
-"}\n"
-"\n"
-"QListWidget::item {\n"
-"    padding: 2px;\n"
-"}\n"
-"\n"
-"QListWidget::item:selected {\n"
-"    background-color: #1E90FF;\n"
-"    color: #FFFFFF;\n"
-"}\n"
-"\n"
-"QListWidget::item:hover {\n"
-"    background-color: #555555;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    width: 10px;\n"
-"    background-color: #333333;\n"
-"    border: 1px solid #555555;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical {\n"
-"    background-color: #4A90E2;\n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
-"    background-color: #333333;\n"
-"    height: 10px;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background-color: #555555;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed,\n"
-"QScrollBar::add-page:vertical:pressed, QScrollBar::sub-page:vertical:pressed,\n"
-"QScrollBar::handle:vertical:hover {\n"
-"    background-color: #4A90E2;\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"    height: 10px;\n"
-"    background-color: #333333;\n"
-"    border: 1px solid #555555;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:horizontal {\n"
-"    background-color: #4A90E2;\n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {\n"
-"    background-color: #333333;\n"
-"    width: 10px;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
-"    background-color: #555555;\n"
-"}")
-        self.mal_urls_list.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.mal_urls_list.setSelectionRectVisible(True)
-        self.mal_urls_list.setObjectName("mal_urls_list")
-        self.gridLayoutWidget = QtWidgets.QWidget(parent=self.mal_data_page)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(280, 130, 381, 61))
-        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
-        self.gmal_dewtail_top_layout = QtWidgets.QGridLayout(self.gridLayoutWidget)
-        self.gmal_dewtail_top_layout.setContentsMargins(0, 0, 0, 0)
-        self.gmal_dewtail_top_layout.setObjectName("gmal_dewtail_top_layout")
-        self.mal_detail_colon1 = QtWidgets.QLabel(parent=self.gridLayoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.mal_detail_colon1.setFont(font)
-        self.mal_detail_colon1.setStyleSheet("color:white;")
-        self.mal_detail_colon1.setObjectName("mal_detail_colon1")
-        self.gmal_dewtail_top_layout.addWidget(self.mal_detail_colon1, 0, 1, 1, 1)
-        self.mal_detail_url_title = QtWidgets.QLabel(parent=self.gridLayoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.mal_detail_url_title.setFont(font)
-        self.mal_detail_url_title.setStyleSheet("color:white;")
-        self.mal_detail_url_title.setObjectName("mal_detail_url_title")
-        self.gmal_dewtail_top_layout.addWidget(self.mal_detail_url_title, 0, 0, 1, 1)
-        self.mal_detail_url_label = QtWidgets.QLineEdit(parent=self.gridLayoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.mal_detail_url_label.setFont(font)
-        self.mal_detail_url_label.setStyleSheet("color:#777777;")
-        self.mal_detail_url_label.setText("")
-        self.mal_detail_url_label.setFrame(False)
-        self.mal_detail_url_label.setReadOnly(True)
-        self.mal_detail_url_label.setObjectName("mal_detail_url_label")
-        self.gmal_dewtail_top_layout.addWidget(self.mal_detail_url_label, 0, 2, 1, 1)
-        self.mal_detail_resolved_ip_title = QtWidgets.QLabel(parent=self.gridLayoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.mal_detail_resolved_ip_title.setFont(font)
-        self.mal_detail_resolved_ip_title.setStyleSheet("color:white;")
-        self.mal_detail_resolved_ip_title.setObjectName("mal_detail_resolved_ip_title")
-        self.gmal_dewtail_top_layout.addWidget(self.mal_detail_resolved_ip_title, 1, 0, 1, 1)
-        self.mal_detail_resolved_ip_label = QtWidgets.QLineEdit(parent=self.gridLayoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.mal_detail_resolved_ip_label.setFont(font)
-        self.mal_detail_resolved_ip_label.setStyleSheet("color:#777777;")
-        self.mal_detail_resolved_ip_label.setFrame(False)
-        self.mal_detail_resolved_ip_label.setReadOnly(True)
-        self.mal_detail_resolved_ip_label.setObjectName("mal_detail_resolved_ip_label")
-        self.gmal_dewtail_top_layout.addWidget(self.mal_detail_resolved_ip_label, 1, 2, 1, 1)
-        self.mal_detail_colon2 = QtWidgets.QLabel(parent=self.gridLayoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.mal_detail_colon2.setFont(font)
-        self.mal_detail_colon2.setStyleSheet("color:white;")
-        self.mal_detail_colon2.setObjectName("mal_detail_colon2")
-        self.gmal_dewtail_top_layout.addWidget(self.mal_detail_colon2, 1, 1, 1, 1)
-        self.mal_detail_desc_label = QtWidgets.QLabel(parent=self.mal_data_page)
-        self.mal_detail_desc_label.setGeometry(QtCore.QRect(280, 360, 381, 71))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.mal_detail_desc_label.sizePolicy().hasHeightForWidth())
-        self.mal_detail_desc_label.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.mal_detail_desc_label.setFont(font)
-        self.mal_detail_desc_label.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.NoContextMenu)
-        self.mal_detail_desc_label.setStyleSheet("color:#777777;")
-        self.mal_detail_desc_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.mal_detail_desc_label.setText("")
-        self.mal_detail_desc_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignTop)
-        self.mal_detail_desc_label.setWordWrap(True)
-        self.mal_detail_desc_label.setObjectName("mal_detail_desc_label")
-        self.stackedWidget.addWidget(self.mal_data_page)
-        self.fw_rule_page = QtWidgets.QWidget()
-        self.fw_rule_page.setObjectName("fw_rule_page")
-        self.fw_rules_inf_title = QtWidgets.QLabel(parent=self.fw_rule_page)
-        self.fw_rules_inf_title.setGeometry(QtCore.QRect(11, 20, 199, 33))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(20)
-        font.setBold(True)
-        self.fw_rules_inf_title.setFont(font)
-        self.fw_rules_inf_title.setStyleSheet("color:white;")
-        self.fw_rules_inf_title.setObjectName("fw_rules_inf_title")
-        self.fw_rules_blocked_list = QtWidgets.QListWidget(parent=self.fw_rule_page)
-        self.fw_rules_blocked_list.setGeometry(QtCore.QRect(11, 80, 250, 320))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.fw_rules_blocked_list.sizePolicy().hasHeightForWidth())
-        self.fw_rules_blocked_list.setSizePolicy(sizePolicy)
-        self.fw_rules_blocked_list.setStyleSheet("QListWidget {\n"
-"    background-color:#1F1F1F;\n"
-"    color: #FFFFFF;\n"
-"}\n"
-"\n"
-"QListWidget::item {\n"
-"    padding: 5px;\n"
-"}\n"
-"\n"
-"QListWidget::item:selected {\n"
-"    border: none;\n"
-"    background-color: #1E90FF;\n"
-"    color: #FFFFFF;\n"
-"}\n"
-"\n"
-"QListWidget::item:hover {\n"
-"    background-color: #555555;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    width: 10px;\n"
-"    background-color: #333333;\n"
-"    border: 1px solid #555555;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical {\n"
-"    background-color: #4A90E2;\n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
-"    background-color: #333333;\n"
-"    height: 10px;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background-color: #555555;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed,\n"
-"QScrollBar::add-page:vertical:pressed, QScrollBar::sub-page:vertical:pressed,\n"
-"QScrollBar::handle:vertical:hover {\n"
-"    background-color: #4A90E2;\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"    height: 10px;\n"
-"    background-color: #333333;\n"
-"    border: 1px solid #555555;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:horizontal {\n"
-"    background-color: #4A90E2;\n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {\n"
-"    background-color: #333333;\n"
-"    width: 10px;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
-"    background-color: #555555;\n"
-"}")
-        self.fw_rules_blocked_list.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.fw_rules_blocked_list.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
-        self.fw_rules_blocked_list.setLineWidth(2)
-        self.fw_rules_blocked_list.setSelectionRectVisible(True)
-        self.fw_rules_blocked_list.setObjectName("fw_rules_blocked_list")
-        self.formLayoutWidget_3 = QtWidgets.QWidget(parent=self.fw_rule_page)
-        self.formLayoutWidget_3.setGeometry(QtCore.QRect(260, 440, 401, 50))
+        self.md_detail_title.setFont(font)
+        self.md_detail_title.setStyleSheet("color:white;")
+        self.md_detail_title.setObjectName("md_detail_title")
+        self.formLayoutWidget_3 = QtWidgets.QWidget(parent=self.mal_data_page)
+        self.formLayoutWidget_3.setGeometry(QtCore.QRect(330, 160, 431, 127))
         self.formLayoutWidget_3.setObjectName("formLayoutWidget_3")
-        self.gfw_rules_left_layout = QtWidgets.QGridLayout(self.formLayoutWidget_3)
-        self.gfw_rules_left_layout.setContentsMargins(0, 0, 0, 0)
-        self.gfw_rules_left_layout.setSpacing(6)
-        self.gfw_rules_left_layout.setObjectName("gfw_rules_left_layout")
-        self.fw_rules_colon1 = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
+        self.md_top_glayout = QtWidgets.QGridLayout(self.formLayoutWidget_3)
+        self.md_top_glayout.setContentsMargins(0, 0, 0, 0)
+        self.md_top_glayout.setSpacing(6)
+        self.md_top_glayout.setObjectName("md_top_glayout")
+        self.md_detail_type_label = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.md_detail_type_label.sizePolicy().hasHeightForWidth())
+        self.md_detail_type_label.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
-        self.fw_rules_colon1.setFont(font)
-        self.fw_rules_colon1.setStyleSheet("color:white;")
-        self.fw_rules_colon1.setObjectName("fw_rules_colon1")
-        self.gfw_rules_left_layout.addWidget(self.fw_rules_colon1, 0, 1, 1, 1)
-        self.fw_rules_colon2 = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
+        self.md_detail_type_label.setFont(font)
+        self.md_detail_type_label.setStyleSheet("color:#777777;")
+        self.md_detail_type_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.md_detail_type_label.setText("")
+        self.md_detail_type_label.setObjectName("md_detail_type_label")
+        self.md_top_glayout.addWidget(self.md_detail_type_label, 1, 2, 1, 1)
+        self.md_detail_colon3 = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
-        self.fw_rules_colon2.setFont(font)
-        self.fw_rules_colon2.setStyleSheet("color:white;")
-        self.fw_rules_colon2.setObjectName("fw_rules_colon2")
-        self.gfw_rules_left_layout.addWidget(self.fw_rules_colon2, 1, 1, 1, 1)
-        self.fw_rules_url_title = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
+        self.md_detail_colon3.setFont(font)
+        self.md_detail_colon3.setStyleSheet("color:white;")
+        self.md_detail_colon3.setObjectName("md_detail_colon3")
+        self.md_top_glayout.addWidget(self.md_detail_colon3, 1, 1, 1, 1)
+        self.md_detail_date_label = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.md_detail_date_label.sizePolicy().hasHeightForWidth())
+        self.md_detail_date_label.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.md_detail_date_label.setFont(font)
+        self.md_detail_date_label.setStyleSheet("color:#777777;")
+        self.md_detail_date_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.md_detail_date_label.setText("")
+        self.md_detail_date_label.setObjectName("md_detail_date_label")
+        self.md_top_glayout.addWidget(self.md_detail_date_label, 3, 2, 1, 1)
+        self.md_detail_type_title = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
         font.setBold(False)
-        self.fw_rules_url_title.setFont(font)
-        self.fw_rules_url_title.setStyleSheet("color:white;")
-        self.fw_rules_url_title.setObjectName("fw_rules_url_title")
-        self.gfw_rules_left_layout.addWidget(self.fw_rules_url_title, 0, 0, 1, 1)
-        self.fw_rules_ip_title = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
+        self.md_detail_type_title.setFont(font)
+        self.md_detail_type_title.setStyleSheet("color:white;")
+        self.md_detail_type_title.setObjectName("md_detail_type_title")
+        self.md_top_glayout.addWidget(self.md_detail_type_title, 2, 0, 1, 1)
+        self.md_detail_colon4 = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.md_detail_colon4.setFont(font)
+        self.md_detail_colon4.setStyleSheet("color:white;")
+        self.md_detail_colon4.setObjectName("md_detail_colon4")
+        self.md_top_glayout.addWidget(self.md_detail_colon4, 2, 1, 1, 1)
+        self.md_detail_source_label = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.md_detail_source_label.sizePolicy().hasHeightForWidth())
+        self.md_detail_source_label.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.md_detail_source_label.setFont(font)
+        self.md_detail_source_label.setStyleSheet("color:#777777;")
+        self.md_detail_source_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.md_detail_source_label.setText("")
+        self.md_detail_source_label.setObjectName("md_detail_source_label")
+        self.md_top_glayout.addWidget(self.md_detail_source_label, 2, 2, 1, 1)
+        self.md_detail_colon6 = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.md_detail_colon6.setFont(font)
+        self.md_detail_colon6.setStyleSheet("color:white;")
+        self.md_detail_colon6.setObjectName("md_detail_colon6")
+        self.md_top_glayout.addWidget(self.md_detail_colon6, 4, 1, 1, 1)
+        self.md_detail_colon5 = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.md_detail_colon5.setFont(font)
+        self.md_detail_colon5.setStyleSheet("color:white;")
+        self.md_detail_colon5.setObjectName("md_detail_colon5")
+        self.md_top_glayout.addWidget(self.md_detail_colon5, 3, 1, 1, 1)
+        self.md_detail_date_title = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
         font.setBold(False)
-        self.fw_rules_ip_title.setFont(font)
-        self.fw_rules_ip_title.setStyleSheet("color:white;")
-        self.fw_rules_ip_title.setObjectName("fw_rules_ip_title")
-        self.gfw_rules_left_layout.addWidget(self.fw_rules_ip_title, 1, 0, 1, 1)
-        self.fw_rules_url_label = QtWidgets.QLineEdit(parent=self.formLayoutWidget_3)
+        self.md_detail_date_title.setFont(font)
+        self.md_detail_date_title.setStyleSheet("color:white;")
+        self.md_detail_date_title.setObjectName("md_detail_date_title")
+        self.md_top_glayout.addWidget(self.md_detail_date_title, 3, 0, 1, 1)
+        self.md_detail_source_title = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
-        self.fw_rules_url_label.setFont(font)
-        self.fw_rules_url_label.setStyleSheet("color:#777777;")
-        self.fw_rules_url_label.setFrame(False)
-        self.fw_rules_url_label.setReadOnly(True)
-        self.fw_rules_url_label.setObjectName("fw_rules_url_label")
-        self.gfw_rules_left_layout.addWidget(self.fw_rules_url_label, 0, 2, 1, 1)
-        self.fw_rules_ip_label = QtWidgets.QLineEdit(parent=self.formLayoutWidget_3)
+        font.setBold(False)
+        self.md_detail_source_title.setFont(font)
+        self.md_detail_source_title.setStyleSheet("color:white;")
+        self.md_detail_source_title.setObjectName("md_detail_source_title")
+        self.md_top_glayout.addWidget(self.md_detail_source_title, 1, 0, 1, 1)
+        self.md_detail_desc_title = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
-        self.fw_rules_ip_label.setFont(font)
-        self.fw_rules_ip_label.setStyleSheet("color:#777777;")
-        self.fw_rules_ip_label.setFrame(False)
-        self.fw_rules_ip_label.setReadOnly(True)
-        self.fw_rules_ip_label.setObjectName("fw_rules_ip_label")
-        self.gfw_rules_left_layout.addWidget(self.fw_rules_ip_label, 1, 2, 1, 1)
-        self.mal_detail_title2_2 = QtWidgets.QLabel(parent=self.fw_rule_page)
-        self.mal_detail_title2_2.setGeometry(QtCore.QRect(10, 410, 141, 24))
+        font.setBold(False)
+        self.md_detail_desc_title.setFont(font)
+        self.md_detail_desc_title.setStyleSheet("color:white;")
+        self.md_detail_desc_title.setObjectName("md_detail_desc_title")
+        self.md_top_glayout.addWidget(self.md_detail_desc_title, 4, 0, 1, 1)
+        self.md_detail_url_title = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.md_detail_url_title.setFont(font)
+        self.md_detail_url_title.setStyleSheet("color:white;")
+        self.md_detail_url_title.setObjectName("md_detail_url_title")
+        self.md_top_glayout.addWidget(self.md_detail_url_title, 0, 0, 1, 1)
+        self.md_detail_colon1 = QtWidgets.QLabel(parent=self.formLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.md_detail_colon1.setFont(font)
+        self.md_detail_colon1.setStyleSheet("color:white;")
+        self.md_detail_colon1.setObjectName("md_detail_colon1")
+        self.md_top_glayout.addWidget(self.md_detail_colon1, 0, 1, 1, 1)
+        self.md_detail_url_label = QtWidgets.QLineEdit(parent=self.formLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.md_detail_url_label.setFont(font)
+        self.md_detail_url_label.setStyleSheet("color:#777777;")
+        self.md_detail_url_label.setText("")
+        self.md_detail_url_label.setFrame(False)
+        self.md_detail_url_label.setReadOnly(True)
+        self.md_detail_url_label.setObjectName("md_detail_url_label")
+        self.md_top_glayout.addWidget(self.md_detail_url_label, 0, 2, 1, 1)
+        self.md_threat_level_title = QtWidgets.QLabel(parent=self.mal_data_page)
+        self.md_threat_level_title.setGeometry(QtCore.QRect(380, 60, 311, 31))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.md_threat_level_title.setFont(font)
+        self.md_threat_level_title.setStyleSheet("background-color:#393E46;\n"
+"    color: #EEEEEE;")
+        self.md_threat_level_title.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.md_threat_level_title.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
+        self.md_threat_level_title.setScaledContents(False)
+        self.md_threat_level_title.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.md_threat_level_title.setObjectName("md_threat_level_title")
+        self.md_source_button = QtWidgets.QPushButton(parent=self.mal_data_page)
+        self.md_source_button.setEnabled(False)
+        self.md_source_button.setGeometry(QtCore.QRect(450, 490, 191, 27))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(10)
+        self.md_source_button.setFont(font)
+        self.md_source_button.setStyleSheet("QPushButton{\n"
+"    background-color:#393E46;\n"
+"    color: white;\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color: #DDDDDD;\n"
+"    color: #0f0f0f;\n"
+"}\n"
+"QPushButton:disabled { \n"
+"    background-color: #101112; \n"
+"}")
+        self.md_source_button.setObjectName("md_source_button")
+        self.md_main_title = QtWidgets.QLabel(parent=self.mal_data_page)
+        self.md_main_title.setGeometry(QtCore.QRect(30, 30, 188, 24))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.md_main_title.sizePolicy().hasHeightForWidth())
+        self.md_main_title.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(14)
         font.setBold(False)
-        self.mal_detail_title2_2.setFont(font)
-        self.mal_detail_title2_2.setStyleSheet("color:white;")
-        self.mal_detail_title2_2.setObjectName("mal_detail_title2_2")
-        self.gridLayoutWidget_2 = QtWidgets.QWidget(parent=self.fw_rule_page)
-        self.gridLayoutWidget_2.setGeometry(QtCore.QRect(10, 440, 241, 48))
-        self.gridLayoutWidget_2.setObjectName("gridLayoutWidget_2")
-        self.gfw_rules_right_layout = QtWidgets.QGridLayout(self.gridLayoutWidget_2)
-        self.gfw_rules_right_layout.setContentsMargins(0, 0, 0, 0)
-        self.gfw_rules_right_layout.setObjectName("gfw_rules_right_layout")
-        self.fw_rules_current_stat_title = QtWidgets.QLabel(parent=self.gridLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.fw_rules_current_stat_title.setFont(font)
-        self.fw_rules_current_stat_title.setStyleSheet("color:white;")
-        self.fw_rules_current_stat_title.setObjectName("fw_rules_current_stat_title")
-        self.gfw_rules_right_layout.addWidget(self.fw_rules_current_stat_title, 1, 0, 1, 1)
-        self.fw_rules_op_time_title = QtWidgets.QLabel(parent=self.gridLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.fw_rules_op_time_title.setFont(font)
-        self.fw_rules_op_time_title.setStyleSheet("color:white;")
-        self.fw_rules_op_time_title.setObjectName("fw_rules_op_time_title")
-        self.gfw_rules_right_layout.addWidget(self.fw_rules_op_time_title, 0, 0, 1, 1)
-        self.fw_rules_colon3 = QtWidgets.QLabel(parent=self.gridLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.fw_rules_colon3.setFont(font)
-        self.fw_rules_colon3.setStyleSheet("color:white;")
-        self.fw_rules_colon3.setObjectName("fw_rules_colon3")
-        self.gfw_rules_right_layout.addWidget(self.fw_rules_colon3, 0, 1, 1, 1)
-        self.fw_rules_colon4 = QtWidgets.QLabel(parent=self.gridLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.fw_rules_colon4.setFont(font)
-        self.fw_rules_colon4.setStyleSheet("color:white;")
-        self.fw_rules_colon4.setObjectName("fw_rules_colon4")
-        self.gfw_rules_right_layout.addWidget(self.fw_rules_colon4, 1, 1, 1, 1)
-        self.fw_rules_current_stat_label = QtWidgets.QLabel(parent=self.gridLayoutWidget_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.fw_rules_current_stat_label.sizePolicy().hasHeightForWidth())
-        self.fw_rules_current_stat_label.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.fw_rules_current_stat_label.setFont(font)
-        self.fw_rules_current_stat_label.setStyleSheet("color:#777777;")
-        self.fw_rules_current_stat_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.fw_rules_current_stat_label.setText("")
-        self.fw_rules_current_stat_label.setObjectName("fw_rules_current_stat_label")
-        self.gfw_rules_right_layout.addWidget(self.fw_rules_current_stat_label, 1, 2, 1, 1)
-        self.fw_rules_op_time_label = QtWidgets.QLabel(parent=self.gridLayoutWidget_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.fw_rules_op_time_label.sizePolicy().hasHeightForWidth())
-        self.fw_rules_op_time_label.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.fw_rules_op_time_label.setFont(font)
-        self.fw_rules_op_time_label.setStyleSheet("color:#777777;")
-        self.fw_rules_op_time_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.fw_rules_op_time_label.setText("")
-        self.fw_rules_op_time_label.setObjectName("fw_rules_op_time_label")
-        self.gfw_rules_right_layout.addWidget(self.fw_rules_op_time_label, 0, 2, 1, 1)
-        self.fw_rules_url_title_2 = QtWidgets.QLabel(parent=self.fw_rule_page)
-        self.fw_rules_url_title_2.setGeometry(QtCore.QRect(11, 60, 77, 20))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.fw_rules_url_title_2.setFont(font)
-        self.fw_rules_url_title_2.setStyleSheet("color:white;")
-        self.fw_rules_url_title_2.setObjectName("fw_rules_url_title_2")
-        self.fw_rules_url_title_3 = QtWidgets.QLabel(parent=self.fw_rule_page)
-        self.fw_rules_url_title_3.setGeometry(QtCore.QRect(401, 58, 95, 20))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.fw_rules_url_title_3.setFont(font)
-        self.fw_rules_url_title_3.setStyleSheet("color:white;")
-        self.fw_rules_url_title_3.setObjectName("fw_rules_url_title_3")
-        self.verticalLayoutWidget_2 = QtWidgets.QWidget(parent=self.fw_rule_page)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(290, 160, 81, 176))
-        self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
-        self.vfw_rules_buttons_layout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
-        self.vfw_rules_buttons_layout.setContentsMargins(0, 0, 0, 0)
-        self.vfw_rules_buttons_layout.setObjectName("vfw_rules_buttons_layout")
-        self.fw_rules_unblock_sel_data_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_2)
-        self.fw_rules_unblock_sel_data_button.setEnabled(False)
+        self.md_main_title.setFont(font)
+        self.md_main_title.setStyleSheet("color:white;")
+        self.md_main_title.setObjectName("md_main_title")
+        self.md_data_update_button = QtWidgets.QPushButton(parent=self.mal_data_page)
+        self.md_data_update_button.setGeometry(QtCore.QRect(70, 490, 191, 27))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(10)
-        self.fw_rules_unblock_sel_data_button.setFont(font)
-        self.fw_rules_unblock_sel_data_button.setStyleSheet("QPushButton{\n"
-"    background-color:#1F1F1F;\n"
-"    color:white;\n"
+        self.md_data_update_button.setFont(font)
+        self.md_data_update_button.setStyleSheet("QPushButton{\n"
+"    background-color:#393E46;\n"
+"    color: white;\n"
 "}\n"
 "QPushButton:hover{\n"
-"    background-color: #484848;\n"
+"    background-color: #DDDDDD;\n"
+"    color: #0f0f0f;\n"
+"}\n"
+"QPushButton:disabled { \n"
+"    background-color: #101112; \n"
 "}")
-        self.fw_rules_unblock_sel_data_button.setText("")
+        self.md_data_update_button.setFlat(False)
+        self.md_data_update_button.setObjectName("md_data_update_button")
+        self.md_second_hline = QtWidgets.QFrame(parent=self.mal_data_page)
+        self.md_second_hline.setGeometry(QtCore.QRect(330, 480, 421, 1))
+        self.md_second_hline.setStyleSheet("background-color:#1F1F1F;")
+        self.md_second_hline.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.md_second_hline.setLineWidth(0)
+        self.md_second_hline.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.md_second_hline.setObjectName("md_second_hline")
+        self.md_mal_data_list = QtWidgets.QListWidget(parent=self.mal_data_page)
+        self.md_mal_data_list.setGeometry(QtCore.QRect(30, 60, 281, 421))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.md_mal_data_list.sizePolicy().hasHeightForWidth())
+        self.md_mal_data_list.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        self.md_mal_data_list.setFont(font)
+        self.md_mal_data_list.setToolTipDuration(-1)
+        self.md_mal_data_list.setStyleSheet("QListWidget {\n"
+"                                outline: 0;\n"
+"                                background-color: #101112; \n"
+"                                color: white; \n"
+"                                border: none; \n"
+"                                padding: 5px; \n"
+"                                border: 1px solid #555555;\n"
+"                            }\n"
+"\n"
+"                            QListWidget::item {\n"
+"                                padding: 3px; \n"
+"                            }\n"
+"\n"
+"                      \n"
+"\n"
+"                            QListWidget::item:hover {\n"
+"                                background-color: #DDDDDD;\n"
+"                                color: #0f0f0f;\n"
+"                            }\n"
+"\n"
+"                            QScrollBar:vertical {\n"
+"                                border: 1px solid #555555;\n"
+"                                background: none;\n"
+"                                width: 10px;\n"
+"                                margin: 0px 0px 0px 0px;\n"
+"                            }\n"
+"\n"
+"                            QScrollBar::handle:vertical {\n"
+"                                background: #393E46;\n"
+"                                min-height: 30px;\n"
+"                                max-height: 30px;\n"
+"                                border-radius: 5px;\n"
+"                            }\n"
+"\n"
+"                            QScrollBar::add-line:vertical {\n"
+"                                height: 0px;\n"
+"                                subcontrol-position: bottom;\n"
+"                                subcontrol-origin: margin;\n"
+"                            }\n"
+"\n"
+"                            QScrollBar::sub-line:vertical {\n"
+"                                height: 0px;\n"
+"                                subcontrol-position: top;\n"
+"                                subcontrol-origin: margin;\n"
+"                            }\n"
+"\n"
+"                            QListWidget::viewport {\n"
+"                                background: #101112;\n"
+"                            }")
+        self.md_mal_data_list.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.md_mal_data_list.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
+        self.md_mal_data_list.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.md_mal_data_list.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustIgnored)
+        self.md_mal_data_list.setAutoScroll(True)
+        self.md_mal_data_list.setVerticalScrollMode(QtWidgets.QAbstractItemView.ScrollMode.ScrollPerPixel)
+        self.md_mal_data_list.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollMode.ScrollPerPixel)
+        self.md_mal_data_list.setWordWrap(True)
+        self.md_mal_data_list.setSelectionRectVisible(True)
+        self.md_mal_data_list.setObjectName("md_mal_data_list")
+        self.md_detail_desc_label = QtWidgets.QLabel(parent=self.mal_data_page)
+        self.md_detail_desc_label.setGeometry(QtCore.QRect(350, 310, 391, 131))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.md_detail_desc_label.sizePolicy().hasHeightForWidth())
+        self.md_detail_desc_label.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.md_detail_desc_label.setFont(font)
+        self.md_detail_desc_label.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.NoContextMenu)
+        self.md_detail_desc_label.setStyleSheet("color:#777777;")
+        self.md_detail_desc_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.md_detail_desc_label.setText("")
+        self.md_detail_desc_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignTop)
+        self.md_detail_desc_label.setWordWrap(True)
+        self.md_detail_desc_label.setObjectName("md_detail_desc_label")
+        self.md_first_hline = QtWidgets.QFrame(parent=self.mal_data_page)
+        self.md_first_hline.setGeometry(QtCore.QRect(330, 145, 421, 1))
+        self.md_first_hline.setStyleSheet("background-color:#1F1F1F;")
+        self.md_first_hline.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.md_first_hline.setLineWidth(0)
+        self.md_first_hline.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.md_first_hline.setObjectName("md_first_hline")
+        self.stackedWidget.addWidget(self.mal_data_page)
+        self.blocked_data_page = QtWidgets.QWidget()
+        self.blocked_data_page.setObjectName("blocked_data_page")
+        self.bd_blocked_list = QtWidgets.QListWidget(parent=self.blocked_data_page)
+        self.bd_blocked_list.setGeometry(QtCore.QRect(30, 39, 281, 361))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.bd_blocked_list.sizePolicy().hasHeightForWidth())
+        self.bd_blocked_list.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.bd_blocked_list.setFont(font)
+        self.bd_blocked_list.setStyleSheet("QListWidget {\n"
+"                                outline: 0;\n"
+"                                background-color: #101112; \n"
+"                                color: white; \n"
+"                                border: none; \n"
+"                                padding: 5px; \n"
+"                                border: 1px solid #555555;\n"
+"                            }\n"
+"\n"
+"                            QListWidget::item {\n"
+"                                padding: 3px; \n"
+"                            }\n"
+"\n"
+"                      \n"
+"\n"
+"                            QListWidget::item:hover {\n"
+"                                background-color: #DDDDDD;\n"
+"                                color: #0f0f0f;\n"
+"                            }\n"
+"\n"
+"                            QScrollBar:vertical {\n"
+"                                border: 1px solid #555555;\n"
+"                                background: none;\n"
+"                                width: 10px;\n"
+"                                margin: 0px 0px 0px 0px;\n"
+"                            }\n"
+"\n"
+"                            QScrollBar::handle:vertical {\n"
+"                                background: #393E46;\n"
+"                                min-height: 30px;\n"
+"                                max-height: 30px;\n"
+"                                border-radius: 5px;\n"
+"                            }\n"
+"\n"
+"                            QScrollBar::add-line:vertical {\n"
+"                                height: 0px;\n"
+"                                subcontrol-position: bottom;\n"
+"                                subcontrol-origin: margin;\n"
+"                            }\n"
+"\n"
+"                            QScrollBar::sub-line:vertical {\n"
+"                                height: 0px;\n"
+"                                subcontrol-position: top;\n"
+"                                subcontrol-origin: margin;\n"
+"                            }\n"
+"\n"
+"                            QListWidget::viewport {\n"
+"                                background: #101112;\n"
+"                            }")
+        self.bd_blocked_list.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.bd_blocked_list.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
+        self.bd_blocked_list.setLineWidth(2)
+        self.bd_blocked_list.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.bd_blocked_list.setVerticalScrollMode(QtWidgets.QAbstractItemView.ScrollMode.ScrollPerPixel)
+        self.bd_blocked_list.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollMode.ScrollPerPixel)
+        self.bd_blocked_list.setSelectionRectVisible(True)
+        self.bd_blocked_list.setObjectName("bd_blocked_list")
+        self.bd_inf_title = QtWidgets.QLabel(parent=self.blocked_data_page)
+        self.bd_inf_title.setGeometry(QtCore.QRect(30, 410, 141, 24))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(14)
+        font.setBold(False)
+        self.bd_inf_title.setFont(font)
+        self.bd_inf_title.setStyleSheet("color:white;")
+        self.bd_inf_title.setObjectName("bd_inf_title")
+        self.gridLayoutWidget_3 = QtWidgets.QWidget(parent=self.blocked_data_page)
+        self.gridLayoutWidget_3.setGeometry(QtCore.QRect(40, 440, 701, 75))
+        self.gridLayoutWidget_3.setObjectName("gridLayoutWidget_3")
+        self.bd_left_glayout = QtWidgets.QGridLayout(self.gridLayoutWidget_3)
+        self.bd_left_glayout.setContentsMargins(0, 0, 0, 0)
+        self.bd_left_glayout.setObjectName("bd_left_glayout")
+        self.bd_op_time_label = QtWidgets.QLabel(parent=self.gridLayoutWidget_3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.bd_op_time_label.sizePolicy().hasHeightForWidth())
+        self.bd_op_time_label.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.bd_op_time_label.setFont(font)
+        self.bd_op_time_label.setStyleSheet("color:#777777;")
+        self.bd_op_time_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.bd_op_time_label.setText("")
+        self.bd_op_time_label.setObjectName("bd_op_time_label")
+        self.bd_left_glayout.addWidget(self.bd_op_time_label, 1, 2, 1, 1)
+        self.bd_url_title = QtWidgets.QLabel(parent=self.gridLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.bd_url_title.setFont(font)
+        self.bd_url_title.setStyleSheet("color:white;")
+        self.bd_url_title.setObjectName("bd_url_title")
+        self.bd_left_glayout.addWidget(self.bd_url_title, 0, 0, 1, 1)
+        self.bd_colon3 = QtWidgets.QLabel(parent=self.gridLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.bd_colon3.setFont(font)
+        self.bd_colon3.setStyleSheet("color:white;")
+        self.bd_colon3.setObjectName("bd_colon3")
+        self.bd_left_glayout.addWidget(self.bd_colon3, 2, 1, 1, 1)
+        self.bd_current_stat_title = QtWidgets.QLabel(parent=self.gridLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.bd_current_stat_title.setFont(font)
+        self.bd_current_stat_title.setStyleSheet("color:white;")
+        self.bd_current_stat_title.setObjectName("bd_current_stat_title")
+        self.bd_left_glayout.addWidget(self.bd_current_stat_title, 2, 0, 1, 1)
+        self.bd_op_time_title = QtWidgets.QLabel(parent=self.gridLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.bd_op_time_title.setFont(font)
+        self.bd_op_time_title.setStyleSheet("color:white;")
+        self.bd_op_time_title.setObjectName("bd_op_time_title")
+        self.bd_left_glayout.addWidget(self.bd_op_time_title, 1, 0, 1, 1)
+        self.bd_colon1 = QtWidgets.QLabel(parent=self.gridLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.bd_colon1.setFont(font)
+        self.bd_colon1.setStyleSheet("color:white;")
+        self.bd_colon1.setObjectName("bd_colon1")
+        self.bd_left_glayout.addWidget(self.bd_colon1, 0, 1, 1, 1)
+        self.bd_colon2 = QtWidgets.QLabel(parent=self.gridLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.bd_colon2.setFont(font)
+        self.bd_colon2.setStyleSheet("color:white;")
+        self.bd_colon2.setObjectName("bd_colon2")
+        self.bd_left_glayout.addWidget(self.bd_colon2, 1, 1, 1, 1)
+        self.bd_current_stat_label = QtWidgets.QLabel(parent=self.gridLayoutWidget_3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.bd_current_stat_label.sizePolicy().hasHeightForWidth())
+        self.bd_current_stat_label.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.bd_current_stat_label.setFont(font)
+        self.bd_current_stat_label.setStyleSheet("color:#777777;")
+        self.bd_current_stat_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.bd_current_stat_label.setText("")
+        self.bd_current_stat_label.setObjectName("bd_current_stat_label")
+        self.bd_left_glayout.addWidget(self.bd_current_stat_label, 2, 2, 1, 1)
+        self.bd_url_label = QtWidgets.QLineEdit(parent=self.gridLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.bd_url_label.setFont(font)
+        self.bd_url_label.setStyleSheet("color:#777777;")
+        self.bd_url_label.setFrame(False)
+        self.bd_url_label.setReadOnly(True)
+        self.bd_url_label.setObjectName("bd_url_label")
+        self.bd_left_glayout.addWidget(self.bd_url_label, 0, 2, 1, 1)
+        self.bd_blocked_list_title = QtWidgets.QLabel(parent=self.blocked_data_page)
+        self.bd_blocked_list_title.setGeometry(QtCore.QRect(30, 10, 131, 24))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(14)
+        font.setBold(False)
+        self.bd_blocked_list_title.setFont(font)
+        self.bd_blocked_list_title.setStyleSheet("color:white;")
+        self.bd_blocked_list_title.setObjectName("bd_blocked_list_title")
+        self.bd_unblocked_list_title = QtWidgets.QLabel(parent=self.blocked_data_page)
+        self.bd_unblocked_list_title.setGeometry(QtCore.QRect(460, 10, 153, 24))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(14)
+        font.setBold(False)
+        self.bd_unblocked_list_title.setFont(font)
+        self.bd_unblocked_list_title.setStyleSheet("color:white;")
+        self.bd_unblocked_list_title.setObjectName("bd_unblocked_list_title")
+        self.verticalLayoutWidget_3 = QtWidgets.QWidget(parent=self.blocked_data_page)
+        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(340, 130, 91, 176))
+        self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
+        self.bd_buttons_vlayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
+        self.bd_buttons_vlayout.setContentsMargins(0, 0, 0, 0)
+        self.bd_buttons_vlayout.setObjectName("bd_buttons_vlayout")
+        self.bd_unblock_sel_data_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_3)
+        self.bd_unblock_sel_data_button.setEnabled(False)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(10)
+        self.bd_unblock_sel_data_button.setFont(font)
+        self.bd_unblock_sel_data_button.setStyleSheet("QPushButton{\n"
+"    background-color:#393E46;\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color: #DDDDDD;\n"
+"}\n"
+"QPushButton:disabled { \n"
+"    background-color: #101112; \n"
+"}")
+        self.bd_unblock_sel_data_button.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("D:/Personal/Projects/muhendislik_tasarimi_proje/source_codes/project/ui\\../assets/single_right_logo1.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.fw_rules_unblock_sel_data_button.setIcon(icon)
-        self.fw_rules_unblock_sel_data_button.setFlat(False)
-        self.fw_rules_unblock_sel_data_button.setObjectName("fw_rules_unblock_sel_data_button")
-        self.vfw_rules_buttons_layout.addWidget(self.fw_rules_unblock_sel_data_button)
-        self.fw_rules_unblock_all_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_2)
-        self.fw_rules_unblock_all_button.setEnabled(True)
+        self.bd_unblock_sel_data_button.setIcon(icon)
+        self.bd_unblock_sel_data_button.setFlat(False)
+        self.bd_unblock_sel_data_button.setObjectName("bd_unblock_sel_data_button")
+        self.bd_buttons_vlayout.addWidget(self.bd_unblock_sel_data_button)
+        self.bd_unblock_all_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_3)
+        self.bd_unblock_all_button.setEnabled(False)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(10)
-        self.fw_rules_unblock_all_button.setFont(font)
-        self.fw_rules_unblock_all_button.setStyleSheet("QPushButton{\n"
-"    background-color:#1F1F1F;\n"
-"    color:white;\n"
+        self.bd_unblock_all_button.setFont(font)
+        self.bd_unblock_all_button.setStyleSheet("QPushButton{\n"
+"    background-color:#393E46;\n"
 "}\n"
 "QPushButton:hover{\n"
-"    background-color: #484848;\n"
+"    background-color: #DDDDDD;\n"
+"}\n"
+"QPushButton:disabled { \n"
+"    background-color: #101112; \n"
 "}")
-        self.fw_rules_unblock_all_button.setText("")
+        self.bd_unblock_all_button.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("D:/Personal/Projects/muhendislik_tasarimi_proje/source_codes/project/ui\\../assets/double_right_logo1.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.fw_rules_unblock_all_button.setIcon(icon1)
-        self.fw_rules_unblock_all_button.setFlat(False)
-        self.fw_rules_unblock_all_button.setObjectName("fw_rules_unblock_all_button")
-        self.vfw_rules_buttons_layout.addWidget(self.fw_rules_unblock_all_button)
-        self.fw_rules_block_sel_data_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_2)
-        self.fw_rules_block_sel_data_button.setEnabled(False)
+        self.bd_unblock_all_button.setIcon(icon1)
+        self.bd_unblock_all_button.setFlat(False)
+        self.bd_unblock_all_button.setObjectName("bd_unblock_all_button")
+        self.bd_buttons_vlayout.addWidget(self.bd_unblock_all_button)
+        self.bd_block_sel_data_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_3)
+        self.bd_block_sel_data_button.setEnabled(False)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(10)
-        self.fw_rules_block_sel_data_button.setFont(font)
-        self.fw_rules_block_sel_data_button.setStyleSheet("QPushButton{\n"
-"    background-color:#1F1F1F;\n"
-"    color:white;\n"
+        self.bd_block_sel_data_button.setFont(font)
+        self.bd_block_sel_data_button.setStyleSheet("QPushButton{\n"
+"    background-color:#393E46;\n"
 "}\n"
 "QPushButton:hover{\n"
-"    background-color: #484848;\n"
+"    background-color: #DDDDDD;\n"
+"}\n"
+"QPushButton:disabled { \n"
+"    background-color: #101112; \n"
 "}")
-        self.fw_rules_block_sel_data_button.setText("")
+        self.bd_block_sel_data_button.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("D:/Personal/Projects/muhendislik_tasarimi_proje/source_codes/project/ui\\../assets/single_left_logo1.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.fw_rules_block_sel_data_button.setIcon(icon2)
-        self.fw_rules_block_sel_data_button.setFlat(False)
-        self.fw_rules_block_sel_data_button.setObjectName("fw_rules_block_sel_data_button")
-        self.vfw_rules_buttons_layout.addWidget(self.fw_rules_block_sel_data_button)
-        self.fw_rules_block_all_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_2)
-        self.fw_rules_block_all_button.setEnabled(False)
+        self.bd_block_sel_data_button.setIcon(icon2)
+        self.bd_block_sel_data_button.setFlat(False)
+        self.bd_block_sel_data_button.setObjectName("bd_block_sel_data_button")
+        self.bd_buttons_vlayout.addWidget(self.bd_block_sel_data_button)
+        self.bd_block_all_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_3)
+        self.bd_block_all_button.setEnabled(False)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(10)
-        self.fw_rules_block_all_button.setFont(font)
-        self.fw_rules_block_all_button.setStyleSheet("QPushButton{\n"
-"    background-color:#1F1F1F;\n"
-"    color:white;\n"
+        self.bd_block_all_button.setFont(font)
+        self.bd_block_all_button.setStyleSheet("QPushButton{\n"
+"    background-color:#393E46;\n"
 "}\n"
 "QPushButton:hover{\n"
-"    background-color: #484848;\n"
+"    background-color: #DDDDDD;\n"
+"}\n"
+"QPushButton:disabled { \n"
+"    background-color: #101112; \n"
 "}")
-        self.fw_rules_block_all_button.setText("")
+        self.bd_block_all_button.setText("")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("D:/Personal/Projects/muhendislik_tasarimi_proje/source_codes/project/ui\\../assets/double_left_logo1.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.fw_rules_block_all_button.setIcon(icon3)
-        self.fw_rules_block_all_button.setFlat(False)
-        self.fw_rules_block_all_button.setObjectName("fw_rules_block_all_button")
-        self.vfw_rules_buttons_layout.addWidget(self.fw_rules_block_all_button)
-        self.fw_rules_block_new_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_2)
+        self.bd_block_all_button.setIcon(icon3)
+        self.bd_block_all_button.setFlat(False)
+        self.bd_block_all_button.setObjectName("bd_block_all_button")
+        self.bd_buttons_vlayout.addWidget(self.bd_block_all_button)
+        self.bd_add_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_3)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(10)
-        self.fw_rules_block_new_button.setFont(font)
-        self.fw_rules_block_new_button.setStyleSheet("QPushButton{\n"
-"    background-color:#1F1F1F;\n"
-"    color:white;\n"
+        self.bd_add_button.setFont(font)
+        self.bd_add_button.setStyleSheet("QPushButton{\n"
+"    background-color:#393E46;\n"
 "}\n"
 "QPushButton:hover{\n"
-"    background-color: #484848;\n"
+"    background-color: #DDDDDD;\n"
+"}\n"
+"QPushButton:disabled { \n"
+"    background-color: #101112; \n"
 "}")
-        self.fw_rules_block_new_button.setText("")
+        self.bd_add_button.setText("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("D:/Personal/Projects/muhendislik_tasarimi_proje/source_codes/project/ui\\../assets/add_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.fw_rules_block_new_button.setIcon(icon4)
-        self.fw_rules_block_new_button.setFlat(False)
-        self.fw_rules_block_new_button.setObjectName("fw_rules_block_new_button")
-        self.vfw_rules_buttons_layout.addWidget(self.fw_rules_block_new_button)
-        self.fw_rules_delete_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_2)
+        self.bd_add_button.setIcon(icon4)
+        self.bd_add_button.setFlat(False)
+        self.bd_add_button.setObjectName("bd_add_button")
+        self.bd_buttons_vlayout.addWidget(self.bd_add_button)
+        self.bd_delete_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_3)
+        self.bd_delete_button.setEnabled(False)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(10)
-        self.fw_rules_delete_button.setFont(font)
-        self.fw_rules_delete_button.setStyleSheet("QPushButton{\n"
-"    background-color:#1F1F1F;\n"
-"    color:white;\n"
+        self.bd_delete_button.setFont(font)
+        self.bd_delete_button.setStyleSheet("QPushButton{\n"
+"    background-color:#393E46;\n"
 "}\n"
 "QPushButton:hover{\n"
-"    background-color: #484848;\n"
+"    background-color: #DDDDDD;\n"
+"}\n"
+"QPushButton:disabled { \n"
+"    background-color: #101112; \n"
 "}")
-        self.fw_rules_delete_button.setText("")
+        self.bd_delete_button.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("D:/Personal/Projects/muhendislik_tasarimi_proje/source_codes/project/ui\\../assets/trash_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.fw_rules_delete_button.setIcon(icon5)
-        self.fw_rules_delete_button.setFlat(False)
-        self.fw_rules_delete_button.setObjectName("fw_rules_delete_button")
-        self.vfw_rules_buttons_layout.addWidget(self.fw_rules_delete_button)
-        self.fw_rules_unblocked_list = QtWidgets.QListWidget(parent=self.fw_rule_page)
-        self.fw_rules_unblocked_list.setGeometry(QtCore.QRect(400, 80, 250, 320))
+        self.bd_delete_button.setIcon(icon5)
+        self.bd_delete_button.setFlat(False)
+        self.bd_delete_button.setObjectName("bd_delete_button")
+        self.bd_buttons_vlayout.addWidget(self.bd_delete_button)
+        self.bd_unblocked_list = QtWidgets.QListWidget(parent=self.blocked_data_page)
+        self.bd_unblocked_list.setGeometry(QtCore.QRect(461, 39, 281, 361))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.fw_rules_unblocked_list.sizePolicy().hasHeightForWidth())
-        self.fw_rules_unblocked_list.setSizePolicy(sizePolicy)
-        self.fw_rules_unblocked_list.setStyleSheet("QListWidget {\n"
-"    background-color:#1F1F1F;\n"
-"    color: #FFFFFF;\n"
-"}\n"
+        sizePolicy.setHeightForWidth(self.bd_unblocked_list.sizePolicy().hasHeightForWidth())
+        self.bd_unblocked_list.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.bd_unblocked_list.setFont(font)
+        self.bd_unblocked_list.setStyleSheet("QListWidget {\n"
+"                                outline: 0;\n"
+"                                background-color: #101112; \n"
+"                                color: white; \n"
+"                                border: none; \n"
+"                                padding: 5px; \n"
+"                                border: 1px solid #555555;\n"
+"                            }\n"
 "\n"
-"QListWidget::item {\n"
-"    padding: 5px;\n"
-"}\n"
+"                            QListWidget::item {\n"
+"                                padding: 3px; \n"
+"                            }\n"
 "\n"
-"QListWidget::item:selected {\n"
-"    border: none;\n"
-"    background-color: #1E90FF;\n"
-"    color: #FFFFFF;\n"
-"}\n"
+"                      \n"
 "\n"
-"QListWidget::item:hover {\n"
-"    background-color: #555555;\n"
-"}\n"
+"                            QListWidget::item:hover {\n"
+"                                background-color: #DDDDDD;\n"
+"                                color: #0f0f0f;\n"
+"                            }\n"
 "\n"
-"QScrollBar:vertical {\n"
-"    width: 10px;\n"
-"    background-color: #333333;\n"
-"    border: 1px solid #555555;\n"
-"}\n"
+"                            QScrollBar:vertical {\n"
+"                                border: 1px solid #555555;\n"
+"                                background: none;\n"
+"                                width: 10px;\n"
+"                                margin: 0px 0px 0px 0px;\n"
+"                            }\n"
 "\n"
-"QScrollBar::handle:vertical {\n"
-"    background-color: #4A90E2;\n"
-"    border-radius: 5px;\n"
-"}\n"
+"                            QScrollBar::handle:vertical {\n"
+"                                background: #393E46;\n"
+"                                min-height: 30px;\n"
+"                                max-height: 30px;\n"
+"                                border-radius: 5px;\n"
+"                            }\n"
 "\n"
-"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
-"    background-color: #333333;\n"
-"    height: 10px;\n"
-"}\n"
+"                            QScrollBar::add-line:vertical {\n"
+"                                height: 0px;\n"
+"                                subcontrol-position: bottom;\n"
+"                                subcontrol-origin: margin;\n"
+"                            }\n"
 "\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background-color: #555555;\n"
-"}\n"
+"                            QScrollBar::sub-line:vertical {\n"
+"                                height: 0px;\n"
+"                                subcontrol-position: top;\n"
+"                                subcontrol-origin: margin;\n"
+"                            }\n"
 "\n"
-"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed,\n"
-"QScrollBar::add-page:vertical:pressed, QScrollBar::sub-page:vertical:pressed,\n"
-"QScrollBar::handle:vertical:hover {\n"
-"    background-color: #4A90E2;\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"    height: 10px;\n"
-"    background-color: #333333;\n"
-"    border: 1px solid #555555;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:horizontal {\n"
-"    background-color: #4A90E2;\n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {\n"
-"    background-color: #333333;\n"
-"    width: 10px;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
-"    background-color: #555555;\n"
-"}")
-        self.fw_rules_unblocked_list.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.fw_rules_unblocked_list.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
-        self.fw_rules_unblocked_list.setLineWidth(10)
-        self.fw_rules_unblocked_list.setSelectionRectVisible(True)
-        self.fw_rules_unblocked_list.setObjectName("fw_rules_unblocked_list")
-        self.stackedWidget.addWidget(self.fw_rule_page)
-        self.statistic_page = QtWidgets.QWidget()
-        self.statistic_page.setObjectName("statistic_page")
-        self.stackedWidget.addWidget(self.statistic_page)
+"                            QListWidget::viewport {\n"
+"                                background: #101112;\n"
+"                            }")
+        self.bd_unblocked_list.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.bd_unblocked_list.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
+        self.bd_unblocked_list.setLineWidth(10)
+        self.bd_unblocked_list.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.bd_unblocked_list.setVerticalScrollMode(QtWidgets.QAbstractItemView.ScrollMode.ScrollPerPixel)
+        self.bd_unblocked_list.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollMode.ScrollPerPixel)
+        self.bd_unblocked_list.setSelectionRectVisible(True)
+        self.bd_unblocked_list.setObjectName("bd_unblocked_list")
+        self.stackedWidget.addWidget(self.blocked_data_page)
         self.feedback_page = QtWidgets.QWidget()
         self.feedback_page.setObjectName("feedback_page")
-        self.stackedWidget.addWidget(self.feedback_page)
-        self.general_version_label = QtWidgets.QLabel(parent=self.menu_page)
-        self.general_version_label.setGeometry(QtCore.QRect(10, 470, 95, 16))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.general_version_label.sizePolicy().hasHeightForWidth())
-        self.general_version_label.setSizePolicy(sizePolicy)
+        self.fb_email_text = QtWidgets.QPlainTextEdit(parent=self.feedback_page)
+        self.fb_email_text.setGeometry(QtCore.QRect(30, 60, 661, 25))
+        self.fb_email_text.setStyleSheet("background-color:#393E46;\n"
+"color:white;")
+        self.fb_email_text.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.fb_email_text.setObjectName("fb_email_text")
+        self.fb_email_title = QtWidgets.QLabel(parent=self.feedback_page)
+        self.fb_email_title.setGeometry(QtCore.QRect(30, 35, 90, 20))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.fb_email_title.setFont(font)
+        self.fb_email_title.setStyleSheet("color:white;")
+        self.fb_email_title.setObjectName("fb_email_title")
+        self.fb_sbject_text = QtWidgets.QPlainTextEdit(parent=self.feedback_page)
+        self.fb_sbject_text.setGeometry(QtCore.QRect(30, 130, 661, 25))
+        self.fb_sbject_text.setStyleSheet("background-color:#393E46;\n"
+"color:white;")
+        self.fb_sbject_text.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.fb_sbject_text.setObjectName("fb_sbject_text")
+        self.fb_subject_title = QtWidgets.QLabel(parent=self.feedback_page)
+        self.fb_subject_title.setGeometry(QtCore.QRect(30, 105, 49, 20))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.fb_subject_title.setFont(font)
+        self.fb_subject_title.setStyleSheet("color:white;")
+        self.fb_subject_title.setObjectName("fb_subject_title")
+        self.fb_desc_title = QtWidgets.QLabel(parent=self.feedback_page)
+        self.fb_desc_title.setGeometry(QtCore.QRect(30, 175, 75, 20))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.fb_desc_title.setFont(font)
+        self.fb_desc_title.setStyleSheet("color:white;")
+        self.fb_desc_title.setObjectName("fb_desc_title")
+        self.fb_desc_text = QtWidgets.QPlainTextEdit(parent=self.feedback_page)
+        self.fb_desc_text.setGeometry(QtCore.QRect(30, 200, 661, 221))
+        self.fb_desc_text.setStyleSheet("background-color:#393E46;\n"
+"color:white;")
+        self.fb_desc_text.setObjectName("fb_desc_text")
+        self.fb_submit_fb_button = QtWidgets.QPushButton(parent=self.feedback_page)
+        self.fb_submit_fb_button.setGeometry(QtCore.QRect(30, 470, 181, 26))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(10)
-        self.general_version_label.setFont(font)
-        self.general_version_label.setStyleSheet("color:#777777;")
-        self.general_version_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.general_version_label.setObjectName("general_version_label")
-        self.hmain_layout.addWidget(self.menu_page)
-        self.hmain_layout.setStretch(0, 1)
+        self.fb_submit_fb_button.setFont(font)
+        self.fb_submit_fb_button.setStyleSheet("QPushButton{\n"
+"    background-color:#393E46;\n"
+"    color: white;\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color: #DDDDDD;\n"
+"    color: #0f0f0f;\n"
+"}\n"
+"QPushButton:disabled { \n"
+"    background-color: #101112; \n"
+"}")
+        self.fb_submit_fb_button.setFlat(False)
+        self.fb_submit_fb_button.setObjectName("fb_submit_fb_button")
+        self.stackedWidget.addWidget(self.feedback_page)
+        self.about_page = QtWidgets.QWidget()
+        self.about_page.setStyleSheet("")
+        self.about_page.setObjectName("about_page")
+        self.ab_github_button = QtWidgets.QPushButton(parent=self.about_page)
+        self.ab_github_button.setGeometry(QtCore.QRect(540, 470, 191, 27))
+        self.ab_github_button.setStyleSheet("QPushButton{\n"
+"    background-color:#393E46;\n"
+"    color: white;\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color: #DDDDDD;\n"
+"    color: #0f0f0f;\n"
+"}\n"
+"QPushButton:disabled { \n"
+"    background-color: #101112; \n"
+"}")
+        self.ab_github_button.setObjectName("ab_github_button")
+        self.stackedWidget.addWidget(self.about_page)
+        self.horizontalLayout.addWidget(self.stackedWidget)
+        self.horizontalLayout.setStretch(0, 2)
+        self.horizontalLayout.setStretch(1, 9)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(3)
+        self.md_mal_data_list.setCurrentRow(-1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.menu_general_button.setText(_translate("MainWindow", "General"))
-        self.menu_mal_data_button.setText(_translate("MainWindow", "Malicious Data"))
-        self.menu_fw_button.setText(_translate("MainWindow", "Firewall Rules List"))
-        self.menu_stat_button.setText(_translate("MainWindow", "Statistics"))
-        self.menu_feedback_button.setText(_translate("MainWindow", "Feedback"))
-        self.menu_about_button.setText(_translate("MainWindow", "About"))
-        self.general_apply_button.setText(_translate("MainWindow", "Apply Changes"))
-        self.general_mal_inf_title.setText(_translate("MainWindow", "Received Malicious Data Information"))
-        self.general_last_upt_title.setText(_translate("MainWindow", "Last Update Time"))
-        self.general_tot_domain_label.setText(_translate("MainWindow", "255.255.255.255"))
-        self.general_tot_ip_title.setText(_translate("MainWindow", "Total Number of Malicious IPS"))
-        self.general_colon4.setText(_translate("MainWindow", ":"))
-        self.general_colon5.setText(_translate("MainWindow", ":"))
-        self.general_colon6.setText(_translate("MainWindow", ":"))
-        self.general_tot_domain_title.setText(_translate("MainWindow", "Total Number of Malicious Domains"))
-        self.general_information_title.setText(_translate("MainWindow", "General Information"))
-        self.general_adapter_title.setText(_translate("MainWindow", "Current Adapter"))
-        self.general_ip_label.setText(_translate("MainWindow", "255.255.255.255"))
-        self.general_status_title.setText(_translate("MainWindow", "Protection Mode"))
-        self.general_colon1.setText(_translate("MainWindow", ":"))
-        self.general_colon2.setText(_translate("MainWindow", ":"))
-        self.general_colon3.setText(_translate("MainWindow", ":"))
-        self.general_ip_title.setText(_translate("MainWindow", "Public IP"))
-        self.about_github_button.setText(_translate("MainWindow", "GitHub"))
-        self.mal_detail_title2.setText(_translate("MainWindow", "Other Information"))
-        self.mal_detail_title1.setText(_translate("MainWindow", "Connectivity Information"))
-        self.mal_detail_date_title.setText(_translate("MainWindow", "Date"))
-        self.mal_detail_colon3.setText(_translate("MainWindow", ":"))
-        self.mal_detail_desc_title.setText(_translate("MainWindow", "Description"))
-        self.mal_detail_colon6.setText(_translate("MainWindow", ":"))
-        self.mal_detail_source_title.setText(_translate("MainWindow", "Source        "))
-        self.mal_detail_colon5.setText(_translate("MainWindow", ":"))
-        self.mal_detail_type_title.setText(_translate("MainWindow", "Type"))
-        self.mal_detail_colon4.setText(_translate("MainWindow", ":"))
-        self.mal_threat_level_title.setText(_translate("MainWindow", "THREAT LEVEL"))
-        self.mal_source_button.setText(_translate("MainWindow", "USOM Source"))
-        self.mal_data_title.setText(_translate("MainWindow", "Received Malicious Data"))
-        self.mal_data_update_button.setText(_translate("MainWindow", "Update Data"))
-        self.mal_detail_colon1.setText(_translate("MainWindow", ":"))
-        self.mal_detail_url_title.setText(_translate("MainWindow", "URL             "))
-        self.mal_detail_resolved_ip_title.setText(_translate("MainWindow", "IP Address"))
-        self.mal_detail_colon2.setText(_translate("MainWindow", ":"))
-        self.fw_rules_inf_title.setText(_translate("MainWindow", "Firewall Rules List"))
-        self.fw_rules_colon1.setText(_translate("MainWindow", ":"))
-        self.fw_rules_colon2.setText(_translate("MainWindow", ":"))
-        self.fw_rules_url_title.setText(_translate("MainWindow", "URL"))
-        self.fw_rules_ip_title.setText(_translate("MainWindow", "IP Address"))
-        self.mal_detail_title2_2.setText(_translate("MainWindow", "Other Information"))
-        self.fw_rules_current_stat_title.setText(_translate("MainWindow", "Current Status"))
-        self.fw_rules_op_time_title.setText(_translate("MainWindow", "Operation Time"))
-        self.fw_rules_colon3.setText(_translate("MainWindow", ":"))
-        self.fw_rules_colon4.setText(_translate("MainWindow", ":"))
-        self.fw_rules_url_title_2.setText(_translate("MainWindow", "Blocked List"))
-        self.fw_rules_url_title_3.setText(_translate("MainWindow", "Unblocked List"))
-        self.general_version_label.setText(_translate("MainWindow", "Version 2023.10.1"))
+        self.menu_gen_button.setText(_translate("MainWindow", "General"))
+        self.menu_md_button.setText(_translate("MainWindow", "Malicious Data"))
+        self.menu_bd_button.setText(_translate("MainWindow", "Blocked Data"))
+        self.menu_fb_button.setText(_translate("MainWindow", "Feedback"))
+        self.menu_ab_button.setText(_translate("MainWindow", "About"))
+        self.menu_version_label.setText(_translate("MainWindow", "Version 2023.10.1"))
+        self.gen_apply_button.setText(_translate("MainWindow", "Apply Changes"))
+        self.gen_adapter_title.setText(_translate("MainWindow", "Current Adapter"))
+        self.gen_ip_label.setText(_translate("MainWindow", "255.255.255.255"))
+        self.gen_status_title.setText(_translate("MainWindow", "Protection Mode"))
+        self.gen_colon1.setText(_translate("MainWindow", ":"))
+        self.gen_colon2.setText(_translate("MainWindow", ":"))
+        self.gen_colon3.setText(_translate("MainWindow", ":"))
+        self.gen_ip_title.setText(_translate("MainWindow", "Public IP"))
+        self.gen_information_title.setText(_translate("MainWindow", "General Information"))
+        self.gen_last_upt_title.setText(_translate("MainWindow", "Last Update Time"))
+        self.gen_tot_domain_label.setText(_translate("MainWindow", "256"))
+        self.gen_tot_ip_title.setText(_translate("MainWindow", "Total Number of Malicious IPS"))
+        self.gen_colon4.setText(_translate("MainWindow", ":"))
+        self.gen_colon5.setText(_translate("MainWindow", ":"))
+        self.gen_colon6.setText(_translate("MainWindow", ":"))
+        self.gen_tot_domain_title.setText(_translate("MainWindow", "Total Number of Malicious Domains"))
+        self.gen_tot_ip_label.setText(_translate("MainWindow", "128"))
+        self.gen_last_upt_label.setText(_translate("MainWindow", "2023-10-07 11:08"))
+        self.gen_mal_inf_title.setText(_translate("MainWindow", "Received Malicious Data Information"))
+        self.md_detail_title.setText(_translate("MainWindow", "Other Information"))
+        self.md_detail_colon3.setText(_translate("MainWindow", ":"))
+        self.md_detail_type_title.setText(_translate("MainWindow", "Type"))
+        self.md_detail_colon4.setText(_translate("MainWindow", ":"))
+        self.md_detail_colon6.setText(_translate("MainWindow", ":"))
+        self.md_detail_colon5.setText(_translate("MainWindow", ":"))
+        self.md_detail_date_title.setText(_translate("MainWindow", "Date"))
+        self.md_detail_source_title.setText(_translate("MainWindow", "Source        "))
+        self.md_detail_desc_title.setText(_translate("MainWindow", "Description"))
+        self.md_detail_url_title.setText(_translate("MainWindow", "URL             "))
+        self.md_detail_colon1.setText(_translate("MainWindow", ":"))
+        self.md_threat_level_title.setText(_translate("MainWindow", "THREAT LEVEL"))
+        self.md_source_button.setText(_translate("MainWindow", "USOM Source"))
+        self.md_main_title.setText(_translate("MainWindow", "Received Malicious Data"))
+        self.md_data_update_button.setText(_translate("MainWindow", "Update Data"))
+        self.md_mal_data_list.setSortingEnabled(True)
+        self.bd_blocked_list.setSortingEnabled(True)
+        self.bd_inf_title.setText(_translate("MainWindow", "Other Information"))
+        self.bd_url_title.setText(_translate("MainWindow", "URL"))
+        self.bd_colon3.setText(_translate("MainWindow", ":"))
+        self.bd_current_stat_title.setText(_translate("MainWindow", "Current Status"))
+        self.bd_op_time_title.setText(_translate("MainWindow", "Operation Time"))
+        self.bd_colon1.setText(_translate("MainWindow", ":"))
+        self.bd_colon2.setText(_translate("MainWindow", ":"))
+        self.bd_blocked_list_title.setText(_translate("MainWindow", "Blocked Data List"))
+        self.bd_unblocked_list_title.setText(_translate("MainWindow", "Unblocked Data List"))
+        self.bd_unblocked_list.setSortingEnabled(True)
+        self.fb_email_title.setText(_translate("MainWindow", "Email address"))
+        self.fb_sbject_text.setPlaceholderText(_translate("MainWindow", "Briefly describe the issue."))
+        self.fb_subject_title.setText(_translate("MainWindow", "Subject"))
+        self.fb_desc_title.setText(_translate("MainWindow", "Description"))
+        self.fb_desc_text.setPlaceholderText(_translate("MainWindow", "Describe the issue/improvement in as much detail as you can. Include steps to replicate if relevant."))
+        self.fb_submit_fb_button.setText(_translate("MainWindow", "Submit feedback"))
+        self.ab_github_button.setText(_translate("MainWindow", "GitHub"))
 
 
 if __name__ == "__main__":

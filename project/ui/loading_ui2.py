@@ -14,23 +14,24 @@ class uiLoading(QtWidgets.QDialog):
         self.setStyleSheet("background-color:black;")
         self.setWindowFlags(
                             Qt.WindowType.WindowStaysOnTopHint)
-        self.dialog_loading_cancel_button = QtWidgets.QDialogButtonBox(self)
-        self.dialog_loading_cancel_button.setGeometry(QtCore.QRect(167, 100, 75, 24))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(10)
-        self.dialog_loading_cancel_button.setFont(font)
-        self.dialog_loading_cancel_button.setStyleSheet("QPushButton{\n"
-"    background-color:#1F1F1F;\n"
-"   color:white;\n"
-"}\n"
-"QPushButton:hover{\n"
-"  background-color: #484848;\n"
-"}")
-        self.dialog_loading_cancel_button.setOrientation(QtCore.Qt.Orientation.Horizontal)
-        self.dialog_loading_cancel_button.setStandardButtons(QtWidgets.QDialogButtonBox.StandardButton.Cancel)
-        self.dialog_loading_cancel_button.setCenterButtons(False)
-        self.dialog_loading_cancel_button.setObjectName("dialog_loading_cancel_button")
+        self.setWindowModality(Qt.WindowModality.ApplicationModal)
+        # self.dialog_loading_cancel_button = QtWidgets.QDialogButtonBox(self)
+        # self.dialog_loading_cancel_button.setGeometry(QtCore.QRect(167, 100, 75, 24))
+        # font = QtGui.QFont()
+        # font.setFamily("Calibri")
+        # font.setPointSize(10)
+#         self.dialog_loading_cancel_button.setFont(font)
+#         self.dialog_loading_cancel_button.setStyleSheet("QPushButton{\n"
+# "    background-color:#1F1F1F;\n"
+# "   color:white;\n"
+# "}\n"
+# "QPushButton:hover{\n"
+# "  background-color: #484848;\n"
+# "}")
+#         self.dialog_loading_cancel_button.setOrientation(QtCore.Qt.Orientation.Horizontal)
+#         self.dialog_loading_cancel_button.setStandardButtons(QtWidgets.QDialogButtonBox.StandardButton.Cancel)
+#         self.dialog_loading_cancel_button.setCenterButtons(False)
+#         self.dialog_loading_cancel_button.setObjectName("dialog_loading_cancel_button")
         self.dialog_loading_prog_bar = QtWidgets.QProgressBar(self)
         self.dialog_loading_prog_bar.setGeometry(QtCore.QRect(95, 60, 220, 24))
         self.dialog_loading_prog_bar.setProperty("value", 0)
@@ -51,17 +52,15 @@ class uiLoading(QtWidgets.QDialog):
         self.dialog_loading_logo.setScaledContents(True)
         self.dialog_loading_logo.setObjectName("dialog_loading_logo")
         self.dialog_loading_title = QtWidgets.QLabel(self)
-        self.dialog_loading_title.setGeometry(QtCore.QRect(73, 20, 264, 24))
+        self.dialog_loading_title.setGeometry(QtCore.QRect(73, 10, 264, 46))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(14)
+        self.dialog_loading_title.setWordWrap(True)
         self.dialog_loading_title.setFont(font)
         self.dialog_loading_title.setStyleSheet("color:white;")
         self.dialog_loading_title.setObjectName("dialog_loading_title")
 
-      
-        self.dialog_loading_cancel_button.accepted.connect(self.accept)
-        self.dialog_loading_cancel_button.rejected.connect(self.reject) 
     
         self.dialog_loading_title.setText("Checking for new malicious data...")
         self.bool = False
@@ -81,9 +80,9 @@ class uiLoading(QtWidgets.QDialog):
             self.dialog_loading_prog_bar.setValue(value)
         
 
-# if __name__ == "__main__":
-#     import sys
-#     app = QtWidgets.QApplication(sys.argv)
-#     loading_ui = uiLoading()
-#     loading_ui.show()
-#     sys.exit(app.exec())
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    loading_ui = uiLoading()
+    loading_ui.show()
+    sys.exit(app.exec())

@@ -14,6 +14,7 @@ class uiInformation(QtWidgets.QDialog):
         self.setStyleSheet("background-color:black;")
         self.setWindowFlags(
                             Qt.WindowType.WindowStaysOnTopHint)
+        self.setWindowModality(Qt.WindowModality.ApplicationModal)
         self.dialog_inf_ok_button = QtWidgets.QDialogButtonBox(parent=self)
         self.dialog_inf_ok_button.setGeometry(QtCore.QRect(157, 70, 75, 24))
         self.dialog_inf_ok_button.setStyleSheet("QPushButton{\n"

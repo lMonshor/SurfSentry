@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>840</width>
-    <height>500</height>
+    <width>940</width>
+    <height>528</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,14 +18,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>840</width>
-    <height>500</height>
+    <width>940</width>
+    <height>528</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>9999</width>
-    <height>9999</height>
+    <width>940</width>
+    <height>528</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -40,33 +40,27 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>840</width>
-     <height>500</height>
+     <width>940</width>
+     <height>528</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>840</width>
-     <height>500</height>
+     <width>940</width>
+     <height>528</height>
     </size>
    </property>
-   <widget class="QWidget" name="horizontalLayoutWidget">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>842</width>
-      <height>502</height>
+      <width>941</width>
+      <height>531</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="hmain_layout" stretch="1">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,9">
      <property name="spacing">
-      <number>0</number>
-     </property>
-     <property name="sizeConstraint">
-      <enum>QLayout::SetDefaultConstraint</enum>
-     </property>
-     <property name="rightMargin">
       <number>0</number>
      </property>
      <item>
@@ -85,28 +79,31 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>999</width>
+         <width>300</width>
          <height>999</height>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:#1F1F1F;</string>
+        <string notr="true">background-color:#393E46;</string>
        </property>
        <widget class="QWidget" name="verticalLayoutWidget">
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>110</y>
+          <y>30</y>
           <width>171</width>
-          <height>242</height>
+          <height>241</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="vmenu_layout">
          <property name="spacing">
           <number>0</number>
          </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
          <item>
-          <widget class="QRadioButton" name="menu_general_button">
+          <widget class="QRadioButton" name="menu_gen_button">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -117,28 +114,24 @@
             <font>
              <family>Calibri</family>
              <pointsize>12</pointsize>
-             <bold>false</bold>
             </font>
            </property>
            <property name="styleSheet">
             <string notr="true">QRadioButton {
-    padding: 10px;
     border: none;
-    color: white; 
+    color: white;
 }
 QRadioButton:hover {
-    background-color: #484848;
+    background-color: #DDDDDD;
+	color: #0f0f0f;
 }
 QRadioButton::indicator {
- 
-
     border: none;
 }
 
 QRadioButton::indicator:checked {
-     border-left: 6px solid #1e90ff; 
+     border-left: 6px solid #4088D6;
 }
-
 </string>
            </property>
            <property name="text">
@@ -150,7 +143,7 @@ QRadioButton::indicator:checked {
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="menu_mal_data_button">
+          <widget class="QRadioButton" name="menu_md_button">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -166,23 +159,20 @@ QRadioButton::indicator:checked {
            </property>
            <property name="styleSheet">
             <string notr="true">QRadioButton {
-    padding: 10px;
     border: none;
-    color: white; 
+    color: white;
 }
 QRadioButton:hover {
-    background-color: #484848;
+    background-color: #DDDDDD;
+	color: #0f0f0f;
 }
 QRadioButton::indicator {
- 
-
     border: none;
 }
 
 QRadioButton::indicator:checked {
-     border-left: 6px solid #1e90ff; 
+     border-left: 6px solid #4088D6;
 }
-
 </string>
            </property>
            <property name="text">
@@ -194,7 +184,7 @@ QRadioButton::indicator:checked {
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="menu_fw_button">
+          <widget class="QRadioButton" name="menu_bd_button">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -210,27 +200,24 @@ QRadioButton::indicator:checked {
            </property>
            <property name="styleSheet">
             <string notr="true">QRadioButton {
-    padding: 10px;
     border: none;
-    color: white; 
+    color: white;
 }
 QRadioButton:hover {
-    background-color: #484848;
+    background-color: #DDDDDD;
+	color: #0f0f0f;
 }
 QRadioButton::indicator {
- 
-
     border: none;
 }
 
 QRadioButton::indicator:checked {
-     border-left: 6px solid #1e90ff; 
+     border-left: 6px solid #4088D6;
 }
-
 </string>
            </property>
            <property name="text">
-            <string>Firewall Rules List</string>
+            <string>Blocked Data</string>
            </property>
            <property name="checked">
             <bool>false</bool>
@@ -238,7 +225,7 @@ QRadioButton::indicator:checked {
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="menu_stat_button">
+          <widget class="QRadioButton" name="menu_fb_button">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -254,67 +241,20 @@ QRadioButton::indicator:checked {
            </property>
            <property name="styleSheet">
             <string notr="true">QRadioButton {
-    padding: 10px;
     border: none;
-    color: white; 
+    color: white;
 }
 QRadioButton:hover {
-    background-color: #484848;
+    background-color: #DDDDDD;
+	color: #0f0f0f;
 }
 QRadioButton::indicator {
- 
-
     border: none;
 }
 
 QRadioButton::indicator:checked {
-     border-left: 6px solid #1e90ff; 
+     border-left: 6px solid #4088D6;
 }
-
-</string>
-           </property>
-           <property name="text">
-            <string>Statistics</string>
-           </property>
-           <property name="checked">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="menu_feedback_button">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="font">
-            <font>
-             <family>Calibri</family>
-             <pointsize>12</pointsize>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QRadioButton {
-    padding: 10px;
-    border: none;
-    color: white; 
-}
-QRadioButton:hover {
-    background-color: #484848;
-}
-QRadioButton::indicator {
- 
-
-    border: none;
-}
-
-QRadioButton::indicator:checked {
-     border-left: 6px solid #1e90ff; 
-}
-
 </string>
            </property>
            <property name="text">
@@ -326,7 +266,7 @@ QRadioButton::indicator:checked {
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="menu_about_button">
+          <widget class="QRadioButton" name="menu_ab_button">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -342,23 +282,20 @@ QRadioButton::indicator:checked {
            </property>
            <property name="styleSheet">
             <string notr="true">QRadioButton {
-    padding: 10px;
     border: none;
-    color: white; 
+    color: white;
 }
 QRadioButton:hover {
-    background-color: #484848;
+    background-color: #DDDDDD;
+	color: #0f0f0f;
 }
 QRadioButton::indicator {
- 
-
     border: none;
 }
 
 QRadioButton::indicator:checked {
-     border-left: 6px solid #1e90ff; 
+     border-left: 6px solid #4088D6;
 }
-
 </string>
            </property>
            <property name="text">
@@ -371,1888 +308,12 @@ QRadioButton::indicator:checked {
          </item>
         </layout>
        </widget>
-       <widget class="QStackedWidget" name="stackedWidget">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="geometry">
-         <rect>
-          <x>170</x>
-          <y>0</y>
-          <width>672</width>
-          <height>500</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>999</width>
-          <height>999</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color:black;</string>
-        </property>
-        <property name="currentIndex">
-         <number>3</number>
-        </property>
-        <widget class="QWidget" name="general_page">
-         <property name="styleSheet">
-          <string notr="true">background-color:black;</string>
-         </property>
-         <widget class="QPushButton" name="general_apply_button">
-          <property name="geometry">
-           <rect>
-            <x>500</x>
-            <y>433</y>
-            <width>141</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-	background-color:#1F1F1F;
-	color:white;
-}
-QPushButton:hover{
-	background-color: #484848;
-}</string>
-          </property>
-          <property name="text">
-           <string>Apply Changes</string>
-          </property>
-         </widget>
-         <widget class="QWidget" name="layoutWidget_2">
-          <property name="geometry">
-           <rect>
-            <x>50</x>
-            <y>190</y>
-            <width>421</width>
-            <height>121</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="vgeneral_bottom_layout">
-           <item>
-            <widget class="QLabel" name="general_mal_inf_title">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>20</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>Received Malicious Data Information</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QGridLayout" name="ggeneral_bottom_layout">
-             <property name="horizontalSpacing">
-              <number>6</number>
-             </property>
-             <item row="2" column="0">
-              <widget class="QLabel" name="general_last_upt_title">
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>Last Update Time</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLabel" name="general_tot_domain_label">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:#777777;</string>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-               </property>
-               <property name="text">
-                <string>255.255.255.255</string>
-               </property>
-               <property name="wordWrap">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="general_tot_ip_title">
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>Total Number of Malicious IPS</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2">
-              <widget class="QComboBox" name="general_tot_ip_label"/>
-             </item>
-             <item row="2" column="2">
-              <widget class="QComboBox" name="general_last_upt_label"/>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLabel" name="general_colon4">
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLabel" name="general_colon5">
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLabel" name="general_colon6">
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="general_tot_domain_title">
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="layoutDirection">
-                <enum>Qt::LeftToRight</enum>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>Total Number of Malicious Domains</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="layoutWidget">
-          <property name="geometry">
-           <rect>
-            <x>50</x>
-            <y>60</y>
-            <width>251</width>
-            <height>115</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="vgeneral_top_layout">
-           <item>
-            <widget class="QLabel" name="general_information_title">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>20</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>General Information</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QGridLayout" name="ggeneral_top_layout">
-             <property name="horizontalSpacing">
-              <number>6</number>
-             </property>
-             <item row="2" column="0">
-              <widget class="QLabel" name="general_adapter_title">
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>Current Adapter</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLabel" name="general_ip_label">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:#777777;</string>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-               </property>
-               <property name="text">
-                <string>255.255.255.255</string>
-               </property>
-               <property name="wordWrap">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="general_status_title">
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>Protection Mode</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2">
-              <widget class="QComboBox" name="general_mode_cbox"/>
-             </item>
-             <item row="2" column="2">
-              <widget class="QComboBox" name="general_adapter_cbox"/>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLabel" name="general_colon1">
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLabel" name="general_colon2">
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLabel" name="general_colon3">
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="general_ip_title">
-               <property name="font">
-                <font>
-                 <family>Calibri</family>
-                 <pointsize>12</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="layoutDirection">
-                <enum>Qt::LeftToRight</enum>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>Public IP</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </widget>
-        <widget class="QWidget" name="about_me_page">
-         <property name="styleSheet">
-          <string notr="true">background-color:grey</string>
-         </property>
-         <widget class="QPushButton" name="about_github_button">
-          <property name="geometry">
-           <rect>
-            <x>440</x>
-            <y>460</y>
-            <width>195</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-	background-color:#1F1F1F;
-	color:white;
-}
-QPushButton:hover{
-	background-color: #484848;
-}</string>
-          </property>
-          <property name="text">
-           <string>GitHub</string>
-          </property>
-         </widget>
-         <widget class="QListWidget" name="listWidget">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>90</y>
-            <width>256</width>
-            <height>192</height>
-           </rect>
-          </property>
-         </widget>
-        </widget>
-        <widget class="QWidget" name="mal_data_page">
-         <property name="styleSheet">
-          <string notr="true">background-color:black;</string>
-         </property>
-         <widget class="QLabel" name="mal_detail_title2">
-          <property name="geometry">
-           <rect>
-            <x>270</x>
-            <y>210</y>
-            <width>141</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>14</pointsize>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:white;</string>
-          </property>
-          <property name="text">
-           <string>Other Information</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="mal_detail_title1">
-          <property name="geometry">
-           <rect>
-            <x>270</x>
-            <y>100</y>
-            <width>192</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>53</width>
-            <height>24</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>14</pointsize>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:white;</string>
-          </property>
-          <property name="text">
-           <string>Connectivity Information</string>
-          </property>
-         </widget>
-         <widget class="QWidget" name="formLayoutWidget_2">
-          <property name="geometry">
-           <rect>
-            <x>280</x>
-            <y>240</y>
-            <width>381</width>
-            <height>111</height>
-           </rect>
-          </property>
-          <layout class="QGridLayout" name="gmal_bottom_layout">
-           <property name="spacing">
-            <number>6</number>
-           </property>
-           <item row="2" column="0">
-            <widget class="QLabel" name="mal_detail_date_title">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>Date</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="2">
-            <widget class="QLabel" name="mal_detail_date_label">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:#777777;</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="mal_detail_colon3">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLabel" name="mal_detail_type_label">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:#777777;</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="mal_detail_desc_title">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>Description</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QLabel" name="mal_detail_colon6">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="mal_detail_source_title">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>Source        </string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLabel" name="mal_detail_colon5">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="mal_detail_type_title">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>Type</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="mal_detail_colon4">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLabel" name="mal_detail_source_label">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:#777777;</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QLabel" name="mal_threat_level_title">
-          <property name="geometry">
-           <rect>
-            <x>340</x>
-            <y>60</y>
-            <width>261</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>12</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color:#1F1F1F;
-color:white;</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
-          </property>
-          <property name="text">
-           <string>THREAT LEVEL</string>
-          </property>
-          <property name="scaledContents">
-           <bool>false</bool>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="mal_source_button">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>370</x>
-            <y>450</y>
-            <width>210</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-	background-color:#1F1F1F;
-	color:white;
-}
-QPushButton:hover{
-	background-color: #484848;
-}</string>
-          </property>
-          <property name="text">
-           <string>USOM Source</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="mal_data_title">
-          <property name="geometry">
-           <rect>
-            <x>11</x>
-            <y>20</y>
-            <width>279</width>
-            <height>33</height>
-           </rect>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>20</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:white;</string>
-          </property>
-          <property name="text">
-           <string>Received Malicious Data</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="mal_data_update_button">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>450</y>
-            <width>210</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-	background-color:#1F1F1F;
-	color:white;
-}
-QPushButton:hover{
-	background-color: #484848;
-}</string>
-          </property>
-          <property name="text">
-           <string>Update Data</string>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
-          </property>
-         </widget>
-         <widget class="Line" name="mal_first_hline">
-          <property name="geometry">
-           <rect>
-            <x>270</x>
-            <y>198</y>
-            <width>390</width>
-            <height>1</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color:#1F1F1F;</string>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-         <widget class="Line" name="mal_second_hline">
-          <property name="geometry">
-           <rect>
-            <x>270</x>
-            <y>438</y>
-            <width>390</width>
-            <height>2</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color:#1F1F1F;</string>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-         <widget class="QListWidget" name="mal_urls_list">
-          <property name="geometry">
-           <rect>
-            <x>11</x>
-            <y>60</y>
-            <width>250</width>
-            <height>379</height>
-           </rect>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QListWidget {
-    background-color:#1F1F1F;
-    color: #FFFFFF;
-}
-
-QListWidget::item {
-    padding: 2px;
-}
-
-QListWidget::item:selected {
-    background-color: #1E90FF;
-    color: #FFFFFF;
-}
-
-QListWidget::item:hover {
-    background-color: #555555;
-}
-
-QScrollBar:vertical {
-    width: 10px;
-    background-color: #333333;
-    border: 1px solid #555555;
-}
-
-QScrollBar::handle:vertical {
-    background-color: #4A90E2;
-    border-radius: 5px;
-}
-
-QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
-    background-color: #333333;
-    height: 10px;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-    background-color: #555555;
-}
-
-QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed,
-QScrollBar::add-page:vertical:pressed, QScrollBar::sub-page:vertical:pressed,
-QScrollBar::handle:vertical:hover {
-    background-color: #4A90E2;
-}
-
-QScrollBar:horizontal {
-    height: 10px;
-    background-color: #333333;
-    border: 1px solid #555555;
-}
-
-QScrollBar::handle:horizontal {
-    background-color: #4A90E2;
-    border-radius: 5px;
-}
-
-QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
-    background-color: #333333;
-    width: 10px;
-}
-
-QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
-    background-color: #555555;
-}</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
-          </property>
-          <property name="selectionRectVisible">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QWidget" name="gridLayoutWidget">
-          <property name="geometry">
-           <rect>
-            <x>280</x>
-            <y>130</y>
-            <width>381</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <layout class="QGridLayout" name="gmal_dewtail_top_layout">
-           <item row="0" column="1">
-            <widget class="QLabel" name="mal_detail_colon1">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="mal_detail_url_title">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>URL             </string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLineEdit" name="mal_detail_url_label">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:#777777;</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="frame">
-              <bool>false</bool>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="mal_detail_resolved_ip_title">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>IP Address</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLineEdit" name="mal_detail_resolved_ip_label">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:#777777;</string>
-             </property>
-             <property name="frame">
-              <bool>false</bool>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="mal_detail_colon2">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>:</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QLabel" name="mal_detail_desc_label">
-          <property name="geometry">
-           <rect>
-            <x>280</x>
-            <y>360</y>
-            <width>381</width>
-            <height>71</height>
-           </rect>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="contextMenuPolicy">
-           <enum>Qt::NoContextMenu</enum>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:#777777;</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </widget>
-        <widget class="QWidget" name="fw_rule_page">
-         <widget class="QLabel" name="fw_rules_inf_title">
-          <property name="geometry">
-           <rect>
-            <x>11</x>
-            <y>20</y>
-            <width>199</width>
-            <height>33</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>20</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:white;</string>
-          </property>
-          <property name="text">
-           <string>Firewall Rules List</string>
-          </property>
-         </widget>
-         <widget class="QListWidget" name="fw_rules_blocked_list">
-          <property name="geometry">
-           <rect>
-            <x>11</x>
-            <y>80</y>
-            <width>250</width>
-            <height>320</height>
-           </rect>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QListWidget {
-    background-color:#1F1F1F;
-    color: #FFFFFF;
-}
-
-QListWidget::item {
-    padding: 5px;
-}
-
-QListWidget::item:selected {
-	border: none;
-    background-color: #1E90FF;
-    color: #FFFFFF;
-}
-
-QListWidget::item:hover {
-    background-color: #555555;
-}
-
-QScrollBar:vertical {
-    width: 10px;
-    background-color: #333333;
-    border: 1px solid #555555;
-}
-
-QScrollBar::handle:vertical {
-    background-color: #4A90E2;
-    border-radius: 5px;
-}
-
-QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
-    background-color: #333333;
-    height: 10px;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-    background-color: #555555;
-}
-
-QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed,
-QScrollBar::add-page:vertical:pressed, QScrollBar::sub-page:vertical:pressed,
-QScrollBar::handle:vertical:hover {
-    background-color: #4A90E2;
-}
-
-QScrollBar:horizontal {
-    height: 10px;
-    background-color: #333333;
-    border: 1px solid #555555;
-}
-
-QScrollBar::handle:horizontal {
-    background-color: #4A90E2;
-    border-radius: 5px;
-}
-
-QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
-    background-color: #333333;
-    width: 10px;
-}
-
-QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
-    background-color: #555555;
-}</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
-          </property>
-          <property name="lineWidth">
-           <number>2</number>
-          </property>
-          <property name="selectionRectVisible">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QWidget" name="formLayoutWidget_3">
-          <property name="geometry">
-           <rect>
-            <x>260</x>
-            <y>440</y>
-            <width>401</width>
-            <height>50</height>
-           </rect>
-          </property>
-          <layout class="QGridLayout" name="gfw_rules_left_layout">
-           <property name="spacing">
-            <number>6</number>
-           </property>
-           <item row="0" column="1">
-            <widget class="QLabel" name="fw_rules_colon1">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="fw_rules_colon2">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="fw_rules_url_title">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>URL</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="fw_rules_ip_title">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>IP Address</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLineEdit" name="fw_rules_url_label">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:#777777;</string>
-             </property>
-             <property name="frame">
-              <bool>false</bool>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLineEdit" name="fw_rules_ip_label">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:#777777;</string>
-             </property>
-             <property name="frame">
-              <bool>false</bool>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QLabel" name="mal_detail_title2_2">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>410</y>
-            <width>141</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>14</pointsize>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:white;</string>
-          </property>
-          <property name="text">
-           <string>Other Information</string>
-          </property>
-         </widget>
-         <widget class="QWidget" name="gridLayoutWidget_2">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>440</y>
-            <width>241</width>
-            <height>48</height>
-           </rect>
-          </property>
-          <layout class="QGridLayout" name="gfw_rules_right_layout">
-           <item row="1" column="0">
-            <widget class="QLabel" name="fw_rules_current_stat_title">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>Current Status</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="fw_rules_op_time_title">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>Operation Time</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="fw_rules_colon3">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="fw_rules_colon4">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;</string>
-             </property>
-             <property name="text">
-              <string>:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLabel" name="fw_rules_current_stat_label">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:#777777;</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLabel" name="fw_rules_op_time_label">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:#777777;</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QLabel" name="fw_rules_url_title_2">
-          <property name="geometry">
-           <rect>
-            <x>11</x>
-            <y>60</y>
-            <width>77</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>12</pointsize>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:white;</string>
-          </property>
-          <property name="text">
-           <string>Blocked List</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="fw_rules_url_title_3">
-          <property name="geometry">
-           <rect>
-            <x>401</x>
-            <y>58</y>
-            <width>95</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>12</pointsize>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:white;</string>
-          </property>
-          <property name="text">
-           <string>Unblocked List</string>
-          </property>
-         </widget>
-         <widget class="QWidget" name="verticalLayoutWidget_2">
-          <property name="geometry">
-           <rect>
-            <x>290</x>
-            <y>160</y>
-            <width>81</width>
-            <height>176</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="vfw_rules_buttons_layout">
-           <item>
-            <widget class="QPushButton" name="fw_rules_unblock_sel_data_button">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-	background-color:#1F1F1F;
-	color:white;
-}
-QPushButton:hover{
-	background-color: #484848;
-}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>../assets/single_right_logo1.png</normaloff>../assets/single_right_logo1.png</iconset>
-             </property>
-             <property name="flat">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="fw_rules_unblock_all_button">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-	background-color:#1F1F1F;
-	color:white;
-}
-QPushButton:hover{
-	background-color: #484848;
-}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>../assets/double_right_logo1.png</normaloff>../assets/double_right_logo1.png</iconset>
-             </property>
-             <property name="flat">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="fw_rules_block_sel_data_button">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-	background-color:#1F1F1F;
-	color:white;
-}
-QPushButton:hover{
-	background-color: #484848;
-}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>../assets/single_left_logo1.png</normaloff>../assets/single_left_logo1.png</iconset>
-             </property>
-             <property name="flat">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="fw_rules_block_all_button">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-	background-color:#1F1F1F;
-	color:white;
-}
-QPushButton:hover{
-	background-color: #484848;
-}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>../assets/double_left_logo1.png</normaloff>../assets/double_left_logo1.png</iconset>
-             </property>
-             <property name="flat">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="fw_rules_block_new_button">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-	background-color:#1F1F1F;
-	color:white;
-}
-QPushButton:hover{
-	background-color: #484848;
-}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>../assets/add_logo.png</normaloff>../assets/add_logo.png</iconset>
-             </property>
-             <property name="flat">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="fw_rules_delete_button">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-	background-color:#1F1F1F;
-	color:white;
-}
-QPushButton:hover{
-	background-color: #484848;
-}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>../assets/trash_logo.png</normaloff>../assets/trash_logo.png</iconset>
-             </property>
-             <property name="flat">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QListWidget" name="fw_rules_unblocked_list">
-          <property name="geometry">
-           <rect>
-            <x>400</x>
-            <y>80</y>
-            <width>250</width>
-            <height>320</height>
-           </rect>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QListWidget {
-    background-color:#1F1F1F;
-    color: #FFFFFF;
-}
-
-QListWidget::item {
-    padding: 5px;
-}
-
-QListWidget::item:selected {
-	border: none;
-    background-color: #1E90FF;
-    color: #FFFFFF;
-}
-
-QListWidget::item:hover {
-    background-color: #555555;
-}
-
-QScrollBar:vertical {
-    width: 10px;
-    background-color: #333333;
-    border: 1px solid #555555;
-}
-
-QScrollBar::handle:vertical {
-    background-color: #4A90E2;
-    border-radius: 5px;
-}
-
-QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
-    background-color: #333333;
-    height: 10px;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-    background-color: #555555;
-}
-
-QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed,
-QScrollBar::add-page:vertical:pressed, QScrollBar::sub-page:vertical:pressed,
-QScrollBar::handle:vertical:hover {
-    background-color: #4A90E2;
-}
-
-QScrollBar:horizontal {
-    height: 10px;
-    background-color: #333333;
-    border: 1px solid #555555;
-}
-
-QScrollBar::handle:horizontal {
-    background-color: #4A90E2;
-    border-radius: 5px;
-}
-
-QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
-    background-color: #333333;
-    width: 10px;
-}
-
-QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
-    background-color: #555555;
-}</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
-          </property>
-          <property name="lineWidth">
-           <number>10</number>
-          </property>
-          <property name="selectionRectVisible">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </widget>
-        <widget class="QWidget" name="statistic_page"/>
-        <widget class="QWidget" name="feedback_page"/>
-       </widget>
-       <widget class="QLabel" name="general_version_label">
+       <widget class="QLabel" name="menu_version_label">
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>470</y>
-          <width>95</width>
+          <y>500</y>
+          <width>101</width>
           <height>16</height>
          </rect>
         </property>
@@ -2277,6 +338,1990 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
         <property name="text">
          <string>Version 2023.10.1</string>
         </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QStackedWidget" name="stackedWidget">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>999</width>
+         <height>999</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #0f0f0f;</string>
+       </property>
+       <property name="currentIndex">
+        <number>3</number>
+       </property>
+       <widget class="QWidget" name="general_page">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <widget class="QPushButton" name="gen_apply_button">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>540</x>
+           <y>470</y>
+           <width>191</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color:#393E46;
+	color: white;
+}
+QPushButton:hover{
+	background-color: #DDDDDD;
+	color: #0f0f0f;
+}
+QPushButton:disabled { 
+	background-color: #101112; 
+}</string>
+         </property>
+         <property name="text">
+          <string>Apply Changes</string>
+         </property>
+        </widget>
+        <widget class="Line" name="gen_second_hline">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>355</y>
+           <width>721</width>
+           <height>1</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#1F1F1F;</string>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="Line" name="gen_first_hline">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>190</y>
+           <width>721</width>
+           <height>1</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#1F1F1F;</string>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>100</y>
+           <width>311</width>
+           <height>74</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gen_top_glayout">
+          <property name="horizontalSpacing">
+           <number>6</number>
+          </property>
+          <item row="2" column="0">
+           <widget class="QLabel" name="gen_adapter_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Current Adapter</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="gen_ip_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#777777;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="text">
+             <string>255.255.255.255</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="gen_status_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Protection Mode</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QComboBox" name="gen_mode_cbox"/>
+          </item>
+          <item row="2" column="2">
+           <widget class="QComboBox" name="gen_adapter_cbox"/>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="gen_colon1">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="gen_colon2">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="gen_colon3">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="gen_ip_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Public IP</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QLabel" name="gen_information_title">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>61</y>
+           <width>222</width>
+           <height>33</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>18</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>General Information</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>250</y>
+           <width>491</width>
+           <height>74</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gen_bottom_glayout">
+          <property name="horizontalSpacing">
+           <number>6</number>
+          </property>
+          <item row="2" column="0">
+           <widget class="QLabel" name="gen_last_upt_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Last Update Time</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="gen_tot_domain_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#777777;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="text">
+             <string>256</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="gen_tot_ip_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Total Number of Malicious IPS</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="gen_colon4">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="gen_colon5">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="gen_colon6">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="gen_tot_domain_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Total Number of Malicious Domains</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLabel" name="gen_tot_ip_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#777777;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="text">
+             <string>128</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QLabel" name="gen_last_upt_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#777777;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="text">
+             <string>2023-10-07 11:08</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QLabel" name="gen_mal_inf_title">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>211</y>
+           <width>403</width>
+           <height>33</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>18</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Received Malicious Data Information</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="mal_data_page">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <widget class="QLabel" name="md_detail_title">
+         <property name="geometry">
+          <rect>
+           <x>320</x>
+           <y>110</y>
+           <width>141</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>14</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Other Information</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="formLayoutWidget_3">
+         <property name="geometry">
+          <rect>
+           <x>330</x>
+           <y>160</y>
+           <width>431</width>
+           <height>127</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="md_top_glayout">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="1" column="2">
+           <widget class="QLabel" name="md_detail_type_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#777777;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="md_detail_colon3">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QLabel" name="md_detail_date_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#777777;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="md_detail_type_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Type</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="md_detail_colon4">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QLabel" name="md_detail_source_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#777777;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLabel" name="md_detail_colon6">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLabel" name="md_detail_colon5">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="md_detail_date_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Date</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="md_detail_source_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Source        </string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="md_detail_desc_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Description</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="md_detail_url_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>URL             </string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="md_detail_colon1">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLineEdit" name="md_detail_url_label">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#777777;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QLabel" name="md_threat_level_title">
+         <property name="geometry">
+          <rect>
+           <x>380</x>
+           <y>60</y>
+           <width>311</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#393E46;
+	color: #EEEEEE;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="text">
+          <string>THREAT LEVEL</string>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="md_source_button">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>450</x>
+           <y>490</y>
+           <width>191</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color:#393E46;
+	color: white;
+}
+QPushButton:hover{
+	background-color: #DDDDDD;
+	color: #0f0f0f;
+}
+QPushButton:disabled { 
+	background-color: #101112; 
+}</string>
+         </property>
+         <property name="text">
+          <string>USOM Source</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="md_main_title">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>30</y>
+           <width>188</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>14</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Received Malicious Data</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="md_data_update_button">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>490</y>
+           <width>191</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color:#393E46;
+	color: white;
+}
+QPushButton:hover{
+	background-color: #DDDDDD;
+	color: #0f0f0f;
+}
+QPushButton:disabled { 
+	background-color: #101112; 
+}</string>
+         </property>
+         <property name="text">
+          <string>Update Data</string>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+        <widget class="Line" name="md_second_hline">
+         <property name="geometry">
+          <rect>
+           <x>330</x>
+           <y>480</y>
+           <width>421</width>
+           <height>1</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#1F1F1F;</string>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="QListWidget" name="md_mal_data_list">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>60</y>
+           <width>281</width>
+           <height>421</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="toolTipDuration">
+          <number>-1</number>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QListWidget {
+                                outline: 0;
+                                background-color: #101112; 
+                                color: white; 
+                                border: none; 
+                                padding: 5px; 
+                                border: 1px solid #555555;
+                            }
+
+                            QListWidget::item {
+                                padding: 3px; 
+                            }
+
+                      
+
+                            QListWidget::item:hover {
+                                background-color: #DDDDDD;
+                                color: #0f0f0f;
+                            }
+
+                            QScrollBar:vertical {
+                                border: 1px solid #555555;
+                                background: none;
+                                width: 10px;
+                                margin: 0px 0px 0px 0px;
+                            }
+
+                            QScrollBar::handle:vertical {
+                                background: #393E46;
+                                min-height: 30px;
+                                max-height: 30px;
+                                border-radius: 5px;
+                            }
+
+                            QScrollBar::add-line:vertical {
+                                height: 0px;
+                                subcontrol-position: bottom;
+                                subcontrol-origin: margin;
+                            }
+
+                            QScrollBar::sub-line:vertical {
+                                height: 0px;
+                                subcontrol-position: top;
+                                subcontrol-origin: margin;
+                            }
+
+                            QListWidget::viewport {
+                                background: #101112;
+                            }</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOn</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="sizeAdjustPolicy">
+          <enum>QAbstractScrollArea::AdjustIgnored</enum>
+         </property>
+         <property name="autoScroll">
+          <bool>true</bool>
+         </property>
+         <property name="verticalScrollMode">
+          <enum>QAbstractItemView::ScrollPerPixel</enum>
+         </property>
+         <property name="horizontalScrollMode">
+          <enum>QAbstractItemView::ScrollPerPixel</enum>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+         <property name="selectionRectVisible">
+          <bool>true</bool>
+         </property>
+         <property name="currentRow">
+          <number>-1</number>
+         </property>
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="md_detail_desc_label">
+         <property name="geometry">
+          <rect>
+           <x>350</x>
+           <y>310</y>
+           <width>391</width>
+           <height>131</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:#777777;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="Line" name="md_first_hline">
+         <property name="geometry">
+          <rect>
+           <x>330</x>
+           <y>145</y>
+           <width>421</width>
+           <height>1</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#1F1F1F;</string>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="blocked_data_page">
+        <widget class="QListWidget" name="bd_blocked_list">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>39</y>
+           <width>281</width>
+           <height>361</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QListWidget {
+                                outline: 0;
+                                background-color: #101112; 
+                                color: white; 
+                                border: none; 
+                                padding: 5px; 
+                                border: 1px solid #555555;
+                            }
+
+                            QListWidget::item {
+                                padding: 3px; 
+                            }
+
+                      
+
+                            QListWidget::item:hover {
+                                background-color: #DDDDDD;
+                                color: #0f0f0f;
+                            }
+
+                            QScrollBar:vertical {
+                                border: 1px solid #555555;
+                                background: none;
+                                width: 10px;
+                                margin: 0px 0px 0px 0px;
+                            }
+
+                            QScrollBar::handle:vertical {
+                                background: #393E46;
+                                min-height: 30px;
+                                max-height: 30px;
+                                border-radius: 5px;
+                            }
+
+                            QScrollBar::add-line:vertical {
+                                height: 0px;
+                                subcontrol-position: bottom;
+                                subcontrol-origin: margin;
+                            }
+
+                            QScrollBar::sub-line:vertical {
+                                height: 0px;
+                                subcontrol-position: top;
+                                subcontrol-origin: margin;
+                            }
+
+                            QListWidget::viewport {
+                                background: #101112;
+                            }</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="lineWidth">
+          <number>2</number>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="verticalScrollMode">
+          <enum>QAbstractItemView::ScrollPerPixel</enum>
+         </property>
+         <property name="horizontalScrollMode">
+          <enum>QAbstractItemView::ScrollPerPixel</enum>
+         </property>
+         <property name="selectionRectVisible">
+          <bool>true</bool>
+         </property>
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="bd_inf_title">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>410</y>
+           <width>141</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>14</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Other Information</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="gridLayoutWidget_3">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>440</y>
+           <width>701</width>
+           <height>75</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="bd_left_glayout">
+          <item row="1" column="2">
+           <widget class="QLabel" name="bd_op_time_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#777777;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="bd_url_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>URL</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="bd_colon3">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="bd_current_stat_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Current Status</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="bd_op_time_title">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Operation Time</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="bd_colon1">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="bd_colon2">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QLabel" name="bd_current_stat_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#777777;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLineEdit" name="bd_url_label">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#777777;</string>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QLabel" name="bd_blocked_list_title">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>10</y>
+           <width>131</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>14</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Blocked Data List</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="bd_unblocked_list_title">
+         <property name="geometry">
+          <rect>
+           <x>460</x>
+           <y>10</y>
+           <width>153</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>14</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Unblocked Data List</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="verticalLayoutWidget_3">
+         <property name="geometry">
+          <rect>
+           <x>340</x>
+           <y>130</y>
+           <width>91</width>
+           <height>176</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="bd_buttons_vlayout">
+          <item>
+           <widget class="QPushButton" name="bd_unblock_sel_data_button">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#393E46;
+}
+QPushButton:hover{
+	background-color: #DDDDDD;
+}
+QPushButton:disabled { 
+	background-color: #101112; 
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../assets/single_right_logo1.png</normaloff>../assets/single_right_logo1.png</iconset>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bd_unblock_all_button">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#393E46;
+}
+QPushButton:hover{
+	background-color: #DDDDDD;
+}
+QPushButton:disabled { 
+	background-color: #101112; 
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../assets/double_right_logo1.png</normaloff>../assets/double_right_logo1.png</iconset>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bd_block_sel_data_button">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#393E46;
+}
+QPushButton:hover{
+	background-color: #DDDDDD;
+}
+QPushButton:disabled { 
+	background-color: #101112; 
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../assets/single_left_logo1.png</normaloff>../assets/single_left_logo1.png</iconset>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bd_block_all_button">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#393E46;
+}
+QPushButton:hover{
+	background-color: #DDDDDD;
+}
+QPushButton:disabled { 
+	background-color: #101112; 
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../assets/double_left_logo1.png</normaloff>../assets/double_left_logo1.png</iconset>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bd_add_button">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#393E46;
+}
+QPushButton:hover{
+	background-color: #DDDDDD;
+}
+QPushButton:disabled { 
+	background-color: #101112; 
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../assets/add_logo.png</normaloff>../assets/add_logo.png</iconset>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bd_delete_button">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#393E46;
+}
+QPushButton:hover{
+	background-color: #DDDDDD;
+}
+QPushButton:disabled { 
+	background-color: #101112; 
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../assets/trash_logo.png</normaloff>../assets/trash_logo.png</iconset>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QListWidget" name="bd_unblocked_list">
+         <property name="geometry">
+          <rect>
+           <x>461</x>
+           <y>39</y>
+           <width>281</width>
+           <height>361</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QListWidget {
+                                outline: 0;
+                                background-color: #101112; 
+                                color: white; 
+                                border: none; 
+                                padding: 5px; 
+                                border: 1px solid #555555;
+                            }
+
+                            QListWidget::item {
+                                padding: 3px; 
+                            }
+
+                      
+
+                            QListWidget::item:hover {
+                                background-color: #DDDDDD;
+                                color: #0f0f0f;
+                            }
+
+                            QScrollBar:vertical {
+                                border: 1px solid #555555;
+                                background: none;
+                                width: 10px;
+                                margin: 0px 0px 0px 0px;
+                            }
+
+                            QScrollBar::handle:vertical {
+                                background: #393E46;
+                                min-height: 30px;
+                                max-height: 30px;
+                                border-radius: 5px;
+                            }
+
+                            QScrollBar::add-line:vertical {
+                                height: 0px;
+                                subcontrol-position: bottom;
+                                subcontrol-origin: margin;
+                            }
+
+                            QScrollBar::sub-line:vertical {
+                                height: 0px;
+                                subcontrol-position: top;
+                                subcontrol-origin: margin;
+                            }
+
+                            QListWidget::viewport {
+                                background: #101112;
+                            }</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="lineWidth">
+          <number>10</number>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="verticalScrollMode">
+          <enum>QAbstractItemView::ScrollPerPixel</enum>
+         </property>
+         <property name="horizontalScrollMode">
+          <enum>QAbstractItemView::ScrollPerPixel</enum>
+         </property>
+         <property name="selectionRectVisible">
+          <bool>true</bool>
+         </property>
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="feedback_page">
+        <widget class="QPlainTextEdit" name="fb_email_text">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>60</y>
+           <width>661</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#393E46;
+color:white;</string>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+        </widget>
+        <widget class="QLabel" name="fb_email_title">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>35</y>
+           <width>90</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Email address</string>
+         </property>
+        </widget>
+        <widget class="QPlainTextEdit" name="fb_sbject_text">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>130</y>
+           <width>661</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#393E46;
+color:white;</string>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="placeholderText">
+          <string>Briefly describe the issue.</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="fb_subject_title">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>105</y>
+           <width>49</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Subject</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="fb_desc_title">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>175</y>
+           <width>75</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Description</string>
+         </property>
+        </widget>
+        <widget class="QPlainTextEdit" name="fb_desc_text">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>200</y>
+           <width>661</width>
+           <height>221</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#393E46;
+color:white;</string>
+         </property>
+         <property name="placeholderText">
+          <string>Describe the issue/improvement in as much detail as you can. Include steps to replicate if relevant.</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="fb_submit_fb_button">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>470</y>
+           <width>181</width>
+           <height>26</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color:#393E46;
+	color: white;
+}
+QPushButton:hover{
+	background-color: #DDDDDD;
+	color: #0f0f0f;
+}
+QPushButton:disabled { 
+	background-color: #101112; 
+}</string>
+         </property>
+         <property name="text">
+          <string>Submit feedback</string>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="about_page">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <widget class="QPushButton" name="ab_github_button">
+         <property name="geometry">
+          <rect>
+           <x>540</x>
+           <y>470</y>
+           <width>191</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color:#393E46;
+	color: white;
+}
+QPushButton:hover{
+	background-color: #DDDDDD;
+	color: #0f0f0f;
+}
+QPushButton:disabled { 
+	background-color: #101112; 
+}</string>
+         </property>
+         <property name="text">
+          <string>GitHub</string>
+         </property>
+        </widget>
        </widget>
       </widget>
      </item>

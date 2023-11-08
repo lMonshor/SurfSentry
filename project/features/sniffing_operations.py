@@ -1,9 +1,6 @@
 import psutil
 import socket
-from scapy.all import DNS, DNSQR
-from scapy.all import sniff
-from variables import *
-from features.fw_operations import *
+from scapy.all import *
 
 def get_network_adapters():
         adapters = []

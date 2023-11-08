@@ -4,6 +4,7 @@ from features.methods import get_current_date
 import shutil
 import threading
 
+
 def backup_hosts_file():
     try:
         shutil.copy(r'C:\\Windows\\System32\\drivers\\etc\\hosts',
@@ -20,7 +21,7 @@ def check_acl_existence(target_url):
         result = subprocess.run(command, shell=True,
                                 capture_output=True, text=True)
         if result.returncode == 0:
-            #Exist
+            # Exist
             return True
         else:
             return False
@@ -47,6 +48,7 @@ def add_acl_entry(target_url):
     except Exception as e:
         print(f"Error add_to_fw_rule: {e}")
 
+
 def add_acl_entries(target_data):
     threads = []
     for item in target_data:
@@ -57,6 +59,7 @@ def add_acl_entries(target_data):
 
     for thread in threads:
         thread.join()
+
 
 def remove_acl_entry(target_url):
     try:
@@ -69,6 +72,7 @@ def remove_acl_entry(target_url):
     except Exception as e:
         print(f"Error remove_from_fw_rule: {e}")
 
+
 def remove_acl_entries(target_data):
     threads = []
     for item in target_data:
@@ -79,6 +83,7 @@ def remove_acl_entries(target_data):
 
     for thread in threads:
         thread.join()
+
 
 def add_entry_to_hosts_file(target_url):
     try:
@@ -189,6 +194,8 @@ def block_all_entries():
 
 
 def unblock_entry(target_data):
+    print(target_data)
+    print("unblock_entry called")
     try:
         target_url = target_data[0]
         if target_data[1] == 'ip':

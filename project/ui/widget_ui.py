@@ -10,6 +10,7 @@ from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout
+import os
 
 
 class uiWidget(QWidget):
@@ -20,6 +21,13 @@ class uiWidget(QWidget):
         self.initUI()
 
     def initUI(self):
+        control_logo_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'control_logo.png')
+        bottom_settings_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'bottom_settings_button.png')
+        bottom_bug_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'bottom_bug_logo.png')
+        bottom_logo_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'bottom_logo.png')
+        self.active_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'icon_active.png')
+        self.pasive_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'icon_passive.png')
+
         self.setObjectName("widget_ui")
         self.setFixedSize(326, 426)
         self.setWindowFlags(Qt.WindowType.Popup |
@@ -32,7 +40,8 @@ class uiWidget(QWidget):
         self.control_logo = QtWidgets.QLabel(self)
         self.control_logo.setGeometry(QtCore.QRect(73, 50, 180, 84))
         self.control_logo.setText("")
-        self.control_logo.setPixmap(QtGui.QPixmap("project/assets/control_logo.png"))
+
+        self.control_logo.setPixmap(QtGui.QPixmap(control_logo_icon_path))
         self.control_logo.setScaledContents(True)
         self.control_logo.setWordWrap(False)
         self.control_logo.setObjectName("control_logo")
@@ -86,7 +95,7 @@ class uiWidget(QWidget):
 "                color: black;}")
         self.bottom_settings_button.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("project/assets/bottom_setting_button.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap(bottom_settings_icon_path), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.bottom_settings_button.setIcon(icon)
         self.bottom_settings_button.setIconSize(QtCore.QSize(24, 24))
         self.bottom_settings_button.clicked.connect(self.showMenu_ui)
@@ -100,14 +109,14 @@ class uiWidget(QWidget):
 "                color: black;}")
         self.bottom_bug_button.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("project/assets/bottom_bug_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap(bottom_bug_icon_path), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.bottom_bug_button.setIcon(icon1)
         self.bottom_bug_button.setIconSize(QtCore.QSize(24, 24))
         self.bottom_bug_button.setObjectName("bottom_bug_button")
         self.bottom_logo_label = QtWidgets.QLabel(parent=self.bottom_widget)
         self.bottom_logo_label.setGeometry(QtCore.QRect(10, 8, 140, 30))
         self.bottom_logo_label.setText("")
-        self.bottom_logo_label.setPixmap(QtGui.QPixmap("project/assets/bottom_logo.png"))
+        self.bottom_logo_label.setPixmap(QtGui.QPixmap(bottom_logo_icon_path))
         self.bottom_logo_label.setScaledContents(True)
         self.bottom_logo_label.setObjectName("bottom_logo_label")
 
@@ -122,10 +131,10 @@ class uiWidget(QWidget):
         
     def startSniff(self):
         if self.control_toggle_button.toggled:
-            self.my_tray_app_ui.setIcon(QIcon("project/assets/icon_active.png"))
+            self.my_tray_app_ui.setIcon(QIcon(self.active_icon_path))
             print("started")
         else:
-            self.my_tray_app_ui.setIcon(QIcon("project/assets/icon_passive.png"))
+            self.my_tray_app_ui.setIcon(QIcon(self.pasive_icon_path))
             print("stopped")
    
 

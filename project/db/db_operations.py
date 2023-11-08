@@ -6,7 +6,7 @@ def create_tables():
     Creates a SQLite database if it doesn't exist, along with the specified table.
     """
     try:
-        with sqlite3.connect('project/db/surfsentry_db.db') as conn:
+        with sqlite3.connect('surfsentry_db.db') as conn:
             cursor = conn.cursor()
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS malicious_data (
@@ -41,7 +41,7 @@ def save_to_mal_table(item):
     """
 
     try:
-        with sqlite3.connect('project/db/surfsentry_db.db') as conn:
+        with sqlite3.connect('surfsentry_db.db') as conn:
             cursor = conn.cursor()
             cursor.execute('''
                 INSERT INTO malicious_data 
@@ -59,7 +59,7 @@ def save_to_mal_table(item):
 
 def save_to_blocked_table(item,op_time):
     try:
-        with sqlite3.connect('project/db/surfsentry_db.db') as conn:
+        with sqlite3.connect('surfsentry_db.db') as conn:
             cursor = conn.cursor()
             cursor.execute('''
                 INSERT INTO blocked_data 
@@ -77,7 +77,7 @@ def get_data_by_column_name(column_name, table_name):
     Retrieves data from the specified table by a specific column.
     """
     try:
-        with sqlite3.connect('project/db/surfsentry_db.db') as conn:
+        with sqlite3.connect('surfsentry_db.db') as conn:
             cursor = conn.cursor()
             cursor.execute(f'SELECT {column_name} FROM {table_name}')
             data = cursor.fetchall()
@@ -92,7 +92,7 @@ def get_one_data_detail(column_name, condition_column, condition_value, table_na
     Retrieves data from the specified table by a specific condition.
     """
     try:
-        with sqlite3.connect('project/db/surfsentry_db.db') as conn:
+        with sqlite3.connect('surfsentry_db.db') as conn:
             cursor = conn.cursor()
             cursor.execute(f'SELECT {column_name} FROM {table_name} WHERE {
                            condition_column} = ?', (condition_value,))
@@ -108,7 +108,7 @@ def clear_table_by_table_name(table_name):
     Clears all records from the specified table.
     """
     try:
-        with sqlite3.connect('project/db/surfsentry_db.db') as conn:
+        with sqlite3.connect('surfsentry_db.db') as conn:
             cursor = conn.cursor()
             if table_name == 'malicious_data':
                 cursor.execute(f'DELETE FROM malicious_data')
@@ -123,7 +123,7 @@ def drop_table(table_name):
     Drops the specified table if it exists.
     """
     try:
-        with sqlite3.connect('project/db/surfsentry_db.db') as conn:
+        with sqlite3.connect('surfsentry_db.db') as conn:
             cursor = conn.cursor()
             cursor.execute(f'DROP TABLE IF EXISTS {table_name}')
     except sqlite3.Error as e:
@@ -132,7 +132,7 @@ def drop_table(table_name):
 
 def update_blocked_table(url, new_status,op_time):
     try:
-        with sqlite3.connect('project/db/surfsentry_db.db') as conn:
+        with sqlite3.connect('surfsentry_db.db') as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT * FROM blocked_data WHERE url=?", (url,))
             data = cursor.fetchone()
@@ -149,7 +149,7 @@ def update_blocked_table(url, new_status,op_time):
 
 def custom_query(query):
     try:
-        with sqlite3.connect('project/db/surfsentry_db.db') as conn:
+        with sqlite3.connect('surfsentry_db.db') as conn:
             cursor = conn.cursor()
             cursor.execute(f'{query}')
             data = cursor.fetchall()
@@ -157,9 +157,3 @@ def custom_query(query):
     except sqlite3.Error as e:
         print(f"Error custom_query: {e}")
         return None
-    
-# clear_table_by_table_name("blocked_data")
-# clear_table_by_table_name("malicious_data")
-# drop_table("malicious_data")
-# drop_table("blocked_data")
-# create_tables()

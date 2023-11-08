@@ -1,8 +1,8 @@
 import sys
 from api import usom_api
 from db import db_operations
-from features import blocking_operations, methods
-from PyQt6.QtCore import Qt, QRect, QSize, QPoint, QUrl, QThread, pyqtSignal
+from features import blocking_operations
+from PyQt6.QtCore import QUrl, QThread, pyqtSignal
 from PyQt6.QtWidgets import QApplication, QMainWindow, QListWidget, QListWidgetItem, QTableWidget, QTableWidgetItem, QHeaderView
 from PyQt6.QtGui import QIcon, QScreen, QGuiApplication, QCursor, QDesktopServices, QColor, QBrush
 from ui import tray_app_ui, widget_ui, menu_ui, preferences_ui3, loading_ui2, information_ui2
@@ -10,15 +10,7 @@ import subprocess
 import smtplib
 from email.mime.text import MIMEText
 import config
-
-
-subprocess.run([
-    "pyuic6",
-    "-x",
-    "D:/Personal/Projects/muhendislik_tasarimi_proje/source_codes/project/ui/pref.ui",
-    "-o",
-    "D:/Personal/Projects/muhendislik_tasarimi_proje/source_codes/project/ui/preferences_ui3.py"
-])
+import os
 
 
 class UpdateDataWorker(QThread):
@@ -26,8 +18,9 @@ class UpdateDataWorker(QThread):
 
     def run(self):
         try:
-            # updateData()
-            blocking_operations.block_all_entries()
+            db_operations.create_tables()
+            updateData()
+            blocking_operations.unblock_all_entries()
             fillMalList()
             fillBlockedList()
 
@@ -496,8 +489,8 @@ def send_email_feedback(email_address, subject, description):
     receiver = config.receiver_email
     password = config.password
 
-    message = f"Email Address: {email_address}\nSubject: {
-        subject}\nDescription: {description}"
+    message = (f"Email Address: {email_address}\nSubject: {
+               subject}\nDescription: {description}")
 
     msg = MIMEText(message)
     msg['Subject'] = "Feedback"
@@ -570,5 +563,4 @@ if __name__ == '__main__':
     my_update_data_worker.finished.connect(my_update_data_worker.wait)
     my_update_data_worker.finished.connect(my_update_data_worker.quit)
     my_update_data_worker.start()
-
     app.exec()

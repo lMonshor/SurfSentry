@@ -362,7 +362,7 @@ QRadioButton::indicator:checked {
         <string notr="true">background-color: #0f0f0f;</string>
        </property>
        <property name="currentIndex">
-        <number>3</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="general_page">
         <property name="styleSheet">
@@ -400,14 +400,14 @@ QPushButton:disabled {
         <widget class="Line" name="gen_second_hline">
          <property name="geometry">
           <rect>
-           <x>20</x>
-           <y>355</y>
-           <width>721</width>
+           <x>48</x>
+           <y>332</y>
+           <width>672</width>
            <height>1</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color:#1F1F1F;</string>
+          <string notr="true">background-color:#393E46;</string>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -422,14 +422,14 @@ QPushButton:disabled {
         <widget class="Line" name="gen_first_hline">
          <property name="geometry">
           <rect>
-           <x>20</x>
-           <y>190</y>
-           <width>721</width>
+           <x>48</x>
+           <y>174</y>
+           <width>672</width>
            <height>1</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color:#1F1F1F;</string>
+          <string notr="true">background-color:#393E46;</string>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -447,15 +447,18 @@ QPushButton:disabled {
            <x>40</x>
            <y>100</y>
            <width>311</width>
-           <height>74</height>
+           <height>51</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gen_top_glayout">
           <property name="horizontalSpacing">
            <number>6</number>
           </property>
-          <item row="2" column="0">
-           <widget class="QLabel" name="gen_adapter_title">
+          <item row="1" column="2">
+           <widget class="QComboBox" name="gen_adapter_cbox"/>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="gen_ip_title">
             <property name="font">
              <font>
               <family>Calibri</family>
@@ -463,11 +466,17 @@ QPushButton:disabled {
               <bold>false</bold>
              </font>
             </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
             <property name="styleSheet">
              <string notr="true">color:white;</string>
             </property>
             <property name="text">
-             <string>Current Adapter</string>
+             <string>Public IP</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
            </widget>
           </item>
@@ -499,62 +508,7 @@ QPushButton:disabled {
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="gen_status_title">
-            <property name="font">
-             <font>
-              <family>Calibri</family>
-              <pointsize>12</pointsize>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:white;</string>
-            </property>
-            <property name="text">
-             <string>Protection Mode</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2">
-           <widget class="QComboBox" name="gen_mode_cbox"/>
-          </item>
-          <item row="2" column="2">
-           <widget class="QComboBox" name="gen_adapter_cbox"/>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLabel" name="gen_colon1">
-            <property name="font">
-             <font>
-              <family>Calibri</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:white;</string>
-            </property>
-            <property name="text">
-             <string>:</string>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="1">
-           <widget class="QLabel" name="gen_colon2">
-            <property name="font">
-             <font>
-              <family>Calibri</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:white;</string>
-            </property>
-            <property name="text">
-             <string>:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
            <widget class="QLabel" name="gen_colon3">
             <property name="font">
              <font>
@@ -570,8 +524,8 @@ QPushButton:disabled {
             </property>
            </widget>
           </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="gen_ip_title">
+          <item row="1" column="0">
+           <widget class="QLabel" name="gen_adapter_title">
             <property name="font">
              <font>
               <family>Calibri</family>
@@ -579,17 +533,27 @@ QPushButton:disabled {
               <bold>false</bold>
              </font>
             </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Current Adapter</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="gen_colon1">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>12</pointsize>
+             </font>
             </property>
             <property name="styleSheet">
              <string notr="true">color:white;</string>
             </property>
             <property name="text">
-             <string>Public IP</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             <string>:</string>
             </property>
            </widget>
           </item>
@@ -622,7 +586,7 @@ QPushButton:disabled {
          <property name="geometry">
           <rect>
            <x>40</x>
-           <y>250</y>
+           <y>230</y>
            <width>491</width>
            <height>74</height>
           </rect>
@@ -826,7 +790,7 @@ QPushButton:disabled {
          <property name="geometry">
           <rect>
            <x>30</x>
-           <y>211</y>
+           <y>190</y>
            <width>403</width>
            <height>33</height>
           </rect>
@@ -854,7 +818,7 @@ QPushButton:disabled {
          <property name="geometry">
           <rect>
            <x>320</x>
-           <y>110</y>
+           <y>120</y>
            <width>141</width>
            <height>24</height>
           </rect>
@@ -877,7 +841,7 @@ QPushButton:disabled {
          <property name="geometry">
           <rect>
            <x>330</x>
-           <y>160</y>
+           <y>150</y>
            <width>431</width>
            <height>127</height>
           </rect>
@@ -1295,7 +1259,7 @@ QPushButton:disabled {
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color:#1F1F1F;</string>
+          <string notr="true">background-color:#393E46;</string>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -1420,9 +1384,9 @@ QPushButton:disabled {
          <property name="geometry">
           <rect>
            <x>350</x>
-           <y>310</y>
+           <y>290</y>
            <width>391</width>
-           <height>131</height>
+           <height>161</height>
           </rect>
          </property>
          <property name="sizePolicy">
@@ -1441,7 +1405,8 @@ QPushButton:disabled {
           <enum>Qt::NoContextMenu</enum>
          </property>
          <property name="styleSheet">
-          <string notr="true">color:#777777;</string>
+          <string notr="true">color:#777777;
+border:none;</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -1460,13 +1425,13 @@ QPushButton:disabled {
          <property name="geometry">
           <rect>
            <x>330</x>
-           <y>145</y>
+           <y>106</y>
            <width>421</width>
            <height>1</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color:#1F1F1F;</string>
+          <string notr="true">background-color:#393E46;</string>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -1484,9 +1449,9 @@ QPushButton:disabled {
          <property name="geometry">
           <rect>
            <x>30</x>
-           <y>39</y>
+           <y>59</y>
            <width>281</width>
-           <height>361</height>
+           <height>331</height>
           </rect>
          </property>
          <property name="sizePolicy">
@@ -1783,7 +1748,7 @@ QPushButton:disabled {
          <property name="geometry">
           <rect>
            <x>30</x>
-           <y>10</y>
+           <y>30</y>
            <width>131</width>
            <height>24</height>
           </rect>
@@ -1805,8 +1770,8 @@ QPushButton:disabled {
         <widget class="QLabel" name="bd_unblocked_list_title">
          <property name="geometry">
           <rect>
-           <x>460</x>
-           <y>10</y>
+           <x>457</x>
+           <y>30</y>
            <width>153</width>
            <height>24</height>
           </rect>
@@ -2041,10 +2006,10 @@ QPushButton:disabled {
         <widget class="QListWidget" name="bd_unblocked_list">
          <property name="geometry">
           <rect>
-           <x>461</x>
-           <y>39</y>
+           <x>457</x>
+           <y>59</y>
            <width>281</width>
-           <height>361</height>
+           <height>331</height>
           </rect>
          </property>
          <property name="sizePolicy">
@@ -2132,6 +2097,28 @@ QPushButton:disabled {
          </property>
          <property name="sortingEnabled">
           <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="Line" name="bd_first_hline">
+         <property name="geometry">
+          <rect>
+           <x>48</x>
+           <y>400</y>
+           <width>672</width>
+           <height>1</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#393E46;</string>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </widget>
@@ -2320,6 +2307,152 @@ QPushButton:disabled {
          </property>
          <property name="text">
           <string>GitHub</string>
+         </property>
+        </widget>
+        <widget class="QPlainTextEdit" name="ab_first_desc_text">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>80</y>
+           <width>671</width>
+           <height>91</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#0f0f0f;
+color:white;
+border:none;</string>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="sizeAdjustPolicy">
+          <enum>QAbstractScrollArea::AdjustIgnored</enum>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="plainText">
+          <string>Surfsentry is a Windows application developed to protect users against malicious websites. It retrieves a list of malicious links from USOM (Ulusal Siber Olaylara Müdahale Merkezi - National Cyber Incident Response Center) and writes them to the hosts file. This ensures a secure internet experience for users.
+
+</string>
+         </property>
+         <property name="placeholderText">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ab_main_title">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>40</y>
+           <width>124</width>
+           <height>36</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>22</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>SurfSentry</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ab_second_title">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>180</y>
+           <width>229</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>14</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Blocking CNC Server IPs</string>
+         </property>
+        </widget>
+        <widget class="QPlainTextEdit" name="ab_second_text">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>220</y>
+           <width>671</width>
+           <height>91</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#0f0f0f;
+color:white;
+border:none;</string>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="sizeAdjustPolicy">
+          <enum>QAbstractScrollArea::AdjustIgnored</enum>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="plainText">
+          <string>Surfsentry not only blocks domain connections by writing them to the hosts file, but also identifies IP addresses associated with Command and Control (CNC) servers provided by USOM. It adds firewall rules to block communication with these IPs, providing an additional layer of protection against malicious activity.</string>
+         </property>
+         <property name="placeholderText">
+          <string/>
+         </property>
+        </widget>
+        <widget class="Line" name="ab_first_hline">
+         <property name="geometry">
+          <rect>
+           <x>48</x>
+           <y>350</y>
+           <width>672</width>
+           <height>1</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#393E46;</string>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </widget>

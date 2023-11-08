@@ -4,7 +4,7 @@ import sys
 from PyQt6.QtCore import Qt, QRect, QSize, QPoint,QUrl
 from PyQt6.QtWidgets import QApplication, QMainWindow,QListWidget, QListWidgetItem
 from PyQt6.QtGui import QIcon, QScreen, QGuiApplication,QCursor,QDesktopServices
-
+import os
 class uiTrayApp(QSystemTrayIcon):
     def __init__(self):
         self.my_widget_ui = None
@@ -12,7 +12,9 @@ class uiTrayApp(QSystemTrayIcon):
         self.initUI()
 
     def initUI(self):
-        self.setIcon(QIcon("project/assets/icon_passive.png"))
+        tary_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'icon_passive.png')
+
+        self.setIcon(QIcon(tary_icon_path))
         self.setVisible(False)
         self.activated.connect(self.showWidget_ui)
         

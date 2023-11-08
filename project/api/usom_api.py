@@ -1,6 +1,7 @@
 import requests
 import time
-from features.methods import process_malicious_data,get_current_date_utc,get_previous_date_utc
+import features.methods
+#from features.methods import process_malicious_data,get_current_date_utc,get_previous_date_utc
 
 def make_request(url):
     headers = {
@@ -20,7 +21,7 @@ def make_request(url):
         return None
 
 def get_malicious_data(loading_ui):
-    yesterday = get_previous_date_utc().split()[0]
+    yesterday = features.methods.get_previous_date_utc().split()[0]
     request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={yesterday}"
     data = make_request(request_url)
     if data is not None and "pageCount" in data:
@@ -32,6 +33,6 @@ def get_malicious_data(loading_ui):
             data = make_request(request_url)
             if data is not None:
                 raw_data.extend(data['models'])
-        process_malicious_data(raw_data)
+        features.methods.process_malicious_data(raw_data)
     else:
         return None

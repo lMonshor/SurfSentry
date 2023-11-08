@@ -1,6 +1,9 @@
 import psutil
 import socket
 from scapy.all import *
+import db.db_operations
+from mitmproxy import http
+
 
 def get_network_adapters():
         adapters = []
@@ -22,17 +25,8 @@ def get_current_adapter():
         
         return None
 
-def start_sniffing(packet):
-    checked_domains= set()
-    print("....")
-    if DNS in packet and packet[DNS].qr == 0:
-        target_domain = packet[DNSQR].qname.decode('utf-8')
-        for item in filtered_data['items']:
-            if item['url'] in target_domain and item['url'] not in checked_domains:
-                print(f"Potential malicious domain is detected: {target_domain} and blocked.")
-                user_input = input("Do you want to remove block? (yes/no)")
-                if user_input == "yes":
-                    for item in filtered_data['items']:
-                        if item['url'] == target_domain:
-                            unblock_ips_temporarily(item['ip'])
-                checked_domains.add(item['url'])
+blocked_data = db.db_operations.custom_query('select url from blocked_data where current_status = "blocked"')
+mylist = ['facebook.com']
+def request(flow: http.HTTPFlow) -> None:
+    if flow.request.pretty_url in mylist:
+        print("aaaaa")

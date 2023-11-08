@@ -77,13 +77,16 @@ def process_malicious_data(raw_mal_data):
                 db_operations.save_to_blocked_table(
                     item=filtered_item, op_time=operation_time)
 
+
 def check_blocked_data_existence(filtered_item):
-    data = db_operations.custom_query(f'select * from blocked_data where url = "{filtered_item['url']}"')
+    data = db_operations.custom_query(
+        f'select * from blocked_data where url = "{filtered_item['url']}"')
     if data:
-        #Exist
+        # Exist
         return True
     else:
         return False
+
 
 def flush_dns():
     try:

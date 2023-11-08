@@ -1,26 +1,23 @@
-ip based basic host-based intrusion detection system. 
+# Surfsentry
 
-Surfsentry is a Windows application developed to detect malicious websites and protect users.
+Surfsentry is a Windows application developed to protect users against malicious websites. It retrieves a list of malicious links from USOM (Ulusal Siber Olaylara Müdahale Merkezi - National Cyber Incident Response Center) and writes them to the hosts file. This ensures a secure internet experience for users.
 
-Project Description:
+## Blocking CNC Server IPs
 
-Surfsentry retrieves malicious website links from USOM (Ulusal Siber Olaylara Müdahale Merkezi - National Cyber Incident Response Center), performs DNS resolution, and alerts users if there is any communication with these malicious websites. This helps users have a secure internet experience and safeguards against harmful websites.
+Surfsentry not only blocks domain connections by writing them to the hosts file, but also identifies IP addresses associated with Command and Control (CNC) servers provided by USOM. It adds firewall rules to block communication with these IPs, providing an additional layer of protection against malicious activity.
 
-Features:
+## Installation
 
-Fetch malicious website data from USOM
-Perform DNS resolution
-Alert users when there is communication with malicious websites
+To use Surfsentry, follow these steps:
 
-Installation:
+1. Clone the project repository or download the ZIP file.
+2. Navigate to the project/dist folder and run the `surfsentry.exe` application (you should run with administration permissions).
+4. Start using the application.
 
-To use Surfsentry, you can follow these steps:
+## Usage
 
-Clone the project repository or download the ZIP file.
-Navigate to the project folder and run the surfsentry.exe application.
-Use this link to download NPcap.
-You can start using the application.
+Surfsentry is easy to use. When you run the application, it retrieves a list of malicious website links from USOM and writes them to the hosts file. This helps users have a secure internet experience and safeguards against malicious websites. The application features a user-friendly interface with additional instructions.
 
-Usage:
+## Disclaimer
 
-Surfsentry is easy to use. When you run the application, it retrieves website data from USOM in the background and alerts you if you attempt to access a malicious site. The application has a user-friendly interface with additional instructions.
+This project no longer performs DNS resolution. Instead, it retrieves malicious website links from USOM and writes them to the hosts file and firewall rule for protection.

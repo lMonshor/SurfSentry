@@ -1,10 +1,7 @@
 from PyQt6 import QtCore, QtWidgets
-from PyQt6.QtGui import QDesktopServices
-from PyQt6.QtCore import Qt, QRect,QUrl
-from PyQt6.QtWidgets import QApplication, QPushButton, QFrame, QWidget, QMainWindow, QListWidget, QListWidgetItem
 
 
-class uiMenu(QWidget):
+class uiMenu(QtWidgets.QWidget):
     def __init__(self):
         self.my_pref_ui = None
         super().__init__()
@@ -13,22 +10,22 @@ class uiMenu(QWidget):
     def initUI(self):
         self.setObjectName("menu_ui")
         self.setFixedSize(150, 90)
-        self.setWindowFlags(Qt.WindowType.Popup |
-                            Qt.WindowType.WindowStaysOnTopHint)
+        self.setWindowFlags(QtCore.Qt.WindowType.Popup |
+                            QtCore.Qt.WindowType.WindowStaysOnTopHint)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.sizePolicy().hasHeightForWidth())
-        self.frame = QFrame(self)
-        self.frame.setGeometry(QRect(0, 0, 148, 90))
+        self.frame = QtWidgets.QFrame(self)
+        self.frame.setGeometry(QtCore.QRect(0, 0, 148, 90))
         self.frame.setStyleSheet("border: 1px solid white;")
         self.frame.setObjectName("frame")
         self.setStyleSheet("background-color:black")
         self.setSizePolicy(sizePolicy)
         self.setStyleSheet("background-color:black")
-        self.menu_preferences_button = QPushButton(self)
-        self.menu_preferences_button.setGeometry(QRect(1, 1, 146, 28))
+        self.menu_preferences_button = QtWidgets.QPushButton(self)
+        self.menu_preferences_button.setGeometry(QtCore.QRect(1, 1, 146, 28))
         self.menu_preferences_button.setText("Preferences")
         self.menu_preferences_button.setStyleSheet("QPushButton:hover {\n"
                                                    "    background-color:rgb(41, 49, 50);\n"
@@ -39,8 +36,8 @@ class uiMenu(QWidget):
                                                    "}")
         self.menu_preferences_button.clicked.connect(self.showPreferences_ui)
         self.menu_preferences_button.setObjectName("menu_preferences_button")
-        self.menu_about_button = QPushButton(self)
-        self.menu_about_button.setGeometry(QRect(1, 31, 146, 28))
+        self.menu_about_button = QtWidgets.QPushButton(self)
+        self.menu_about_button.setGeometry(QtCore.QRect(1, 31, 146, 28))
         self.menu_about_button.setText("About Me")
         self.menu_about_button.setStyleSheet("QPushButton:hover {\n"
                                              "    background-color:rgb(41, 49, 50);\n"
@@ -50,8 +47,8 @@ class uiMenu(QWidget):
                                              "    color:white;\n"
                                              "}")
         self.menu_about_button.setObjectName("menu_about_button")
-        self.menu_exit_button = QPushButton(self)
-        self.menu_exit_button.setGeometry(QRect(1, 61, 146, 28))
+        self.menu_exit_button = QtWidgets.QPushButton(self)
+        self.menu_exit_button.setGeometry(QtCore.QRect(1, 61, 146, 28))
         self.menu_exit_button.setText("Exit")
         self.menu_exit_button.setStyleSheet("QPushButton:hover {\n"
                                             "    background-color:rgb(41, 49, 50);\n"
@@ -61,7 +58,7 @@ class uiMenu(QWidget):
                                             "    color:white;\n"
                                             "}")
         self.menu_exit_button.setObjectName("menu_exit_button")
-        self.menu_exit_button.clicked.connect(QApplication.quit)
+        self.menu_exit_button.clicked.connect(QtWidgets.QApplication.quit)
         self.first_qframe_hline = QtWidgets.QFrame(self)
         self.first_qframe_hline.setGeometry(QtCore.QRect(20, 31, 108, 1))
         self.first_qframe_hline.setStyleSheet("QFrame{\n"
@@ -91,10 +88,3 @@ class uiMenu(QWidget):
             self.my_pref_ui.show()
         else:
             self.my_pref_ui.hide()
-
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    menu_ui = uiMenu()
-    menu_ui.show()
-    sys.exit(app.exec())

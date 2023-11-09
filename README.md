@@ -1,4 +1,4 @@
-# Surfsentry
+# SurfSentry
 
 Surfsentry is a Windows application developed to protect users against malicious websites. It retrieves a list of malicious links from USOM (Ulusal Siber Olaylara Müdahale Merkezi - National Cyber Incident Response Center) and writes them to the hosts file. This ensures a secure internet experience for users.
 

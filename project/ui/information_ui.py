@@ -1,6 +1,5 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtCore import Qt, QRect,QUrl
 
 
 class uiInformation(QtWidgets.QDialog):
@@ -13,8 +12,8 @@ class uiInformation(QtWidgets.QDialog):
         self.setFixedSize(390, 110)
         self.setStyleSheet("background-color:black;")
         self.setWindowFlags(
-                            Qt.WindowType.WindowStaysOnTopHint)
-        self.setWindowModality(Qt.WindowModality.ApplicationModal)
+                            QtCore.Qt.WindowType.WindowStaysOnTopHint)
+        self.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
         self.dialog_inf_ok_button = QtWidgets.QDialogButtonBox(parent=self)
         self.dialog_inf_ok_button.setGeometry(QtCore.QRect(157, 70, 75, 24))
         self.dialog_inf_ok_button.setStyleSheet("QPushButton{\n"
@@ -40,11 +39,3 @@ class uiInformation(QtWidgets.QDialog):
         self.label.setObjectName("label")
         
         self.label.setText(("Succesfully updated"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    information_ui = uiInformation()
-    information_ui.show()
-    sys.exit(app.exec())

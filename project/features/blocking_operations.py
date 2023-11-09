@@ -1,8 +1,27 @@
 import subprocess
 import db.db_operations
-from features.methods import get_current_date
+from features import methods,workers
 import shutil
 import threading
+
+
+def block_unblock(selected_blocked_item_detail, sender,my_loading_ui,my_information_ui,fillBlockedList):
+    try:
+        my_blocking_op_worker = workers.BlockingOperationWorker(
+            selected_blocked_item_detail, sender)
+        if sender.find("all") != -1:
+            print("inside condition" , sender)
+            if not my_loading_ui.isVisible():
+                print("show")
+                my_loading_ui.show()
+            my_blocking_op_worker.finished.connect(my_loading_ui.hide)
+            my_blocking_op_worker.finished.connect(my_information_ui.show)
+        my_blocking_op_worker.finished.connect(fillBlockedList)
+        my_blocking_op_worker.finished.connect(my_blocking_op_worker.wait)
+        my_blocking_op_worker.finished.connect(my_blocking_op_worker.quit)
+        my_blocking_op_worker.start()
+    except Exception as e:
+        print(f"Error block_unblock: {e}")
 
 
 def backup_hosts_file():
@@ -39,7 +58,7 @@ def check_hosts_rule_existence(target_url):
 
 def add_acl_entry(target_url):
     try:
-        operation_time = get_current_date()
+        operation_time = methods.get_current_date()
         command = f"powershell netsh advfirewall firewall add rule name='Blocked by SurfSentry {
             target_url}' dir=out action=block remoteip={target_url}"
         subprocess.run(command, shell=True)
@@ -63,7 +82,7 @@ def add_acl_entries(target_data):
 
 def remove_acl_entry(target_url):
     try:
-        operation_time = get_current_date()
+        operation_time = methods.get_current_date()
         command = f"powershell netsh advfirewall firewall delete rule name='Blocked by SurfSentry {
             target_url}'"
         db.db_operations.update_blocked_table(
@@ -87,7 +106,7 @@ def remove_acl_entries(target_data):
 
 def add_entry_to_hosts_file(target_url):
     try:
-        operation_time = get_current_date()
+        operation_time = methods.get_current_date()
         with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r+') as hosts_file:
             content = hosts_file.read()
             hosts_file.seek(0)
@@ -101,7 +120,7 @@ def add_entry_to_hosts_file(target_url):
 
 def add_entries_to_hosts_file(target_urls):
     try:
-        operation_time = get_current_date()
+        operation_time = methods.get_current_date()
         with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r+') as hosts_file:
             content = hosts_file.read()
             hosts_file.seek(0)
@@ -123,7 +142,7 @@ def add_entries_to_hosts_file(target_urls):
 
 def remove_entry_from_hosts_file(target_url):
     try:
-        operation_time = get_current_date()
+        operation_time = methods.get_current_date()
         with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r') as hosts_file:
             lines = hosts_file.readlines()
         with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'w') as hosts_file:
@@ -139,7 +158,7 @@ def remove_entry_from_hosts_file(target_url):
 
 def remove_entries_from_hosts_file(target_urls):
     try:
-        operation_time = get_current_date()
+        operation_time = methods.get_current_date()
         updated_lines = []
 
         with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r') as hosts_file:
@@ -194,8 +213,6 @@ def block_all_entries():
 
 
 def unblock_entry(target_data):
-    print(target_data)
-    print("unblock_entry called")
     try:
         target_url = target_data[0]
         if target_data[1] == 'ip':
@@ -222,6 +239,6 @@ def unblock_all_entries():
             target_data = [item for item in data if item[1] == 'ip']
             remove_acl_entries(target_data)
         else:
-            print('No unblocked data to unblock_all_data')
+            print('No blocked data to unblock_all_data')
     except Exception as e:
         print(f'Error unblock_all_data: {e}')

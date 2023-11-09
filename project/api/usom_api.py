@@ -1,7 +1,6 @@
 import requests
 import time
-import features.methods
-#from features.methods import process_malicious_data,get_current_date_utc,get_previous_date_utc
+from features import methods
 
 def make_request(url):
     headers = {
@@ -21,18 +20,18 @@ def make_request(url):
         return None
 
 def get_malicious_data(loading_ui):
-    yesterday = features.methods.get_previous_date_utc().split()[0]
-    request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={yesterday}"
+    today = methods.get_current_date_utc().split()[0]
+    request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={today}"
     data = make_request(request_url)
     if data is not None and "pageCount" in data:
         pageCount = data["pageCount"]
         raw_data = []
         for i in range(1,pageCount+1):
             loading_ui.dialog_loading_title.setText(f"Getting Malicious Data from USOM page: {pageCount}/{i}. Please Wait...")
-            request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={yesterday}&page={i}"
+            request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={today}&page={i}"
             data = make_request(request_url)
             if data is not None:
                 raw_data.extend(data['models'])
-        features.methods.process_malicious_data(raw_data)
+        methods.process_malicious_data(raw_data)
     else:
         return None

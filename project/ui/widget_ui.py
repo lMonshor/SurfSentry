@@ -1,22 +1,17 @@
-from PyQt6.QtCore import Qt, QRect, QSize, QPoint
-from PyQt6.QtWidgets import QApplication, QAbstractButton, QPushButton, QWidget, QLabel, QSizePolicy, QCheckBox, QVBoxLayout
-from PyQt6.QtGui import QPixmap, QFont, QIcon, QCursor
-from ui import menu_ui,toggle_switch
-import sys
 from PyQt6 import QtCore, QtGui, QtWidgets
-import sys
-from PyQt6.QtCore import Qt, QPropertyAnimation, QRect, QTimer
-from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
-from PyQt6.QtCore import Qt, pyqtSignal
-from PyQt6.QtGui import QPixmap
-from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout
+from ui import toggle_switch
+from features import blocking_operations
 import os
 
 
-class uiWidget(QWidget):
+class uiWidget(QtWidgets.QWidget):
     def __init__(self):
         self.my_tray_app_ui = None
         self.my_menu_ui = None
+        self.my_loading_ui = None
+        self.my_information_ui = None
+        self.fillBlockedList = None
+        
         super().__init__()
         self.initUI()
 
@@ -30,8 +25,8 @@ class uiWidget(QWidget):
 
         self.setObjectName("widget_ui")
         self.setFixedSize(326, 426)
-        self.setWindowFlags(Qt.WindowType.Popup |
-                            Qt.WindowType.WindowStaysOnTopHint)
+        self.setWindowFlags(QtCore.Qt.WindowType.Popup |
+                            QtCore.Qt.WindowType.WindowStaysOnTopHint)
         self.control_widget = QtWidgets.QWidget(self)
         self.control_widget.setGeometry(QtCore.QRect(0, 0, 326, 380))
         self.control_widget.setAutoFillBackground(False)
@@ -48,8 +43,8 @@ class uiWidget(QWidget):
 
         self.control_toggle_button = toggle_switch.CustomToggleSwitch()
         self.control_toggle_button.setParent(self.control_widget)
-        self.control_toggle_button.setGeometry(QRect(88, 155, 140, 70))
-        self.control_toggle_button.toggleChanged.connect(self.startSniff)
+        self.control_toggle_button.setGeometry(QtCore.QRect(88, 155, 140, 70))
+        self.control_toggle_button.toggleChanged.connect(self.switchChanged)
         self.control_toggle_button.setObjectName("control_toggle_button")
 
 
@@ -121,26 +116,18 @@ class uiWidget(QWidget):
         self.bottom_logo_label.setObjectName("bottom_logo_label")
 
     def showMenu_ui(self):
-        click_pos = QCursor.pos()
+        click_pos = QtGui.QCursor.pos()
         menu_width = self.my_menu_ui.width()
         menu_height = self.my_menu_ui.height()
-        menu_pos = click_pos - QPoint(menu_width, menu_height)
+        menu_pos = click_pos - QtCore.QPoint(menu_width, menu_height)
         self.my_menu_ui.setGeometry(
             menu_pos.x(), menu_pos.y(), menu_width, menu_height)
         self.my_menu_ui.show()
         
-    def startSniff(self):
+    def switchChanged(self):
         if self.control_toggle_button.toggled:
-            self.my_tray_app_ui.setIcon(QIcon(self.active_icon_path))
-            print("started")
+            self.my_tray_app_ui.setIcon(QtGui.QIcon(self.active_icon_path))
+            blocking_operations.block_unblock(selected_blocked_item_detail=None, sender="switch_opened",my_loading_ui=self.my_loading_ui,my_information_ui=self.my_information_ui,fillBlockedList=self.fillBlockedList)
         else:
-            self.my_tray_app_ui.setIcon(QIcon(self.pasive_icon_path))
-            print("stopped")
-   
-
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    widget_ui = uiWidget()
-    widget_ui.show()
-    sys.exit(app.exec())
+            self.my_tray_app_ui.setIcon(QtGui.QIcon(self.pasive_icon_path))
+            blocking_operations.block_unblock(selected_blocked_item_detail=None, sender="switch_closed",my_loading_ui=self.my_loading_ui,my_information_ui=self.my_information_ui,fillBlockedList=self.fillBlockedList)

@@ -1,6 +1,5 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtCore import Qt
 
 
 class uiLoading(QtWidgets.QDialog):
@@ -13,8 +12,8 @@ class uiLoading(QtWidgets.QDialog):
         self.setFixedSize(410, 140)
         self.setStyleSheet("background-color:black;")
         self.setWindowFlags(
-                            Qt.WindowType.WindowStaysOnTopHint)
-        self.setWindowModality(Qt.WindowModality.ApplicationModal)
+                            QtCore.Qt.WindowType.WindowStaysOnTopHint)
+        self.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
         # self.dialog_loading_cancel_button = QtWidgets.QDialogButtonBox(self)
         # self.dialog_loading_cancel_button.setGeometry(QtCore.QRect(167, 100, 75, 24))
         # font = QtGui.QFont()
@@ -78,11 +77,3 @@ class uiLoading(QtWidgets.QDialog):
                     self.bool = True
             self.dialog_loading_prog_bar.setInvertedAppearance(self.bool)
             self.dialog_loading_prog_bar.setValue(value)
-        
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    loading_ui = uiLoading()
-    loading_ui.show()
-    sys.exit(app.exec())

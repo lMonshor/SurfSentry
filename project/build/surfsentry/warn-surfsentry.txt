@@ -16,7 +16,7 @@ IMPORTANT: Do NOT post this list to the issue-tracker. Use it as a basis for
 
 missing module named pyimod02_importers - imported by C:\Users\lMonshor\AppData\Local\Programs\Python\Python312\Lib\site-packages\PyInstaller\hooks\rthooks\pyi_rth_pkgutil.py (delayed)
 missing module named _sha512 - imported by random (optional)
-missing module named pwd - imported by posixpath (delayed, conditional, optional), shutil (delayed, optional), tarfile (optional), pathlib (delayed, optional), subprocess (delayed, conditional, optional), netrc (delayed, conditional), getpass (delayed)
+missing module named pwd - imported by posixpath (delayed, conditional, optional), shutil (delayed, optional), tarfile (optional), pathlib (delayed, optional), subprocess (delayed, conditional, optional), http.server (delayed, optional), netrc (delayed, conditional), getpass (delayed)
 missing module named grp - imported by shutil (delayed, optional), tarfile (optional), pathlib (delayed, optional), subprocess (delayed, conditional, optional)
 missing module named posix - imported by os (conditional, optional), posixpath (optional), shutil (conditional), importlib._bootstrap_external (conditional)
 missing module named resource - imported by posix (top-level)
@@ -24,7 +24,6 @@ excluded module named _frozen_importlib - imported by importlib (optional), impo
 missing module named _frozen_importlib_external - imported by importlib._bootstrap (delayed), importlib (optional), importlib.abc (optional), zipimport (top-level)
 missing module named _posixsubprocess - imported by subprocess (conditional)
 missing module named fcntl - imported by subprocess (optional)
-missing module named readline - imported by code (delayed, conditional, optional)
 missing module named _scproxy - imported by urllib.request (conditional)
 missing module named termios - imported by getpass (optional)
 missing module named simplejson - imported by requests.compat (conditional, optional)
@@ -41,3 +40,4 @@ missing module named bcrypt - imported by cryptography.hazmat.primitives.seriali
 missing module named cryptography.x509.UnsupportedExtension - imported by cryptography.x509 (optional), urllib3.contrib.pyopenssl (optional)
 missing module named chardet - imported by requests.compat (optional), requests (optional), requests.packages (optional)
 missing module named urllib3_secure_extra - imported by urllib3 (optional)
+missing module named readline - imported by code (delayed, conditional, optional)

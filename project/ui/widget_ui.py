@@ -1,27 +1,35 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from ui import toggle_switch
 from features import blocking_operations
+from redirections import redirection_operations
+from features import workers
 import os
 
 
 class uiWidget(QtWidgets.QWidget):
-    def __init__(self):
-        self.my_tray_app_ui = None
-        self.my_menu_ui = None
-        self.my_loading_ui = None
-        self.my_information_ui = None
-        self.fillBlockedList = None
-        
+    def __init__(self,my_tray_app_ui,my_menu_ui,my_loading_ui,my_information_ui,my_pref_ui):
+        self.my_tray_app_ui = my_tray_app_ui
+        self.my_menu_ui = my_menu_ui
+        self.my_loading_ui = my_loading_ui
+        self.my_information_ui = my_information_ui
+        self.my_pref_ui = my_pref_ui
+
         super().__init__()
         self.initUI()
 
     def initUI(self):
-        control_logo_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'control_logo.png')
-        bottom_settings_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'bottom_settings_button.png')
-        bottom_bug_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'bottom_bug_logo.png')
-        bottom_logo_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'bottom_logo.png')
-        self.active_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'icon_active.png')
-        self.pasive_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'icon_passive.png')
+        self.active_icon_path = os.path.join(os.path.dirname(
+            os.path.abspath(__file__)), '..\\assets', 'icon_active.png')
+        self.pasive_icon_path = os.path.join(os.path.dirname(
+            os.path.abspath(__file__)), '..\\assets', 'icon_passive.png')
+        control_logo_icon_path = os.path.join(os.path.dirname(
+            os.path.abspath(__file__)), '..\\assets', 'control_logo.png')
+        bottom_settings_icon_path = os.path.join(os.path.dirname(
+            os.path.abspath(__file__)), '..\\assets', 'bottom_settings_button.png')
+        bottom_bug_icon_path = os.path.join(os.path.dirname(
+            os.path.abspath(__file__)), '..\\assets', 'bottom_bug_logo.png')
+        bottom_logo_icon_path = os.path.join(os.path.dirname(
+            os.path.abspath(__file__)), '..\\assets', 'bottom_logo.png')
 
         self.setObjectName("widget_ui")
         self.setFixedSize(326, 426)
@@ -47,30 +55,37 @@ class uiWidget(QtWidgets.QWidget):
         self.control_toggle_button.toggleChanged.connect(self.switchChanged)
         self.control_toggle_button.setObjectName("control_toggle_button")
 
-
         self.control_status_title_label = QtWidgets.QLabel(self)
-        self.control_status_title_label.setGeometry(QtCore.QRect(88, 240, 150, 33))
+        self.control_status_title_label.setGeometry(
+            QtCore.QRect(88, 240, 150, 33))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(20)
         self.control_status_title_label.setFont(font)
         self.control_status_title_label.setStyleSheet("color:#FEFEFE;")
-        self.control_status_title_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.control_status_title_label.setObjectName("control_status_title_label")
+        self.control_status_title_label.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.control_status_title_label.setObjectName(
+            "control_status_title_label")
         self.control_status_title_label.setText("Disconnected")
         self.control_status_desc_label = QtWidgets.QLabel(self)
-        self.control_status_desc_label.setGeometry(QtCore.QRect(40, 270, 246, 28))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.control_status_desc_label.setGeometry(
+            QtCore.QRect(40, 270, 246, 28))
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.control_status_desc_label.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.control_status_desc_label.sizePolicy().hasHeightForWidth())
         self.control_status_desc_label.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setPointSize(16)
         self.control_status_desc_label.setFont(font)
         self.control_status_desc_label.setStyleSheet("color:#FEFEFE;")
-        self.control_status_desc_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.control_status_desc_label.setObjectName("control_status_desc_label")
+        self.control_status_desc_label.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.control_status_desc_label.setObjectName(
+            "control_status_desc_label")
         self.control_status_desc_label.setText("Your Internet is not secure")
         self.bottom_widget = QtWidgets.QWidget(parent=self)
         self.bottom_widget.setGeometry(QtCore.QRect(0, 380, 326, 46))
@@ -81,30 +96,34 @@ class uiWidget(QtWidgets.QWidget):
         self.bottom_widget.setAutoFillBackground(False)
         self.bottom_widget.setStyleSheet("background-color:#393E46")
         self.bottom_widget.setObjectName("bottom_widget")
-        self.bottom_settings_button = QtWidgets.QPushButton(parent=self.bottom_widget)
+        self.bottom_settings_button = QtWidgets.QPushButton(
+            parent=self.bottom_widget)
         self.bottom_settings_button.setGeometry(QtCore.QRect(286, 8, 30, 30))
         self.bottom_settings_button.setStyleSheet("QPushButton:hover {\n"
-"                background-color: #696969;}\n"
-"            QPushButton {\n"
-"                border-style: none;\n"
-"                color: black;}")
+                                                  "                background-color: #696969;}\n"
+                                                  "            QPushButton {\n"
+                                                  "                border-style: none;\n"
+                                                  "                color: black;}")
         self.bottom_settings_button.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(bottom_settings_icon_path), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap(bottom_settings_icon_path),
+                       QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.bottom_settings_button.setIcon(icon)
         self.bottom_settings_button.setIconSize(QtCore.QSize(24, 24))
         self.bottom_settings_button.clicked.connect(self.showMenu_ui)
         self.bottom_settings_button.setObjectName("bottom_settings_button")
-        self.bottom_bug_button = QtWidgets.QPushButton(parent=self.bottom_widget)
+        self.bottom_bug_button = QtWidgets.QPushButton(
+            parent=self.bottom_widget)
         self.bottom_bug_button.setGeometry(QtCore.QRect(250, 8, 30, 30))
         self.bottom_bug_button.setStyleSheet("QPushButton:hover {\n"
-"                background-color: #696969;}\n"
-"            QPushButton {\n"
-"                border-style: none;\n"
-"                color: black;}")
+                                             "                background-color: #696969;}\n"
+                                             "            QPushButton {\n"
+                                             "                border-style: none;\n"
+                                             "                color: black;}")
         self.bottom_bug_button.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(bottom_bug_icon_path), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap(bottom_bug_icon_path),
+                        QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.bottom_bug_button.setIcon(icon1)
         self.bottom_bug_button.setIconSize(QtCore.QSize(24, 24))
         self.bottom_bug_button.setObjectName("bottom_bug_button")
@@ -123,11 +142,21 @@ class uiWidget(QtWidgets.QWidget):
         self.my_menu_ui.setGeometry(
             menu_pos.x(), menu_pos.y(), menu_width, menu_height)
         self.my_menu_ui.show()
-        
+
     def switchChanged(self):
+        
+        self.control_toggle_button.setEnabled(False)
         if self.control_toggle_button.toggled:
+            sender = "switch_opened"
             self.my_tray_app_ui.setIcon(QtGui.QIcon(self.active_icon_path))
-            blocking_operations.block_unblock(selected_blocked_item_detail=None, sender="switch_opened",my_loading_ui=self.my_loading_ui,my_information_ui=self.my_information_ui,fillBlockedList=self.fillBlockedList)
+            redirection_operations.start_server()
         else:
+            sender = "switch_closed"
             self.my_tray_app_ui.setIcon(QtGui.QIcon(self.pasive_icon_path))
-            blocking_operations.block_unblock(selected_blocked_item_detail=None, sender="switch_closed",my_loading_ui=self.my_loading_ui,my_information_ui=self.my_information_ui,fillBlockedList=self.fillBlockedList)
+            redirection_operations.stop_server()
+
+        blocking_operations.block_unblock(control_toggle_button=self.control_toggle_button, 
+                                          selected_blocked_item_detail=None, sender=sender,
+                                          my_loading_ui=self.my_loading_ui, 
+                                          my_information_ui=self.my_information_ui, 
+                                          fillBlockedList=self.my_pref_ui.fillBlockedList)

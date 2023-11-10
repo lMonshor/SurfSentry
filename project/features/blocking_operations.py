@@ -5,20 +5,21 @@ import shutil
 import threading
 
 
-def block_unblock(selected_blocked_item_detail, sender,my_loading_ui,my_information_ui,fillBlockedList):
+def block_unblock(control_toggle_button,selected_blocked_item_detail, sender,my_loading_ui,my_information_ui,fillBlockedList):
     try:
         my_blocking_op_worker = workers.BlockingOperationWorker(
             selected_blocked_item_detail, sender)
+        
         if sender.find("all") != -1:
-            print("inside condition" , sender)
             if not my_loading_ui.isVisible():
-                print("show")
                 my_loading_ui.show()
-            my_blocking_op_worker.finished.connect(my_loading_ui.hide)
-            my_blocking_op_worker.finished.connect(my_information_ui.show)
+                my_blocking_op_worker.finished.connect(my_loading_ui.hide)
+                my_blocking_op_worker.finished.connect(my_information_ui.show)
         my_blocking_op_worker.finished.connect(fillBlockedList)
         my_blocking_op_worker.finished.connect(my_blocking_op_worker.wait)
         my_blocking_op_worker.finished.connect(my_blocking_op_worker.quit)
+        if control_toggle_button is not None:
+            my_blocking_op_worker.finished.connect(lambda: control_toggle_button.setEnabled(True))
         my_blocking_op_worker.start()
     except Exception as e:
         print(f"Error block_unblock: {e}")

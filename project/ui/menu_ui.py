@@ -2,8 +2,8 @@ from PyQt6 import QtCore, QtWidgets
 
 
 class uiMenu(QtWidgets.QWidget):
-    def __init__(self):
-        self.my_pref_ui = None
+    def __init__(self,my_pref_ui):
+        self.my_pref_ui = my_pref_ui
         super().__init__()
         self.initUI()
 

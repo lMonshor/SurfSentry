@@ -1,18 +1,14 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from db import db_operations
-from features import methods, blocking_operations
+from features import methods, blocking_operations, workers
 from styles import md_styles, bd_styles
 import os
 
 
 class uiPreferences(QtWidgets.QMainWindow):
-    def __init__(self):
-        self.my_tray_app_ui = None
-        self.my_menu_ui = None
-        self.my_update_data_worker = None
-        self.my_loading_ui = None
-        self.my_information_ui = None
-
+    def __init__(self, my_loading_ui, my_information_ui):
+        self.my_loading_ui = my_loading_ui
+        self.my_information_ui = my_information_ui
         super().__init__()
         self.initUI()
 
@@ -1403,12 +1399,11 @@ class uiPreferences(QtWidgets.QMainWindow):
             lambda: self.fillBlockedDetail(self.bd_unblocked_list.selectedItems(), "unblocked_list"))
 
         self.bd_unblock_all_button.clicked.connect(
-            lambda: blocking_operations.block_unblock(selected_blocked_item_detail=None, sender="unblock_all_button", my_loading_ui=self.my_loading_ui, my_information_ui=self.my_information_ui, fillBlockedList=self.fillBlockedList))
+            lambda: blocking_operations.block_unblock(control_toggle_button=None, selected_blocked_item_detail=None, sender="unblock_all_button", my_loading_ui=self.my_loading_ui, my_information_ui=self.my_information_ui, fillBlockedList=self.fillBlockedList))
         self.bd_block_all_button.clicked.connect(
-            lambda: blocking_operations.block_unblock(selected_blocked_item_detail=None, sender="block_all_button", my_loading_ui=self.my_loading_ui, my_information_ui=self.my_information_ui, fillBlockedList=self.fillBlockedList))
+            lambda: blocking_operations.block_unblock(control_toggle_button=None, selected_blocked_item_detail=None, sender="block_all_button", my_loading_ui=self.my_loading_ui, my_information_ui=self.my_information_ui, fillBlockedList=self.fillBlockedList))
 
-        self.md_data_update_button.clicked.connect(
-            lambda: self.my_update_data_worker.start())
+        
 
         self.fb_submit_fb_button.clicked.connect(lambda: methods.send_email_feedback(
             email_address=self.fb_email_text, subject=self.fb_subject_text, description=self.fb_desc_text))
@@ -1426,7 +1421,26 @@ class uiPreferences(QtWidgets.QMainWindow):
             lambda: self.stackedWidget.setCurrentWidget(self.feedback_page))
         self.ab_github_button.clicked.connect(
             lambda: methods.openCustomWebPage("https://github.com/lMonshor/SurfSentry"))
+        
         QtCore.QMetaObject.connectSlotsByName(self)
+
+        self.md_data_update_button.clicked.connect(self.updateData)
+
+    def updateData(self):
+        if not self.my_loading_ui.isVisible():
+            self.my_loading_ui.show()
+        my_update_data_worker = workers.UpdateDataWorker(
+           my_loading_ui=self.my_loading_ui)
+        my_update_data_worker.finished.connect(my_update_data_worker.wait)
+        my_update_data_worker.finished.connect(my_update_data_worker.quit)
+        my_update_data_worker.finished.connect(self.fillMalList)
+        my_update_data_worker.finished.connect(self.fillBlockedList)
+        my_update_data_worker.finished.connect(self.my_loading_ui.hide)
+        my_update_data_worker.finished.connect(self.my_information_ui.show)
+        
+            
+        
+        my_update_data_worker.start()
 
     def checkPlainTextEdits(self):
         if not self.fb_email_text.toPlainText() or not self.fb_subject_text.toPlainText() or not self.fb_desc_text.toPlainText():
@@ -1437,6 +1451,7 @@ class uiPreferences(QtWidgets.QMainWindow):
     def fillMalList(self):
         try:
             self.md_mal_data_list.clear()
+            self.md_mal_data_list.clearSelection()
             mal_urls = db_operations.get_data_by_column_name(
                 column_name="url", table_name="malicious_data")
             for row in mal_urls:
@@ -1528,14 +1543,14 @@ class uiPreferences(QtWidgets.QMainWindow):
                     self.bd_unblock_sel_data_button.setEnabled(True)
                     self.bd_block_sel_data_button.setEnabled(False)
                     self.bd_unblock_sel_data_button.clicked.connect(
-                        lambda: blocking_operations.block_unblock(selected_blocked_item_detail=selected_blocked_item_detail, sender="unblock_button", my_loading_ui=self.my_loading_ui, my_information_ui=self.my_information_ui, fillBlockedList=self.fillBlockedList))
+                        lambda: blocking_operations.block_unblock(control_toggle_button=None, selected_blocked_item_detail=selected_blocked_item_detail, sender="unblock_button", my_loading_ui=self.my_loading_ui, my_information_ui=self.my_information_ui, fillBlockedList=self.fillBlockedList))
                 elif sender == "unblocked_list":
                     self.bd_block_sel_data_button.disconnect()
                     self.bd_blocked_list.clearSelection()
                     self.bd_unblock_sel_data_button.setEnabled(False)
                     self.bd_block_sel_data_button.setEnabled(True)
                     self.bd_block_sel_data_button.clicked.connect(
-                        lambda: blocking_operations.block_unblock(selected_blocked_item_detail=selected_blocked_item_detail, sender="block_button", my_loading_ui=self.my_loading_ui, my_information_ui=self.my_information_ui, fillBlockedList=self.fillBlockedList))
+                        lambda: blocking_operations.block_unblock(control_toggle_button=None, selected_blocked_item_detail=selected_blocked_item_detail, sender="block_button", my_loading_ui=self.my_loading_ui, my_information_ui=self.my_information_ui, fillBlockedList=self.fillBlockedList))
 
                 self.bd_url_label.setText(
                     selected_blocked_item_detail[0])

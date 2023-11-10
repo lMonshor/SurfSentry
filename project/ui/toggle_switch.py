@@ -16,7 +16,6 @@ class CustomToggleSwitch(QtWidgets.QWidget):
         self.toggle_frame.setStyleSheet(
             "background-color: #555; border-radius: 30px;")
 
-        # Hareket eden topu ortala
         self.toggle_button = QtWidgets.QLabel(self.toggle_frame)
         self.toggle_button.setGeometry(6, 8, 44, 44)
         self.toggle_button.setStyleSheet(
@@ -36,14 +35,17 @@ class CustomToggleSwitch(QtWidgets.QWidget):
         self.toggled = False
 
     def toggleSwitch(self, event):
+        self.toggle()
+
+    def toggle(self):
         if not self.toggled:
-            self.animation.setStartValue(QtCore.QRect(6, 8, 44, 44)) 
-            self.animation.setEndValue(QtCore.QRect(80, 8, 44, 44)) 
+            self.animation.setStartValue(QtCore.QRect(6, 8, 44, 44))
+            self.animation.setEndValue(QtCore.QRect(80, 8, 44, 44))
             self.toggled = True
             self.toggle_frame.setStyleSheet(
                 "background-color: #4caf50; border-radius: 30px;")
         else:
-            self.animation.setStartValue(QtCore.QRect(80, 8, 44, 44)) 
+            self.animation.setStartValue(QtCore.QRect(80, 8, 44, 44))
             self.animation.setEndValue(QtCore.QRect(6, 8, 44, 44))
             self.toggled = False
             self.toggle_frame.setStyleSheet(

@@ -70,9 +70,6 @@ def filter_mal_raw_data_item(item):
 
 
 def process_malicious_data(raw_mal_data):
-    db_operations.create_tables()
-    db_operations.clear_table_by_table_name('malicious_data')
-    db_operations.custom_query('DELETE FROM blocked_data WHERE current_status = "unblocked"')
     for item in raw_mal_data:
         filtered_item = filter_mal_raw_data_item(item)
         if filtered_item:
@@ -107,7 +104,7 @@ def get_current_date_utc():
 
 def get_previous_date_utc():
     today = datetime.now().utcnow()
-    previous_date = today - timedelta(days=1)
+    previous_date = today - timedelta(days=2)
     return str(previous_date)
 
 

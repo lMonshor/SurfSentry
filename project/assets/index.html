@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocked Malicious Connection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #0F0F0F; /* Dark Grey */
+            color: #FFFFFF; /* White */
+        }
+        h1 {
+            color: #FFFFFF; /* White */
+        }
+        p {
+            color: #CCCCCC; /* Grey */
+        }
+    </style>
+</head>
+<body>
+    <h1>Blocked Malicious Connection</h1>
+    <p>This site has been flagged as malicious and access has been blocked.</p>
+    <p>Please proceed with caution.</p>
+
+    <button onclick="unblock()">Unblock</button>
+
+<script>
+    function unblock() {
+        var confirmation = confirm("Are you sure you want to proceed?");
+
+        if (confirmation) {
+            var currentURL = window.location.href;
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/unblock?url=' + encodeURIComponent(currentURL), true);
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    alert('Unblocked');
+                    location.reload();
+                } else {
+                    alert('Error: ' + xhr.statusText);
+                }
+            };
+
+            xhr.onerror = function () {
+                alert('Network Error');
+            };
+
+            xhr.send();
+        }
+    }
+</script>
+</body>
+</html>

@@ -61,7 +61,7 @@ def filter_mal_raw_data_item(item):
                     if item['source'] == 'IH' else
                     'Not available'
                 ),
-                "date": item['date'].split()[0],
+                "date": item['date'],
                 'link': f"https://www.usom.gov.tr/adres/{item['id']}"
             }
     except Exception as e:
@@ -69,20 +69,37 @@ def filter_mal_raw_data_item(item):
     return None
 
 
-def process_malicious_data(raw_mal_data):
+def fill_mal_data_table(raw_mal_data):
     for item in raw_mal_data:
         filtered_item = filter_mal_raw_data_item(item)
         if filtered_item:
-            db_operations.save_to_mal_table(filtered_item)
-            operation_time = get_current_date()
-            if not check_blocked_data_existence(filtered_item):
+            if not check_mal_data_existence(filtered_item=filtered_item):
+                db_operations.save_to_mal_table(filtered_item)
+
+
+def fill_blocked_data_table():
+    mal_data = db_operations.custom_query('select * from malicious_data')
+    if mal_data:
+        for item in mal_data:
+            if not check_blocked_data_existence(item):
+                operation_time = get_current_date()
                 db_operations.save_to_blocked_table(
-                    item=filtered_item, op_time=operation_time)
+                    item=item, op_time=operation_time)
 
 
-def check_blocked_data_existence(filtered_item):
+def check_blocked_data_existence(item):
     data = db_operations.custom_query(
-        f'select * from blocked_data where url = "{filtered_item['url']}"')
+        f'select * from blocked_data where url = "{item[3]}"')
+    if data:
+        # Exist
+        return True
+    else:
+        return False
+
+
+def check_mal_data_existence(filtered_item):
+    data = db_operations.custom_query(
+        f'select * from malicious_data where url = "{filtered_item['url']}"')
     if data:
         # Exist
         return True
@@ -126,7 +143,8 @@ def send_email_feedback(email_address, subject, description):
         receiver = config.receiver_email
         password = config.password
 
-        message = (f"Email Address: {email_address.toPlainText()}\nSubject: {subject.toPlainText()}\nDescription: {description.toPlainText()}")
+        message = (f"Email Address: {email_address.toPlainText()}\nSubject: {
+                   subject.toPlainText()}\nDescription: {description.toPlainText()}")
 
         msg = MIMEText(message)
         msg['Subject'] = "Feedback"
@@ -145,3 +163,6 @@ def send_email_feedback(email_address, subject, description):
 
     except Exception as e:
         print(f"An error occurred: {e}")
+
+
+fill_blocked_data_table()

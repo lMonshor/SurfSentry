@@ -8,7 +8,6 @@ class uiInformation(QtWidgets.QDialog):
         self.initUI()
 
     def initUI(self):
-        self.setObjectName("information_ui")
         self.setFixedSize(390, 110)
         self.setStyleSheet("background-color:black;")
         self.setWindowFlags(
@@ -25,8 +24,7 @@ class uiInformation(QtWidgets.QDialog):
 "}")
         self.dialog_inf_ok_button.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.dialog_inf_ok_button.setStandardButtons(QtWidgets.QDialogButtonBox.StandardButton.Ok)
-        self.dialog_inf_ok_button.setObjectName("buttonBox")
-        self.dialog_inf_ok_button.clicked.connect(self.hide)
+        self.dialog_inf_ok_button.clicked.connect(self.deleteLater)
         self.label = QtWidgets.QLabel(parent=self)
         self.label.setGeometry(QtCore.QRect(10, 0, 370, 51))
         font = QtGui.QFont()
@@ -36,6 +34,4 @@ class uiInformation(QtWidgets.QDialog):
         self.label.setStyleSheet("color:white;")
         self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label.setWordWrap(True)
-        self.label.setObjectName("label")
-        
         self.label.setText(("Succesfully updated"))

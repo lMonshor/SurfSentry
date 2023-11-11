@@ -7,7 +7,7 @@ class uiTrayApp(QtWidgets.QSystemTrayIcon):
         self.initUI()
 
     def initUI(self):
-        tary_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets', 'icon_passive.png')
+        tary_icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\..\\assets', 'icon_passive.png')
 
         self.setIcon(QtGui.QIcon(tary_icon_path))
         self.setVisible(False)

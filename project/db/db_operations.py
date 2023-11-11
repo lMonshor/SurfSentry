@@ -71,7 +71,7 @@ def save_to_blocked_table(item,op_time):
                 (url, data_type, operation_time, current_status)
                 VALUES (?, ?, ?, ?)
             ''', (
-                item['url'], item['data_type'], op_time, "unblocked"
+                item[3], item[2], op_time, "unblocked"
             ))
     except sqlite3.Error as e:
         print(f"Error save_to_blocked_table: {e}")

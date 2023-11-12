@@ -1,11 +1,5 @@
-import subprocess
-from datetime import datetime
 from db import db_operations
-from datetime import datetime, timedelta
-from PyQt6 import QtCore, QtGui, QtWidgets
-import smtplib
-from email.mime.text import MIMEText
-import config
+from features import helper_methods
 
 
 def filter_mal_raw_data_item(item):
@@ -82,7 +76,7 @@ def fill_blocked_data_table():
     if mal_data:
         for item in mal_data:
             if not check_blocked_data_existence(item):
-                operation_time = get_current_date()
+                operation_time = helper_methods.get_current_date()
                 db_operations.save_to_blocked_table(
                     item=item, op_time=operation_time)
 
@@ -105,64 +99,3 @@ def check_mal_data_existence(filtered_item):
         return True
     else:
         return False
-
-
-def flush_dns():
-    try:
-        command = f"powershell ipconfig /flushdns"
-        subprocess.run(command, shell=True)
-    except Exception as e:
-        print(f"Error flush_dns: {e}")
-
-
-def get_current_date_utc():
-    return str(datetime.now().utcnow())
-
-
-def get_previous_date_utc():
-    today = datetime.now().utcnow()
-    previous_date = today - timedelta(days=2)
-    return str(previous_date)
-
-
-def get_current_date():
-    return datetime.now().strftime("%Y-%m-%d %H:%M")
-
-
-def openCustomWebPage(link):
-    try:
-        url = QtCore.QUrl(link)
-        QtGui.QDesktopServices.openUrl(url)
-    except Exception as e:
-        print(f"Error openCustomWebPage: {e}")
-
-
-def send_email_feedback(email_address, subject, description):
-    try:
-        sender = config.email
-        receiver = config.receiver_email
-        password = config.password
-
-        message = (f"Email Address: {email_address.toPlainText()}\nSubject: {
-                   subject.toPlainText()}\nDescription: {description.toPlainText()}")
-
-        msg = MIMEText(message)
-        msg['Subject'] = "Feedback"
-        msg['From'] = sender
-        msg['To'] = receiver
-
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
-            smtp_server.login(sender, password)
-            smtp_server.sendmail(sender, receiver, msg.as_string())
-
-        email_address.clear()
-        subject.clear()
-        description.clear()
-
-        print("Message sent!")
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-
-fill_blocked_data_table()

@@ -1,6 +1,6 @@
 from PyQt6 import QtCore, QtGui
 from db import db_operations
-from features import blocking_operations,methods
+from features import blocking_operations,data_filtering_operations
 from api import usom_api
 
 
@@ -17,7 +17,7 @@ class UpdateDataWorker(QtCore.QThread):
             db_operations.custom_query(
                 'DELETE FROM blocked_data WHERE current_status = "unblocked"')
             usom_api.get_malicious_data(self.my_loading_ui)
-            methods.fill_blocked_data_table()
+            data_filtering_operations.fill_blocked_data_table()
             blocking_operations.unblock_all_entries()
         except Exception as e:
             print(f"Error run(UpdateDataWorker): {e}")

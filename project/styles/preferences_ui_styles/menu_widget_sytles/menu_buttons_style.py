@@ -1,4 +1,4 @@
-menu_button_style = """QRadioButton {
+button_style = """QRadioButton {
     border: none;
     color: white;
 }

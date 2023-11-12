@@ -1,6 +1,6 @@
 import requests
 import time
-from features import methods
+from features import helper_methods,data_filtering_operations
 from db import db_operations
 
 def make_request(url):
@@ -21,19 +21,22 @@ def make_request(url):
         return None
 
 def get_malicious_data(loading_ui):
-    today = methods.get_current_date_utc().split()[0]
+    today = helper_methods.get_current_date_utc().split()[0]
     last_update_date = db_operations.custom_query("select date from malicious_data where id = 1")
     request_url = None
     if last_update_date:
-        last_update_date = last_update_date[0][0]
-        if last_update_date.split()[0] == today:
+        last_update_date = last_update_date[0][0].split()[0]
+        if last_update_date == today:
             last_data_date = db_operations.custom_query("select date from malicious_data order by data_id desc limit 1")
             if last_data_date:
                 last_data_date = last_data_date[0][0]
                 request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={last_data_date}"
+        else:
+            db_operations.clear_table_by_table_name('malicious_data')
+            request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={today}" 
     else:
         db_operations.clear_table_by_table_name('malicious_data')
-        request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={today}"  
+        request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={today}" 
     data = make_request(request_url)
     if data is not None and "pageCount" in data:
         pageCount = data["pageCount"]
@@ -44,6 +47,6 @@ def get_malicious_data(loading_ui):
             data = make_request(request_url)
             if data is not None:
                 raw_data.extend(data['models'])
-        methods.fill_mal_data_table(raw_data)
+        data_filtering_operations.fill_mal_data_table(raw_data)
     else:
         return None

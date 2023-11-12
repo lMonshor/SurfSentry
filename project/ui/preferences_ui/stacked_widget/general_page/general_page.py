@@ -1,228 +1,131 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
-from styles.stacked_widget_style import stacked_widget_button_style
+from ui.components import qlayout_qwidget_generator, qpushbutton_generator, qlabel_generator
+from styles.preferences_ui_styles.stacked_widget_styles import stacked_buttons_style
+
 
 class GeneralPageWidget(QtWidgets.QWidget):
+    TITLE_FONT = QtGui.QFont("Calibri", 18)
+    LABEL_FONT = QtGui.QFont("Calibri", 12)
+    LABEL_COLOR = "#777777"
+
     def __init__(self):
         super().__init__()
-
         self.initUI()
 
     def initUI(self):
-        self.gen_apply_button = QtWidgets.QPushButton(parent=self)
-        self.gen_apply_button.setEnabled(False)
-        self.gen_apply_button.setGeometry(QtCore.QRect(540, 470, 191, 27))
-        self.gen_apply_button.setStyleSheet(stacked_widget_button_style.button_style)
-        self.gen_second_hline = QtWidgets.QFrame(parent=self)
-        self.gen_second_hline.setGeometry(QtCore.QRect(48, 332, 672, 1))
-        self.gen_second_hline.setStyleSheet("background-color:#393E46;")
-        self.gen_second_hline.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.gen_second_hline.setLineWidth(0)
-        self.gen_second_hline.setFrameShape(QtWidgets.QFrame.Shape.HLine)
-        self.gen_first_hline = QtWidgets.QFrame(parent=self)
-        self.gen_first_hline.setGeometry(QtCore.QRect(48, 174, 672, 1))
-        self.gen_first_hline.setStyleSheet("background-color:#393E46;")
-        self.gen_first_hline.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.gen_first_hline.setLineWidth(0)
-        self.gen_first_hline.setFrameShape(QtWidgets.QFrame.Shape.HLine)
-        self.gen_top_glayout_widget = QtWidgets.QWidget(parent=self)
-        self.gen_top_glayout_widget.setGeometry(QtCore.QRect(40, 100, 311, 51))
-        self.gen_top_glayout = QtWidgets.QGridLayout(self.gen_top_glayout_widget)
-        self.gen_top_glayout.setContentsMargins(0, 0, 0, 0)
-        self.gen_top_glayout.setHorizontalSpacing(6)
-        self.gen_adapter_cbox = QtWidgets.QComboBox(parent=self.gen_top_glayout_widget)
-        self.gen_top_glayout.addWidget(self.gen_adapter_cbox, 1, 2, 1, 1)
-        self.gen_ip_title = QtWidgets.QLabel(parent=self.gen_top_glayout_widget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.gen_ip_title.setFont(font)
-        self.gen_ip_title.setLayoutDirection(
-            QtCore.Qt.LayoutDirection.LeftToRight)
-        self.gen_ip_title.setStyleSheet("color:white;")
-        self.gen_ip_title.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading |
-                                       QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.gen_top_glayout.addWidget(self.gen_ip_title, 0, 0, 1, 1)
-        self.gen_ip_label = QtWidgets.QLabel(parent=self.gen_top_glayout_widget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.gen_ip_label.sizePolicy().hasHeightForWidth())
-        self.gen_ip_label.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.gen_ip_label.setFont(font)
-        self.gen_ip_label.setStyleSheet("color:#777777;")
-        self.gen_ip_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.gen_ip_label.setWordWrap(True)
-        self.gen_top_glayout.addWidget(self.gen_ip_label, 0, 2, 1, 1)
-        self.gen_colon3 = QtWidgets.QLabel(parent=self.gen_top_glayout_widget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.gen_colon3.setFont(font)
-        self.gen_colon3.setStyleSheet("color:white;")
-        self.gen_top_glayout.addWidget(self.gen_colon3, 1, 1, 1, 1)
-        self.gen_adapter_title = QtWidgets.QLabel(parent=self.gen_top_glayout_widget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.gen_adapter_title.setFont(font)
-        self.gen_adapter_title.setStyleSheet("color:white;")
-        self.gen_top_glayout.addWidget(self.gen_adapter_title, 1, 0, 1, 1)
-        self.gen_colon1 = QtWidgets.QLabel(parent=self.gen_top_glayout_widget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.gen_colon1.setFont(font)
-        self.gen_colon1.setStyleSheet("color:white;")
-        self.gen_top_glayout.addWidget(self.gen_colon1, 0, 1, 1, 1)
-        self.gen_information_title = QtWidgets.QLabel(parent=self)
-        self.gen_information_title.setGeometry(QtCore.QRect(30, 61, 222, 33))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(18)
-        font.setBold(False)
-        self.gen_information_title.setFont(font)
-        self.gen_information_title.setStyleSheet("color:white;")
-        self.gen_bottom_glayout_widget = QtWidgets.QWidget(parent=self)
-        self.gen_bottom_glayout_widget.setGeometry(QtCore.QRect(40, 230, 491, 74))
-        self.gen_bottom_glayout = QtWidgets.QGridLayout(self.gen_bottom_glayout_widget)
-        self.gen_bottom_glayout.setContentsMargins(0, 0, 0, 0)
-        self.gen_bottom_glayout.setHorizontalSpacing(6)
-        self.gen_last_upt_title = QtWidgets.QLabel(parent=self.gen_bottom_glayout_widget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.gen_last_upt_title.setFont(font)
-        self.gen_last_upt_title.setStyleSheet("color:white;")
-        self.gen_bottom_glayout.addWidget(self.gen_last_upt_title, 2, 0, 1, 1)
-        self.gen_tot_domain_label = QtWidgets.QLabel(parent=self.gen_bottom_glayout_widget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.gen_tot_domain_label.sizePolicy().hasHeightForWidth())
-        self.gen_tot_domain_label.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.gen_tot_domain_label.setFont(font)
-        self.gen_tot_domain_label.setStyleSheet("color:#777777;")
-        self.gen_tot_domain_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.gen_tot_domain_label.setWordWrap(True)
-        self.gen_bottom_glayout.addWidget(
-            self.gen_tot_domain_label, 0, 2, 1, 1)
-        self.gen_tot_ip_title = QtWidgets.QLabel(parent=self.gen_bottom_glayout_widget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.gen_tot_ip_title.setFont(font)
-        self.gen_tot_ip_title.setStyleSheet("color:white;")
-        self.gen_bottom_glayout.addWidget(self.gen_tot_ip_title, 1, 0, 1, 1)
-        self.gen_colon4 = QtWidgets.QLabel(parent=self.gen_bottom_glayout_widget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.gen_colon4.setFont(font)
-        self.gen_colon4.setStyleSheet("color:white;")
-        self.gen_bottom_glayout.addWidget(self.gen_colon4, 0, 1, 1, 1)
-        self.gen_colon5 = QtWidgets.QLabel(parent=self.gen_bottom_glayout_widget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.gen_colon5.setFont(font)
-        self.gen_colon5.setStyleSheet("color:white;")
-        self.gen_bottom_glayout.addWidget(self.gen_colon5, 1, 1, 1, 1)
-        self.gen_colon6 = QtWidgets.QLabel(parent=self.gen_bottom_glayout_widget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.gen_colon6.setFont(font)
-        self.gen_colon6.setStyleSheet("color:white;")
-        self.gen_bottom_glayout.addWidget(self.gen_colon6, 2, 1, 1, 1)
-        self.gen_tot_domain_title = QtWidgets.QLabel(parent=self.gen_bottom_glayout_widget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        font.setBold(False)
-        self.gen_tot_domain_title.setFont(font)
-        self.gen_tot_domain_title.setLayoutDirection(
-            QtCore.Qt.LayoutDirection.LeftToRight)
-        self.gen_tot_domain_title.setStyleSheet("color:white;")
-        self.gen_tot_domain_title.setAlignment(
-            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.gen_bottom_glayout.addWidget(
-            self.gen_tot_domain_title, 0, 0, 1, 1)
-        self.gen_tot_ip_label = QtWidgets.QLabel(parent=self.gen_bottom_glayout_widget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.gen_tot_ip_label.sizePolicy().hasHeightForWidth())
-        self.gen_tot_ip_label.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.gen_tot_ip_label.setFont(font)
-        self.gen_tot_ip_label.setStyleSheet("color:#777777;")
-        self.gen_tot_ip_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.gen_tot_ip_label.setWordWrap(True)
-        self.gen_bottom_glayout.addWidget(self.gen_tot_ip_label, 1, 2, 1, 1)
-        self.gen_last_upt_label = QtWidgets.QLabel(parent=self.gen_bottom_glayout_widget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.gen_last_upt_label.sizePolicy().hasHeightForWidth())
-        self.gen_last_upt_label.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(12)
-        self.gen_last_upt_label.setFont(font)
-        self.gen_last_upt_label.setStyleSheet("color:#777777;")
-        self.gen_last_upt_label.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.gen_last_upt_label.setWordWrap(True)
-        self.gen_bottom_glayout.addWidget(self.gen_last_upt_label, 2, 2, 1, 1)
-        self.gen_mal_inf_title = QtWidgets.QLabel(parent=self)
-        self.gen_mal_inf_title.setGeometry(QtCore.QRect(30, 190, 403, 33))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(18)
-        font.setBold(False)
-        self.gen_mal_inf_title.setFont(font)
-        self.gen_mal_inf_title.setStyleSheet("color:white;")
-        
-        self.gen_apply_button.setText("Apply Changes")
-        self.gen_ip_title.setText("Public IP")
-        self.gen_ip_label.setText("255.255.255.255")
-        self.gen_colon3.setText(":")
-        self.gen_adapter_title.setText("Current Adapter")
-        self.gen_colon1.setText(":")
-        self.gen_information_title.setText("General Information")
-        self.gen_last_upt_title.setText("Last Update Time")
-        self.gen_tot_domain_label.setText("256")
-        self.gen_tot_ip_title.setText("Total Number of Malicious IPS")
-        self.gen_colon4.setText(":")
-        self.gen_colon5.setText(":")
-        self.gen_colon6.setText(":")
-        self.gen_tot_domain_title.setText("Total Number of Malicious Domains")
-        self.gen_tot_ip_label.setText("128")
-        self.gen_last_upt_label.setText("2023-10-07 11:08")
-        self.gen_mal_inf_title.setText("Received Malicious Data Information")
-        
-        
-        
-        
+        self.setStyleSheet("background-color: #0f0f0f")
+        self.gen_information_title = qlabel_generator.create_label(
+            parent=self,
+            geometry=(QtCore.QRect(30, 61, 222, 33)),
+            font=self.TITLE_FONT,
+            text="General Information")
+
+        self.gen_top_glayout_widget, self.top_glayout = qlayout_qwidget_generator.create_glayout_widget(
+            parent=self,
+            geometry=(QtCore.QRect(40, 100, 311, 51)))
+
+        self.gen_ip_title = qlabel_generator.create_label(
+            parent=self.gen_top_glayout_widget,
+            font=self.LABEL_FONT,
+            text="Public IP")
+
+        self.gen_ip_label = qlabel_generator.create_label(
+            parent=self.gen_top_glayout_widget,
+            font=self.LABEL_FONT,
+            color=self.LABEL_COLOR,
+            text="255.255.255.255")
+
+        self.gen_adapter_title = qlabel_generator.create_label(
+            parent=self.gen_top_glayout_widget,
+            font=self.LABEL_FONT,
+            text="Current Adapter")
+        self.gen_adapter_title.setFixedWidth(110)
+
+        self.gen_adapter_cbox = QtWidgets.QComboBox(
+            parent=self.gen_top_glayout_widget)
+
+        self.gen_mal_inf_title = qlabel_generator.create_label(
+            parent=self,
+            geometry=(QtCore.QRect(30, 190, 403, 33)),
+            font=self.TITLE_FONT,
+            text="Received Malicious Data Information")
+
+        self.gen_bottom_glayout_widget, self.bottom_glayout = qlayout_qwidget_generator.create_glayout_widget(
+            parent=self,
+            geometry=(QtCore.QRect(40, 230, 491, 74)))
+
+        self.gen_tot_domain_title = qlabel_generator.create_label(
+            parent=self.gen_top_glayout_widget,
+            font=self.LABEL_FONT,
+            text="Total Number of Malicious Domains")
+
+        self.gen_tot_domain_label = qlabel_generator.create_label(
+            parent=self.gen_top_glayout_widget,
+            font=self.LABEL_FONT,
+            color=self.LABEL_COLOR,
+            text="255")
+
+        self.gen_tot_ip_title = qlabel_generator.create_label(
+            parent=self.gen_top_glayout_widget,
+            font=self.LABEL_FONT,
+            text="Total Number of Malicious IPS")
+
+        self.gen_tot_ip_label = qlabel_generator.create_label(
+            parent=self.gen_top_glayout_widget,
+            font=self.LABEL_FONT,
+            color=self.LABEL_COLOR,
+            text="126")
+
+        self.gen_last_upt_title = qlabel_generator.create_label(
+            parent=self.gen_top_glayout_widget,
+            font=self.LABEL_FONT,
+            text="Last Update Time")
+
+        self.gen_last_upt_label = qlabel_generator.create_label(
+            parent=self.gen_top_glayout_widget,
+            font=self.LABEL_FONT,
+            color=self.LABEL_COLOR,
+            text="2023-10-07 11:08")
+
+        self.gen_colon1 = qlabel_generator.create_label(
+            parent=self.gen_top_glayout_widget,
+            font=self.LABEL_FONT,
+            text=":")
+        self.gen_colon2 = qlabel_generator.create_label(
+            parent=self.gen_top_glayout_widget,
+            font=self.LABEL_FONT,
+            text=":")
+        self.gen_colon3 = qlabel_generator.create_label(
+            parent=self.gen_bottom_glayout_widget,
+            font=self.LABEL_FONT,
+            text=":")
+        self.gen_colon4 = qlabel_generator.create_label(
+            parent=self.gen_bottom_glayout_widget,
+            font=self.LABEL_FONT,
+            text=":")
+        self.gen_colon5 = qlabel_generator.create_label(
+            parent=self.gen_bottom_glayout_widget,
+            font=self.LABEL_FONT,
+            text=":")
+
+        self.top_glayout.addWidget(self.gen_ip_title, 0, 0, 1, 1)
+        self.top_glayout.addWidget(self.gen_colon1, 0, 1, 1, 1)
+        self.top_glayout.addWidget(self.gen_ip_label, 0, 2, 1, 1)
+        self.top_glayout.addWidget(self.gen_adapter_title, 1, 0, 1, 1)
+        self.top_glayout.addWidget(self.gen_colon2, 1, 1, 1, 1)
+        self.top_glayout.addWidget(self.gen_adapter_cbox, 1, 2, 1, 1)
+
+        self.bottom_glayout.addWidget(self.gen_tot_domain_title, 0, 0, 1, 1)
+        self.bottom_glayout.addWidget(self.gen_colon3, 0, 1, 1, 1)
+        self.bottom_glayout.addWidget(self.gen_tot_domain_label, 0, 2, 1, 1)
+        self.bottom_glayout.addWidget(self.gen_tot_ip_title, 1, 0, 1, 1)
+        self.bottom_glayout.addWidget(self.gen_colon4, 1, 1, 1, 1)
+        self.bottom_glayout.addWidget(self.gen_tot_ip_label, 1, 2, 1, 1)
+        self.bottom_glayout.addWidget(self.gen_last_upt_title, 2, 0, 1, 1)
+        self.bottom_glayout.addWidget(self.gen_colon5, 2, 1, 1, 1)
+        self.bottom_glayout.addWidget(self.gen_last_upt_label, 2, 2, 1, 1)
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication([])

@@ -1,6 +1,6 @@
 import subprocess
 import db.db_operations
-from features import methods, workers
+from features import helper_methods, workers
 from ui.loading_ui import loading_ui
 from ui.information_ui import information_ui
 import shutil
@@ -66,7 +66,7 @@ def check_hosts_rule_existence(target_url):
 
 def add_acl_entry(target_url):
     try:
-        operation_time = methods.get_current_date()
+        operation_time = helper_methods.get_current_date()
         command = f"powershell netsh advfirewall firewall add rule name='Blocked by SurfSentry {
             target_url}' dir=out action=block remoteip={target_url}"
         subprocess.run(command, shell=True)
@@ -90,7 +90,7 @@ def add_acl_entries(target_data):
 
 def remove_acl_entry(target_url):
     try:
-        operation_time = methods.get_current_date()
+        operation_time = helper_methods.get_current_date()
         command = f"powershell netsh advfirewall firewall delete rule name='Blocked by SurfSentry {
             target_url}'"
         db.db_operations.update_blocked_table(
@@ -114,7 +114,7 @@ def remove_acl_entries(target_data):
 
 def add_entry_to_hosts_file(target_url):
     try:
-        operation_time = methods.get_current_date()
+        operation_time = helper_methods.get_current_date()
         with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r+') as hosts_file:
             content = hosts_file.read()
             hosts_file.seek(0)
@@ -128,7 +128,7 @@ def add_entry_to_hosts_file(target_url):
 
 def add_entries_to_hosts_file(target_urls):
     try:
-        operation_time = methods.get_current_date()
+        operation_time = helper_methods.get_current_date()
         with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r+') as hosts_file:
             content = hosts_file.read()
             hosts_file.seek(0)
@@ -150,7 +150,7 @@ def add_entries_to_hosts_file(target_urls):
 
 def remove_entry_from_hosts_file(target_url):
     try:
-        operation_time = methods.get_current_date()
+        operation_time = helper_methods.get_current_date()
         with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r') as hosts_file:
             lines = hosts_file.readlines()
         with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'w') as hosts_file:
@@ -166,7 +166,7 @@ def remove_entry_from_hosts_file(target_url):
 
 def remove_entries_from_hosts_file(target_urls):
     try:
-        operation_time = methods.get_current_date()
+        operation_time = helper_methods.get_current_date()
         updated_lines = []
 
         with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r') as hosts_file:

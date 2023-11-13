@@ -7,6 +7,7 @@ import sys
 import db.db_operations
 from features import blocking_operations
 
+IP = '0.0.0.0'
 PORT = 80
 server_running = False
 path_index_html = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets' ,'index.html')
@@ -34,15 +35,16 @@ class MaliciousHandler(http.server.SimpleHTTPRequestHandler):
 
     def unblock(self, url):
         target_data = db.db_operations.custom_query(
-            f'select url, data_type, operation_time, current_status from blocked_data where url = "{url}"')[0]
+            f'select url, data_type, operation_time, current_status from blocked_data where url = "{url}"')
 
         if target_data:
+            target_data = target_data[0]
             blocking_operations.unblock_entry(target_data)
 
 def start_server():
     global server_running, httpd
     if not server_running:
-        httpd = socketserver.TCPServer(("", PORT), MaliciousHandler)
+        httpd = socketserver.TCPServer((IP, PORT), MaliciousHandler)
         server_thread = threading.Thread(target=httpd.serve_forever)
         server_thread.daemon = True
         server_thread.start()

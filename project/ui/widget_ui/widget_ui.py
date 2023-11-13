@@ -7,10 +7,15 @@ import os
 
 
 class UiWidget(QtWidgets.QWidget):
+    ASSETS_PATH = os.path.join(os.path.dirname(
+        os.path.abspath(__file__)), '..\\..\\assets')
     CONTROL_TITLE_FONT = QtGui.QFont("Calibri", 20)
     CONTROL_DESC_FONT = QtGui.QFont("Calibri", 16)
     CONTROL_WIDGET_STYLE = "background-color: #0f0f0f"
     BOTTOM_WIDGET_STYLE = "background-color: #393E46"
+    ICONS = {
+        'active_icon': 'icon_active.png',
+        'passive_icon': 'icon_passive.png'}
 
     def __init__(self, my_tray_app_ui, my_menu_ui, my_pref_ui):
         self.my_tray_app_ui = my_tray_app_ui
@@ -71,9 +76,10 @@ class UiWidget(QtWidgets.QWidget):
             geometry=(QtCore.QRect(286, 8, 30, 30)),
             text='', icon_name='bottom_settings',
             on_click=self.open_menu_ui_at_click_pos)
-        self.bottom_settings_button.setStyleSheet(widget_buttons_style.button_style)
+        self.bottom_settings_button.setStyleSheet(
+            widget_buttons_style.button_style)
         self.bottom_settings_button.setIconSize(QtCore.QSize(24, 24))
-        
+
         self.bottom_bug_button = qpushbutton_generator.create_button(
             parent=self.bottom_widget,
             geometry=(QtCore.QRect(250, 8, 30, 30)),

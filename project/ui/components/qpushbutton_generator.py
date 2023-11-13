@@ -13,6 +13,7 @@ ICONS = {
     'double_left': 'double_left_logo.png',
     'add': 'add_logo.png',
     'trash': 'trash_logo.png',
+    
 }
 
 

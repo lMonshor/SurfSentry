@@ -1,0 +1,8 @@
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.usom.gov.tr:443
+DEBUG:urllib3.connectionpool:https://www.usom.gov.tr:443 "GET /api/address/index?date_gte=2023-11-13%2011:06:13.393367 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.usom.gov.tr:443
+DEBUG:urllib3.connectionpool:https://www.usom.gov.tr:443 "GET /api/address/index?date_gte=2023-11-13%2011:06:13.393367&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.usom.gov.tr:443
+DEBUG:urllib3.connectionpool:https://www.usom.gov.tr:443 "GET /api/address/index?date_gte=2023-11-13%2011:08:26.31575 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.usom.gov.tr:443
+DEBUG:urllib3.connectionpool:https://www.usom.gov.tr:443 "GET /api/address/index?date_gte=2023-11-13%2011:08:26.31575&page=1 HTTP/1.1" 200 None

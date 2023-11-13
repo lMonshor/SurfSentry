@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     my_pref_ui = preferences_ui.uiPreferences(my_loading_ui=my_loading_ui)
 
-    my_menu_ui = menu_ui.UiMenu(my_pref_ui=my_pref_ui)
+    my_menu_ui = menu_ui.UiMenu(my_pref_ui=my_pref_ui,app=app)
 
     my_widget_ui = widget_ui.UiWidget(my_tray_app_ui=my_tray_app_ui,
                                       my_menu_ui=my_menu_ui, my_pref_ui=my_pref_ui)

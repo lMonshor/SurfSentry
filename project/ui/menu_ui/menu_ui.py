@@ -7,8 +7,9 @@ class UiMenu(QtWidgets.QWidget):
     BUTTON_FONT = QtGui.QFont("Calibri", 12)
     MENU_UI_STYLE = "background-color:#0f0f0f;border: 1px solid #393E46;"
 
-    def __init__(self, my_pref_ui):
+    def __init__(self, my_pref_ui,app):
         self.my_pref_ui = my_pref_ui
+        self.app = app
         super().__init__()
 
         self.initUI()
@@ -39,7 +40,7 @@ class UiMenu(QtWidgets.QWidget):
         self.menu_exit_button = qpushbutton_generator.create_button(
             parent=self,
             text="Exit",
-            on_click=QtWidgets.QApplication.quit)
+            on_click=self.app.quit)
         self.menu_exit_button.setStyleSheet(menu_buttons_style.button_style)
         self.menu_exit_button.setFixedSize(150, 31)
 

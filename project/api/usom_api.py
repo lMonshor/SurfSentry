@@ -23,7 +23,7 @@ def make_request(url):
 
 
 def get_malicious_data(loading_ui):
-    today = helper_methods.get_previous_date_utc().split()[0]
+    today = helper_methods.get_current_date_utc().split()[0]
     request_url = None
     data_filtering_operations.clear_old_data_from_mal_data()
     last_data_date = data_filtering_operations.get_last_mal_data_date()

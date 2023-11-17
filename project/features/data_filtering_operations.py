@@ -64,11 +64,12 @@ def filter_mal_raw_data_item(item):
 
 
 def fill_mal_data_table(raw_mal_data):
-    for item in raw_mal_data:
-        filtered_item = filter_mal_raw_data_item(item)
+    for raw_mal_data_item in raw_mal_data:
+        filtered_item = filter_mal_raw_data_item(raw_mal_data_item)
         if filtered_item:
             if not check_mal_data_existence(filtered_item=filtered_item):
                 db_operations.save_to_mal_table(filtered_item)
+                fill_blocked_data_table()
 
 
 def fill_blocked_data_table():
@@ -99,3 +100,25 @@ def check_mal_data_existence(filtered_item):
         return True
     else:
         return False
+
+
+def clear_old_data_from_mal_data():
+    today = helper_methods.get_current_date_utc().split()[0]
+    data = db_operations.custom_query(
+        "select data_id,date from malicious_data")
+    if data:
+        for item in data:
+            item_data_id = item[0]
+            item_date = item[1]
+            if item_date.split()[0] != today:
+                db_operations.custom_query(
+                    f'delete from malicious_data where data_id = "{item_data_id}"')
+
+
+def get_last_mal_data_date():
+    last_data_date = db_operations.custom_query(
+        "select date from malicious_data order by data_id desc limit 1")
+    if last_data_date:
+        return last_data_date[0][0]
+    else:
+        return None

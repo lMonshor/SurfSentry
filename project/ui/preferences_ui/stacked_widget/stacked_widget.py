@@ -4,6 +4,7 @@ from ui.preferences_ui.stacked_widget.blocked_data_page import blocked_data_page
 from ui.preferences_ui.stacked_widget.feedback_page import feedback_page
 from ui.preferences_ui.stacked_widget.general_page import general_page
 from ui.preferences_ui.stacked_widget.mal_data_page import mal_data_page
+from styles.ui_styles import default_styles
 
 
 class StackedWidget(QtWidgets.QStackedWidget):
@@ -15,7 +16,7 @@ class StackedWidget(QtWidgets.QStackedWidget):
 
     def initUI(self):
         self.setEnabled(True)
-        self.setStyleSheet("background-color: #0f0f0f;")
+        self.setStyleSheet(default_styles.dark_style)
 
         self.my_general_page = general_page.GeneralPageWidget()
         self.my_blocked_data_page = blocked_data_page.BlockedDataPageWidget()

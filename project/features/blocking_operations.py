@@ -7,25 +7,21 @@ import shutil
 import threading
 
 
-def block_unblock(control_toggle_button, selected_blocked_item_detail, sender, fillBlockedList):
+def block_unblock(selected_blocked_item_detail, sender, fillBlockedList):
     try:
         my_blocking_op_worker = workers.BlockingOperationWorker(
             selected_blocked_item_detail, sender)
 
         if sender.find("all") != -1:
-            my_loading_ui = loading_ui.uiLoading()
+            my_loading_ui = loading_ui.UiLoading()
             my_loading_ui.show()
-            my_information_ui = information_ui.uiInformation()
-            my_blocking_op_worker.finished.connect(my_loading_ui.hide)
+            my_information_ui = information_ui.UiInformation()
+            my_blocking_op_worker.finished.connect(my_loading_ui.deleteLater)
             my_blocking_op_worker.finished.connect(lambda: my_information_ui.show())
             
         my_blocking_op_worker.finished.connect(fillBlockedList)
         my_blocking_op_worker.finished.connect(my_blocking_op_worker.wait)
         my_blocking_op_worker.finished.connect(my_blocking_op_worker.quit)
-        
-        if control_toggle_button is not None:
-            my_blocking_op_worker.finished.connect(
-                lambda: control_toggle_button.setEnabled(True))
         
         my_blocking_op_worker.start()
     except Exception as e:
@@ -190,13 +186,13 @@ def remove_entries_from_hosts_file(target_urls):
 
 def block_entry(target_data):
     try:
-        target_url = target_data[0]
-        if target_data[1] == 'ip':
+        target_url = target_data[1]
+        if target_data[2] == 'ip':
             if not check_acl_existence(target_url):
                 add_acl_entry(target_url)
             else:
                 print(f'Already exist fw rule: {target_url}')
-        elif target_data[1] == 'domain':
+        elif target_data[2] == 'domain':
             if not check_hosts_rule_existence(target_url):
                 add_entry_to_hosts_file(target_url)
             else:
@@ -222,13 +218,13 @@ def block_all_entries():
 
 def unblock_entry(target_data):
     try:
-        target_url = target_data[0]
-        if target_data[1] == 'ip':
+        target_url = target_data[1]
+        if target_data[2] == 'ip':
             if check_acl_existence(target_url):
                 remove_acl_entry(target_url)
             else:
                 print(f'Not exist fw rule: {target_url}')
-        elif target_data[1] == 'domain':
+        elif target_data[2] == 'domain':
             if check_hosts_rule_existence(target_url):
                 remove_entry_from_hosts_file(target_url)
             else:

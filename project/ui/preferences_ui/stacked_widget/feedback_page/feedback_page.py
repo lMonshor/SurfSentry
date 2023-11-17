@@ -1,12 +1,11 @@
-from PyQt6 import QtCore, QtGui, QtWidgets
-from ui.components import qpushbutton_generator, qlabel_generator
-from styles.preferences_ui_styles.stacked_widget_styles import stacked_buttons_style
+from PyQt6 import QtCore, QtWidgets
+from ui.components import qpushbutton_generator, qlabel_generator, qframe_line_generator, qtextedit_generator
+from styles.components_styles import qfonts_styles, qlabels_styles
 from features import helper_methods
+import re
 
 
 class FeedbackPageWidget(QtWidgets.QWidget):
-    TITLE_FONT = QtGui.QFont('Calibri', 12)
-
     def __init__(self):
         super().__init__()
 
@@ -15,34 +14,55 @@ class FeedbackPageWidget(QtWidgets.QWidget):
     def initUI(self):
         self.fb_email_title = qlabel_generator.create_label(
             parent=self,
-            geometry=(QtCore.QRect(30, 35, 90, 20)),
-            font=self.TITLE_FONT,
+            geometry=(QtCore.QRect(30, 30, 90, 20)),
+            font=qfonts_styles.title_font,
+            color=qlabels_styles.title_color,
             text="Email address"
         )
 
-        self.fb_email_text = self.create_text_edit(
-            self, QtCore.QRect(30, 60, 661, 25))
+        self.fb_warning_label = qlabel_generator.create_label(
+            parent=self,
+            geometry=(QtCore.QRect(30, 84, 661, 20)),
+            font=qfonts_styles.body_font,
+            color=qlabels_styles.warning_color,
+        )
+
+        self.fb_email_text = qtextedit_generator.create_text_edit(
+            parent=self,
+            geometry=(QtCore.QRect(30, 60, 661, 25)))
 
         self.fb_subject_title = qlabel_generator.create_label(
             parent=self,
-            geometry=(QtCore.QRect(30, 105, 49, 20)),
-            font=self.TITLE_FONT,
+            geometry=(QtCore.QRect(30, 100, 49, 20)),
+            font=qfonts_styles.title_font,
+            color=qlabels_styles.title_color,
             text="Subject"
         )
 
-        self.fb_subject_text = self.create_text_edit(
-            self, QtCore.QRect(30, 130, 661, 25), "Briefly describe the issue.")
+        self.fb_subject_text = qtextedit_generator.create_text_edit(
+            parent=self,
+            geometry=(QtCore.QRect(30, 130, 661, 25)),
+            placeholder_text="Briefly describe the issue.")
 
         self.fb_desc_title = qlabel_generator.create_label(
             parent=self,
-            geometry=(QtCore.QRect(30, 175, 75, 20)),
-            font=self.TITLE_FONT,
+            geometry=(QtCore.QRect(30, 170, 75, 20)),
+            font=qfonts_styles.title_font,
+            color=qlabels_styles.title_color,
             text="Description"
         )
 
-        self.fb_desc_text = self.create_text_edit(self, QtCore.QRect(
-            30, 200, 661, 221), "Describe the issue/improvement in as much detail as you can. Include steps to replicate if relevant.")
-        
+        self.fb_desc_text = qtextedit_generator.create_text_edit(
+            parent=self,
+            geometry=(QtCore.QRect(30, 200, 661, 221)),
+            placeholder_text="Describe the issue/improvement in as much detail as you can. Include steps to replicate if relevant.")
+
+        self.gb_first_hline = qframe_line_generator.create_frame_line(
+            parent=self,
+            geometry=(QtCore.QRect(48, 446, 672, 1))
+
+        )
+
         self.fb_submit_fb_button = qpushbutton_generator.create_button(
             parent=self,
             geometry=(QtCore.QRect(30, 470, 181, 26)),
@@ -54,23 +74,20 @@ class FeedbackPageWidget(QtWidgets.QWidget):
         self.fb_subject_text.textChanged.connect(self.check_plain_text_edits)
         self.fb_desc_text.textChanged.connect(self.check_plain_text_edits)
 
-    def create_text_edit(self, parent, geometry, placeholder_text=None):
-        text_edit = QtWidgets.QPlainTextEdit(parent=parent)
-        text_edit.setGeometry(geometry)
-        text_edit.setStyleSheet("background-color:#393E46;\n color:white;")
-        text_edit.setVerticalScrollBarPolicy(
-            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-
-        if placeholder_text:
-            text_edit.setPlaceholderText(placeholder_text)
-
-        return text_edit
-
     def check_plain_text_edits(self):
-        if not self.fb_email_text.toPlainText() or not self.fb_subject_text.toPlainText() or not self.fb_desc_text.toPlainText():
+        email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+
+        if not re.match(email_pattern, self.fb_email_text.toPlainText()):
             self.fb_submit_fb_button.setDisabled(True)
+            self.fb_warning_label.setText(
+                "Invalid email address. Please enter a valid email.")
+            self.fb_warning_label.adjustSize()
+        elif not self.fb_subject_text.toPlainText() or not self.fb_desc_text.toPlainText():
+            self.fb_submit_fb_button.setDisabled(True)
+            self.fb_warning_label.clear()
         else:
             self.fb_submit_fb_button.setDisabled(False)
+            self.fb_warning_label.clear()
 
     def submit_feedback(self):
         helper_methods.send_email_feedback(email_address=self.fb_email_text,

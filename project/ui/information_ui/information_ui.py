@@ -1,37 +1,34 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+from styles.components_styles import qfonts_styles, qlabels_styles
+from ui.components import qlabel_generator,qpushbutton_generator
 
 
-class uiInformation(QtWidgets.QDialog):
+class UiInformation(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
         self.initUI()
 
     def initUI(self):
         self.setFixedSize(390, 110)
-        self.setStyleSheet("background-color:black;")
+        self.setStyleSheet("background-color:#0f0f0f;")
         self.setWindowFlags(
                             QtCore.Qt.WindowType.WindowStaysOnTopHint)
         self.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
-        self.dialog_inf_ok_button = QtWidgets.QDialogButtonBox(parent=self)
-        self.dialog_inf_ok_button.setGeometry(QtCore.QRect(157, 70, 75, 24))
-        self.dialog_inf_ok_button.setStyleSheet("QPushButton{\n"
-"    background-color:#1F1F1F;\n"
-"   color:white;\n"
-"}\n"
-"QPushButton:hover{\n"
-"  background-color: #484848;\n"
-"}")
-        self.dialog_inf_ok_button.setOrientation(QtCore.Qt.Orientation.Horizontal)
-        self.dialog_inf_ok_button.setStandardButtons(QtWidgets.QDialogButtonBox.StandardButton.Ok)
-        self.dialog_inf_ok_button.clicked.connect(self.deleteLater)
-        self.label = QtWidgets.QLabel(parent=self)
-        self.label.setGeometry(QtCore.QRect(10, 0, 370, 51))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(16)
-        self.label.setFont(font)
-        self.label.setStyleSheet("color:white;")
-        self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label.setWordWrap(True)
-        self.label.setText(("Succesfully updated"))
+        
+        self.information_title = qlabel_generator.create_label(
+            parent=self,
+            geometry=(QtCore.QRect(75, 20, 200, 46)),
+            color=qlabels_styles.title_color,
+            font=qfonts_styles.subtitle_font,
+            text="Succesfully updated")
+        self.information_title.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.information_title.adjustSize()
+        
+        
+        self.information_ok_button = qpushbutton_generator.create_button(
+            parent=self,
+            geometry=(QtCore.QRect(157, 70, 75, 24)),
+            on_click=(self.deleteLater),
+            text="OK")

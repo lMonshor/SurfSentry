@@ -1,5 +1,5 @@
-from PyQt6 import QtCore, QtGui, QtWidgets
-from styles.preferences_ui_styles.stacked_widget_styles import qlistwidget_style
+from PyQt6 import QtCore, QtWidgets
+from styles.components_styles import qlistwidgets_styles
 
 
 def create_list_widget(parent, geometry):
@@ -7,7 +7,7 @@ def create_list_widget(parent, geometry):
     list_widget.setGeometry(geometry)
     list_widget.setSizePolicy(QtWidgets.QSizePolicy(
         QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred))
-    list_widget.setStyleSheet(qlistwidget_style.qlistwidget_style)
+    list_widget.setStyleSheet(qlistwidgets_styles.default_qlistw_style)
     list_widget.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
     list_widget.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
     list_widget.setLineWidth(2)

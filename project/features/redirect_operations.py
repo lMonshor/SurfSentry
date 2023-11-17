@@ -15,7 +15,11 @@ httpd = None
 
 class MaliciousHandler(http.server.SimpleHTTPRequestHandler):
 
+    def my_log(self, format, *args):
+        pass
+
     def do_GET(self):
+        self.log_message = self.my_log
         if self.path.startswith('/unblock'):
             parsed_url = urlparse(self.path)
             params = parse_qs(parsed_url.query)
@@ -34,6 +38,7 @@ class MaliciousHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(file.read())
 
     def unblock(self, url):
+        self.log_message = self.my_log
         target_data = db.db_operations.custom_query(
             f'select url, data_type, operation_time, current_status from blocked_data where url = "{url}"')
 
@@ -49,7 +54,6 @@ def start_server():
         server_thread.daemon = True
         server_thread.start()
         server_running = True
-        print(f"Serving at port {PORT}")
 
 def stop_server():
     global server_running, httpd
@@ -57,4 +61,3 @@ def stop_server():
         httpd.shutdown()
         httpd.server_close()
         server_running = False
-        print("Server stopped")

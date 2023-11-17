@@ -16,9 +16,9 @@ class UpdateDataWorker(QtCore.QThread):
             db_operations.create_tables()
             db_operations.custom_query(
                 'DELETE FROM blocked_data WHERE current_status = "unblocked"')
-            usom_api.get_malicious_data(self.my_loading_ui)
-            data_filtering_operations.fill_blocked_data_table()
             blocking_operations.unblock_all_entries()
+            usom_api.get_malicious_data(loading_ui=self.my_loading_ui)
+            
         except Exception as e:
             print(f"Error run(UpdateDataWorker): {e}")
         finally:
@@ -28,20 +28,20 @@ class UpdateDataWorker(QtCore.QThread):
 class BlockingOperationWorker(QtCore.QThread):
     finished = QtCore.pyqtSignal()
 
-    def __init__(self, selected_blocked_item_detail, sender):
-        self.selected_blocked_item_detail = selected_blocked_item_detail
+    def __init__(self, sender, item=None):
+        self.item = item
         self.sender = sender
         super().__init__()
 
     def run(self):
         try:
-            if self.selected_blocked_item_detail is not None:
+            if self.item is not None:
                 if self.sender == "unblock_button":
                     blocking_operations.unblock_entry(
-                        self.selected_blocked_item_detail)
+                        self.item)
                 elif self.sender == "block_button":
                     blocking_operations.block_entry(
-                        self.selected_blocked_item_detail)
+                        self.item)
             else:
                 if self.sender == "unblock_all_button" or self.sender == "switch_closed":
                     blocking_operations.unblock_all_entries()

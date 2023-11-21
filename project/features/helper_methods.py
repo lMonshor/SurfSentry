@@ -22,7 +22,7 @@ def get_current_date_utc():
 
 def get_previous_date_utc():
     today = datetime.now().utcnow()
-    previous_date = today - timedelta(days=2)
+    previous_date = today - timedelta(days=3)
     return str(previous_date)
 
 

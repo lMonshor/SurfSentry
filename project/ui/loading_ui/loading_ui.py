@@ -7,7 +7,6 @@ from styles.ui_styles import default_styles
 
 class UiLoading(QtWidgets.QDialog):
     def __init__(self):
-        self.my_update_data_worker = None
         super().__init__()
         self.initUI()
 
@@ -61,9 +60,6 @@ class UiLoading(QtWidgets.QDialog):
             self.loading_prog_bar.setInvertedAppearance(
                 self.loading_prg_bar_direction)
             self.loading_prog_bar.setValue(value)
-
-    def stop_worker(self):
-        self.my_update_data_worker.exit()
 
 if __name__ == '__main__':
     import sys

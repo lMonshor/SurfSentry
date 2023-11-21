@@ -10,8 +10,10 @@ from features import blocking_operations
 IP = '0.0.0.0'
 PORT = 80
 server_running = False
-path_index_html = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\assets' ,'index.html')
+path_index_html = os.path.join(os.path.dirname(
+    os.path.abspath(__file__)), '..\\assets', 'index.html')
 httpd = None
+
 
 class MaliciousHandler(http.server.SimpleHTTPRequestHandler):
 
@@ -39,12 +41,12 @@ class MaliciousHandler(http.server.SimpleHTTPRequestHandler):
 
     def unblock(self, url):
         self.log_message = self.my_log
-        target_data = db.db_operations.custom_query(
-            f'select url, data_type, operation_time, current_status from blocked_data where url = "{url}"')
+        entry = db.db_operations.get_entry_details(
+            column_name='address,data_type',
+            address=url)
+        if entry:
+            blocking_operations.remove_entry(entry=entry)
 
-        if target_data:
-            target_data = target_data[0]
-            blocking_operations.unblock_entry(target_data)
 
 def start_server():
     global server_running, httpd
@@ -54,6 +56,7 @@ def start_server():
         server_thread.daemon = True
         server_thread.start()
         server_running = True
+
 
 def stop_server():
     global server_running, httpd

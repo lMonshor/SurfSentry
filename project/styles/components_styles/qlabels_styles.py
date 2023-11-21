@@ -2,7 +2,7 @@ title_color = "color: white;"
 
 label_color = "color: #777777;"
 
-md_threat_level_title = """
+md_threat_title_style = """
     background-color:#393E46;
     color: #EEEEEE;"""
     

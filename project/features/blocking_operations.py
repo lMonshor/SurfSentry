@@ -1,248 +1,335 @@
 import subprocess
 import db.db_operations
-from features import helper_methods, workers
-from ui.loading_ui import loading_ui
-from ui.information_ui import information_ui
+from features import helper_methods
 import shutil
 import threading
+import os
+
+ROOT_DRIVE = os.getenv('SystemRoot')
+HOSTS_PATH = os.path.join(ROOT_DRIVE, "System32", "drivers", "etc", "hosts")
+DEFAULT_HOSTS_CONTENT = """
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+#	127.0.0.1       localhost
+#	::1             localhost
+"""
 
 
-def block_unblock(selected_blocked_item_detail, sender, fillBlockedList):
+def check_acl_exist(address):
     try:
-        my_blocking_op_worker = workers.BlockingOperationWorker(
-            selected_blocked_item_detail, sender)
-
-        if sender.find("all") != -1:
-            my_loading_ui = loading_ui.UiLoading()
-            my_loading_ui.show()
-            my_information_ui = information_ui.UiInformation()
-            my_blocking_op_worker.finished.connect(my_loading_ui.deleteLater)
-            my_blocking_op_worker.finished.connect(lambda: my_information_ui.show())
-            
-        my_blocking_op_worker.finished.connect(fillBlockedList)
-        my_blocking_op_worker.finished.connect(my_blocking_op_worker.wait)
-        my_blocking_op_worker.finished.connect(my_blocking_op_worker.quit)
-        
-        my_blocking_op_worker.start()
-    except Exception as e:
-        print(f"Error block_unblock: {e}")
-
-
-def backup_hosts_file():
-    try:
-        shutil.copy(r'C:\\Windows\\System32\\drivers\\etc\\hosts',
-                    r'C:\\Windows\\System32\\drivers\\etc\\hosts_backup')
-        print('Backup successful')
-    except Exception as e:
-        print(f'Error backup_hosts_file: {e}')
-
-
-def check_acl_existence(target_url):
-    try:
-        command = f"powershell Get-NetFirewallRule -DisplayName 'Blocked by SurfSentry {
-            target_url}'"
+        command = f"powershell Get-NetFirewallRule -DisplayName 'Added by SurfSentry - {
+            address}'"
         result = subprocess.run(command, shell=True,
                                 capture_output=True, text=True)
         if result.returncode == 0:
             # Exist
             return True
+    except Exception as e:
+        print(f"Error check_acl_exist: {e}, {address}")
+
+
+def check_hosts_exist(address):
+    print(address)
+    try:
+        with open(HOSTS_PATH, 'r') as hosts_file:
+            return any(line.strip() == f'#127.0.0.1 {address}' for line in hosts_file.readlines())
+    except Exception as e:
+        print(f'Error check_hosts_exist: {e}, {address}')
+
+
+def add_entry(entry):
+    if entry['data_type'] == 'ip':
+        if not check_acl_exist(entry['address']):
+            add_acl_entry(address=entry['address'])
         else:
-            return False
-    except Exception as e:
-        print(f"Error check_rule_existence: {e}, {target_url}")
+            print(f'Already exist acl: {entry['address']}')
+    elif entry['data_type'] == 'domain':
+        if not check_hosts_exist(entry['address']):
+            add_hosts_entry(entry['address'])
+        else:
+            print(f'Already exist hosts entry: {entry['address']}')
 
 
-def check_hosts_rule_existence(target_url):
-    try:
-        with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r') as hosts_file:
-            return any(line.strip() == f'127.0.0.1 {target_url}' for line in hosts_file.readlines())
-    except Exception as e:
-        print(f'Error check_hosts_rule_existence: {e}, {target_url}')
+def remove_entry(entry):
+    if entry['data_type'] == 'ip':
+        if check_acl_exist(address=entry['address']):
+            remove_acl_entry(address=entry['address'])
+        else:
+            print(f'Not exist acl: {entry['address']}')
+    elif entry['data_type'] == 'domain':
+        if check_hosts_exist(address=entry['address']):
+            remove_hosts_entry(address=entry['address'])
+        else:
+            print(f'Not found hosts entry: {entry['address']}')
 
 
-def add_acl_entry(target_url):
+def add_acl_entry(address):
     try:
         operation_time = helper_methods.get_current_date()
-        command = f"powershell netsh advfirewall firewall add rule name='Blocked by SurfSentry {
-            target_url}' dir=out action=block remoteip={target_url}"
+        command = f"powershell netsh advfirewall firewall add rule name='Added by SurfSentry - {
+            address}' dir=out action=allow remoteip={address}"
         subprocess.run(command, shell=True)
-        db.db_operations.update_blocked_table(
-            url=target_url, new_status='blocked', op_time=operation_time)
+        db.db_operations.update_entry_status(
+            address=address, new_status='blocked', op_time=operation_time)
     except Exception as e:
-        print(f"Error add_to_fw_rule: {e}")
+        print(f"Error add_acl_entry: {e}")
 
 
-def add_acl_entries(target_data):
-    threads = []
-    for item in target_data:
-        target_url = item[0]
-        thread = threading.Thread(target=add_acl_entry, args=(target_url,))
-        threads.append(thread)
-        thread.start()
-
-    for thread in threads:
-        thread.join()
-
-
-def remove_acl_entry(target_url):
+def add_hosts_entry(address):
     try:
         operation_time = helper_methods.get_current_date()
-        command = f"powershell netsh advfirewall firewall delete rule name='Blocked by SurfSentry {
-            target_url}'"
-        db.db_operations.update_blocked_table(
-            url=target_url, new_status='unblocked', op_time=operation_time)
+        with open(HOSTS_PATH, 'r+') as hosts_file:
+            content = hosts_file.read()
+            hosts_file.seek(0)
+            hosts_file.write(f'#127.0.0.1 {address}\n{content}')
+            db.db_operations.update_entry_status(
+                address=address, new_status='blocked', op_time=operation_time)
+    except Exception as e:
+        print(f'Error add_hosts_entry: {e}, {address}')
+
+
+def remove_acl_entry(address):
+    try:
+        operation_time = helper_methods.get_current_date()
+        command = f"powershell netsh advfirewall firewall delete rule name='Added by SurfSentry - {
+            address}'"
         subprocess.run(command, shell=True, check=True)
+        db.db_operations.update_entry_status(
+            address=address, new_status='unblocked', op_time=operation_time)
     except Exception as e:
-        print(f"Error remove_from_fw_rule: {e}")
+        print(f"Error remove_acl_entry: {e}")
 
 
-def remove_acl_entries(target_data):
-    threads = []
-    for item in target_data:
-        target_url = item[0]
-        thread = threading.Thread(target=remove_acl_entry, args=(target_url,))
-        threads.append(thread)
-        thread.start()
-
-    for thread in threads:
-        thread.join()
-
-
-def add_entry_to_hosts_file(target_url):
+def remove_hosts_entry(address):
     try:
         operation_time = helper_methods.get_current_date()
-        with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r+') as hosts_file:
-            content = hosts_file.read()
-            hosts_file.seek(0)
-            hosts_file.write(f'127.0.0.1 {target_url}\n{content}')
-        db.db_operations.update_blocked_table(
-            url=target_url, new_status='blocked', op_time=operation_time)
-        print(f'Added to hosts: {target_url}')
+        with open(HOSTS_PATH, 'r') as hosts_file:
+            lines = hosts_file.readlines()
+        with open(HOSTS_PATH, 'w') as hosts_file:
+            for line in lines:
+                if not (line.strip() == f'#127.0.0.1 {address}'):
+                    hosts_file.write(line)
+        db.db_operations.update_entry_status(
+            address=address, new_status='unblocked', op_time=operation_time)
+        print(f'Removed from hosts: {address}')
     except Exception as e:
-        print(f'Error add_to_hosts_file: {e}, {target_url}')
+        print(f'Error remove_hosts_entry: {e}, {address}')
 
 
-def add_entries_to_hosts_file(target_urls):
+def remove_all_entries():
+
+    ip_adresses = db.db_operations.get_data_by_specified_condition(
+        column_name='address',
+        condition_column='current_status',
+        condition_value='"blocked" AND data_type = "ip"')
+    domain_addresses = db.db_operations.get_data_by_specified_condition(
+        column_name='address',
+        condition_column='current_status',
+        condition_value='"blocked" AND data_type = "domain"')
+    if ip_adresses:
+        try:
+            threads = []
+            for entry in ip_adresses:
+                thread = threading.Thread(
+                    target=remove_acl_entry, args=(entry['address'],))
+                threads.append(thread)
+                thread.start()
+            for thread in threads:
+                thread.join()
+        except Exception as e:
+            print(f'Error remove_all_entries: {e}')
+
+    if domain_addresses:
+        clear_hosts(domain_addresses=domain_addresses)
+
+
+def add_all_entries():
+    try:
+        ip_adresses = db.db_operations.get_data_by_specified_condition(
+            column_name='address',
+            condition_column='current_status',
+            condition_value='"unblocked" AND data_type = "ip"')
+        domain_addresses = db.db_operations.get_data_by_specified_condition(
+            column_name='address',
+            condition_column='current_status',
+            condition_value='"unblocked" AND data_type = "domain"')
+        if ip_adresses:
+            threads = []
+            for entry in ip_adresses:
+                thread = threading.Thread(
+                    target=add_acl_entry, args=(entry['address'],))
+                threads.append(thread)
+                thread.start()
+            for thread in threads:
+                thread.join()
+
+        if domain_addresses:
+            fill_hosts(domain_addresses)
+
+    except Exception as e:
+        print(f'Error add_all_entries: {e}')
+
+
+def fill_hosts(domain_addresses):
     try:
         operation_time = helper_methods.get_current_date()
-        with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r+') as hosts_file:
+        with open(HOSTS_PATH, 'r+') as hosts_file:
             content = hosts_file.read()
             hosts_file.seek(0)
-
-            for target_url in target_urls:
-                hosts_file.write(f'127.0.0.1 {target_url}\n')
-
+            for entry in domain_addresses:
+                hosts_file.write(f'#127.0.0.1 {entry['address']}\n')
+                db.db_operations.update_entry_status(
+                    address=entry['address'], new_status='blocked', op_time=operation_time)
             hosts_file.write(content)
 
-        for target_url in target_urls:
-            db.db_operations.update_blocked_table(
-                url=target_url, new_status='blocked', op_time=operation_time)
-
-        print(f'Added to hosts: {", ".join(target_urls)}')
     except Exception as e:
-        print(f'Error add_to_hosts_file_all_data: {
-              e}, {", ".join(target_urls)}')
+        print(f'Error fill_hosts: {domain_addresses}')
 
 
-def remove_entry_from_hosts_file(target_url):
+def clear_hosts(domain_addresses):
     try:
         operation_time = helper_methods.get_current_date()
-        with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r') as hosts_file:
+
+        with open(HOSTS_PATH, 'w') as hosts_file:
+            hosts_file.write(DEFAULT_HOSTS_CONTENT)
+            for entry in domain_addresses:
+                db.db_operations.update_entry_status(
+                    address=entry['address'], new_status='unblocked', op_time=operation_time)
+        print("Hosts file restored to default.")
+    except Exception as e:
+        print(f"Error restore_hosts_default: {e}")
+
+
+def start_protection():
+    try:
+        ip_adresses = db.db_operations.get_data_by_specified_condition(
+            column_name='address',
+            condition_column='current_status',
+            condition_value='"blocked" AND data_type = "ip"')
+        domain_addresses = db.db_operations.get_data_by_specified_condition(
+            column_name='address',
+            condition_column='current_status',
+            condition_value='"blocked" AND data_type = "domain"')
+        if ip_adresses:
+            threads = []
+            for entry in ip_adresses:
+                thread = threading.Thread(
+                    target=block_acl_entry, args=(entry['address'],))
+                threads.append(thread)
+                thread.start()
+            for thread in threads:
+                thread.join()
+
+        if domain_addresses:
+            romeve_hosts_prefix(domain_addresses)
+
+    except Exception as e:
+        print(f'Error start_protection: {e}')
+
+
+def block_acl_entry(address):
+    try:
+        command = f"powershell netsh advfirewall firewall set rule name='Added by SurfSentry - {
+            address}' new action=block"
+        subprocess.run(command, shell=True, check=True)
+    except Exception as e:
+        print(f"Error update_acl_entry_action: {e}")
+
+
+def romeve_hosts_prefix(domain_addresses):
+    try:
+        updated_lines = []
+        with open(HOSTS_PATH, 'r') as hosts_file:
             lines = hosts_file.readlines()
-        with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'w') as hosts_file:
             for line in lines:
-                if not (line.strip() == f'127.0.0.1 {target_url}'):
-                    hosts_file.write(line)
-        db.db_operations.update_blocked_table(
-            url=target_url, new_status='unblocked', op_time=operation_time)
-        print(f'Removed from hosts: {target_url}')
+                for entry in domain_addresses:
+                    if line.strip() == f'#127.0.0.1 {entry['address']}':
+                        line = line.lstrip('#')
+                        break
+                updated_lines.append(line)
+        with open(HOSTS_PATH, 'w') as hosts_file:
+            hosts_file.writelines(updated_lines)
     except Exception as e:
-        print(f'Error remove_from_hosts_file: {e}, {target_url}')
+        print(f"Error romeve_hosts_prefix: {e}")
 
 
-def remove_entries_from_hosts_file(target_urls):
+def stop_protection():
     try:
-        operation_time = helper_methods.get_current_date()
+        ip_adresses = db.db_operations.get_data_by_specified_condition(
+            column_name='address',
+            condition_column='current_status',
+            condition_value='"blocked" AND data_type = "ip"')
+        domain_addresses = db.db_operations.get_data_by_specified_condition(
+            column_name='address',
+            condition_column='current_status',
+            condition_value='"blocked" AND data_type = "domain"')
+        if ip_adresses:
+            threads = []
+            for entry in ip_adresses:
+                thread = threading.Thread(
+                    target=unblock_acl_entry, args=(entry['address'],))
+                threads.append(thread)
+                thread.start()
+            for thread in threads:
+                thread.join()
+
+        if domain_addresses:
+            re_add_hosts_prefix(domain_addresses)
+
+    except Exception as e:
+        print(f'Error stop_protection: {e}')
+
+
+def unblock_acl_entry(address):
+    try:
+        command = f"powershell netsh advfirewall firewall set rule name='Added by SurfSentry - {
+            address}' new action=allow"
+        subprocess.run(command, shell=True, check=True)
+    except Exception as e:
+        print(f"Error unblock_acl_entry: {e}")
+
+
+def re_add_hosts_prefix(domain_addresses):
+    try:
         updated_lines = []
 
-        with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'r') as hosts_file:
+        with open(HOSTS_PATH, 'r') as hosts_file:
             lines = hosts_file.readlines()
 
             for line in lines:
-                if not any(line.strip() == f'127.0.0.1 {url}' for url in target_urls):
-                    updated_lines.append(line)
+                for entry in domain_addresses:
+                    if line.strip() == f'127.0.0.1 {entry['address']}':
+                        line = '#' + line
+                        break
+                updated_lines.append(line)
 
-        with open(r'C:\\Windows\\System32\\drivers\\etc\\hosts', 'w') as hosts_file:
+        with open(HOSTS_PATH, 'w') as hosts_file:
             hosts_file.writelines(updated_lines)
-
-        for target_url in target_urls:
-            db.db_operations.update_blocked_table(
-                url=target_url, new_status='unblocked', op_time=operation_time)
-        print(f'Removed to hosts: {", ".join(target_urls)}')
-
     except Exception as e:
-        print(f'Error remove_from_hosts_file: {e}, {target_urls}')
+        print(f"Error re_add_hosts_prefix: {e}")
 
 
-def block_entry(target_data):
-    try:
-        target_url = target_data[1]
-        if target_data[2] == 'ip':
-            if not check_acl_existence(target_url):
-                add_acl_entry(target_url)
-            else:
-                print(f'Already exist fw rule: {target_url}')
-        elif target_data[2] == 'domain':
-            if not check_hosts_rule_existence(target_url):
-                add_entry_to_hosts_file(target_url)
-            else:
-                print(f'Already exist hosts rule: {target_url}')
-    except Exception as e:
-        print(f'Error block_one_data: {e}, {target_data}')
-
-
-def block_all_entries():
-    try:
-        data = db.db_operations.custom_query(
-            'select url,data_type from blocked_data where current_status = "unblocked"')
-        if data:
-            target_urls = [item[0] for item in data if item[1] == 'domain']
-            add_entries_to_hosts_file(target_urls)
-            target_data = [item for item in data if item[1] == 'ip']
-            add_acl_entries(target_data)
-        else:
-            print('No unblocked data block_all_data')
-    except Exception as e:
-        print(f'Error block_all_data: {e}')
-
-
-def unblock_entry(target_data):
-    try:
-        target_url = target_data[1]
-        if target_data[2] == 'ip':
-            if check_acl_existence(target_url):
-                remove_acl_entry(target_url)
-            else:
-                print(f'Not exist fw rule: {target_url}')
-        elif target_data[2] == 'domain':
-            if check_hosts_rule_existence(target_url):
-                remove_entry_from_hosts_file(target_url)
-            else:
-                print(f'Not found hosts rule: {target_url}')
-    except Exception as e:
-        print(f'Error unblock_one_data: {e}, {target_data}')
-
-
-def unblock_all_entries():
-    try:
-        data = db.db_operations.custom_query(
-            'select url,data_type from blocked_data where current_status = "blocked"')
-        if data:
-            target_urls = [item[0] for item in data if item[1] == 'domain']
-            remove_entries_from_hosts_file(target_urls)
-            target_data = [item for item in data if item[1] == 'ip']
-            remove_acl_entries(target_data)
-        else:
-            print('No blocked data to unblock_all_data')
-    except Exception as e:
-        print(f'Error unblock_all_data: {e}')
+# def backup_hosts_file():
+#     try:
+#         shutil.copy(HOSTS_PATH,
+#                     r'C:\\Windows\\System32\\drivers\\etc\\hosts_backup')
+#         print('Backup successful')
+#     except Exception as e:
+#         print(f'Error backup_hosts_file: {e}')

@@ -5,6 +5,7 @@ from features import blocking_operations, workers
 from ui.components import qtreewidget_generator, qlabel_generator, qlayout_qwidget_generator, qpushbutton_generator, qframe_line_generator, qpushbutton_logo_generator
 from db import db_operations
 from ui.loading_ui import loading_ui
+from ui.preferences_ui.stacked_widget.blocked_data_page.input_dialog_ui import input_dialog_ui
 
 import os
 
@@ -31,20 +32,20 @@ class BlockedDataPageWidget(QtWidgets.QWidget):
             parent=self,
             geometry=(QtCore.QRect(341, 150, 86, 166)))
 
-        self.bd_block_sel_data_button = qpushbutton_logo_generator.create_logo_button(
+        self.bd_block_button = qpushbutton_logo_generator.create_logo_button(
             parent=self.bd_buttons_vlayout_widget,
             icon_name='single_left')
-        self.bd_block_sel_data_button.setEnabled(False)
+        self.bd_block_button.setEnabled(False)
 
         self.bd_block_all_button = qpushbutton_logo_generator.create_logo_button(
             parent=self.bd_buttons_vlayout_widget,
             icon_name='double_left')
         self.bd_block_all_button.setEnabled(False)
 
-        self.bd_unblock_sel_data_button = qpushbutton_logo_generator.create_logo_button(
+        self.bd_unblock_button = qpushbutton_logo_generator.create_logo_button(
             parent=self.bd_buttons_vlayout_widget,
             icon_name='single_right')
-        self.bd_unblock_sel_data_button.setEnabled(False)
+        self.bd_unblock_button.setEnabled(False)
 
         self.bd_unblock_all_button = qpushbutton_logo_generator.create_logo_button(
             parent=self.bd_buttons_vlayout_widget,
@@ -53,13 +54,13 @@ class BlockedDataPageWidget(QtWidgets.QWidget):
 
         self.bd_add_button = qpushbutton_logo_generator.create_logo_button(
             parent=self.bd_buttons_vlayout_widget,
-            icon_name='add')
-        self.bd_add_button.setEnabled(False)
+            icon_name='add',
+            on_click=self.add_data)
 
-        self.bd_remove_sel_data_item = qpushbutton_logo_generator.create_logo_button(
+        self.bd_remove_button = qpushbutton_logo_generator.create_logo_button(
             parent=self.bd_buttons_vlayout_widget,
             icon_name='trash')
-        self.bd_remove_sel_data_item.setEnabled(False)
+        self.bd_remove_button.setEnabled(False)
 
         self.bd_unblocked_tree = qtreewidget_generator.create_tree_widget(
             parent=self,
@@ -84,13 +85,13 @@ class BlockedDataPageWidget(QtWidgets.QWidget):
             geometry=(QtCore.QRect(40, 440, 670, 75))
         )
 
-        self.bd_url_title = qlabel_generator.create_label(
+        self.bd_address_title = qlabel_generator.create_label(
             parent=self.bd_inf_glayout_widget,
             font=qfonts_styles.subtitle_font,
             color=qlabels_styles.title_color,
-            text="URL")
+            text="Address")
 
-        self.bd_url_label = qlabel_generator.create_label(
+        self.bd_address_label = qlabel_generator.create_label(
             parent=self.bd_inf_glayout_widget,
             font=qfonts_styles.subtitle_font,
             color=qlabels_styles.label_color,
@@ -134,16 +135,16 @@ class BlockedDataPageWidget(QtWidgets.QWidget):
             color=qlabels_styles.title_color,
             text=":")
 
-        self.bd_buttons_vlayout.addWidget(self.bd_block_sel_data_button)
+        self.bd_buttons_vlayout.addWidget(self.bd_block_button)
         self.bd_buttons_vlayout.addWidget(self.bd_block_all_button)
-        self.bd_buttons_vlayout.addWidget(self.bd_unblock_sel_data_button)
+        self.bd_buttons_vlayout.addWidget(self.bd_unblock_button)
         self.bd_buttons_vlayout.addWidget(self.bd_unblock_all_button)
         self.bd_buttons_vlayout.addWidget(self.bd_add_button)
-        self.bd_buttons_vlayout.addWidget(self.bd_remove_sel_data_item)
+        self.bd_buttons_vlayout.addWidget(self.bd_remove_button)
 
-        self.bd_inf_glayout.addWidget(self.bd_url_label, 0, 0, 1, 1)
+        self.bd_inf_glayout.addWidget(self.bd_address_label, 0, 0, 1, 1)
         self.bd_inf_glayout.addWidget(self.bd_colon1, 0, 1, 1, 1)
-        self.bd_inf_glayout.addWidget(self.bd_url_label, 0, 2, 1, 1)
+        self.bd_inf_glayout.addWidget(self.bd_address_label, 0, 2, 1, 1)
         self.bd_inf_glayout.addWidget(self.bd_op_time_title, 1, 0, 1, 1)
         self.bd_inf_glayout.addWidget(self.bd_colon2, 1, 1, 1, 1)
         self.bd_inf_glayout.addWidget(self.bd_op_time_label, 1, 2, 1, 1)
@@ -152,10 +153,11 @@ class BlockedDataPageWidget(QtWidgets.QWidget):
         self.bd_inf_glayout.addWidget(self.bd_current_stat_label, 2, 2, 1, 1)
 
         self.bd_blocked_tree.itemSelectionChanged.connect(
-            lambda: self.fillBlockedDetail(
+            lambda: self.fill_blocked_details(
                 self.bd_blocked_tree.selectedItems(), "blocked_list"))
+
         self.bd_unblocked_tree.itemSelectionChanged.connect(
-            lambda: self.fillBlockedDetail(
+            lambda: self.fill_blocked_details(
                 self.bd_unblocked_tree.selectedItems(), "unblocked_list"))
 
         self.bd_unblock_all_button.clicked.connect(
@@ -166,39 +168,33 @@ class BlockedDataPageWidget(QtWidgets.QWidget):
             lambda: self.perform_blocking_operations(
                 sender="block_all_button"))
 
-    def fillBlockedList(self):
+    def fill_blocked_list(self):
         self.bd_blocked_tree.clear()
         self.bd_unblocked_tree.clear()
         self.bd_blocked_tree.clearSelection()
         self.bd_unblocked_tree.clearSelection()
 
-        blocked_data_ip = db_operations.custom_query(
-            "SELECT url, current_status FROM blocked_data WHERE data_type='ip' ORDER BY url ASC")
+        ip_addresses = db_operations.get_data_by_specified_condition(
+            column_name='address,current_status',
+            condition_column='data_type',
+            condition_value='"ip" ORDER BY address ASC')
 
-        blocked_data_domain = db_operations.custom_query(
-            "SELECT url,current_status FROM blocked_data where data_type='domain' ORDER BY url ASC")
+        domain_addresses = db_operations.get_data_by_specified_condition(
+            column_name='address,current_status',
+            condition_column='data_type',
+            condition_value='"domain" ORDER BY address ASC')
 
-        if blocked_data_ip:
-            for row in blocked_data_ip:
-                url, current_status = row[0], row[1]
+        self.populate_tree_widget(
+            ip_addresses, self.bd_blocked_tree, self.bd_unblocked_tree)
+        self.populate_tree_widget(
+            domain_addresses, self.bd_blocked_tree, self.bd_unblocked_tree)
 
-                if current_status == "blocked":
-                    QtWidgets.QTreeWidgetItem(
-                        self.bd_blocked_tree, [url])
-                else:
-                    QtWidgets.QTreeWidgetItem(
-                        self.bd_unblocked_tree, [url])
-
-        if blocked_data_domain:
-            for row in blocked_data_domain:
-                url, current_status = row[0], row[1]
-
-                if current_status == "blocked":
-                    QtWidgets.QTreeWidgetItem(
-                        self.bd_blocked_tree, [url])
-                else:
-                    QtWidgets.QTreeWidgetItem(
-                        self.bd_unblocked_tree, [url])
+    def populate_tree_widget(self, addresses, blocked_tree, unblocked_tree):
+        if addresses:
+            for entry in addresses:
+                address, current_status = entry['address'], entry['current_status']
+                tree_widget = blocked_tree if current_status == "blocked" else unblocked_tree
+                QtWidgets.QTreeWidgetItem(tree_widget, [address])
 
         self.set_buttons_status()
 
@@ -216,57 +212,57 @@ class BlockedDataPageWidget(QtWidgets.QWidget):
             self.bd_unblock_all_button.setEnabled(True)
             self.bd_block_all_button.setEnabled(True)
 
-    def fillBlockedDetail(self, sel_blocked_item, sender):
-        if sel_blocked_item:
-            sel_blocked_item = sel_blocked_item[0]
-
-            sel_blocked_item_detail = db_operations.get_one_data_detail(
-                column_name="*", condition_column='url', condition_value=sel_blocked_item.text(0), table_name='blocked_data')
+    def fill_blocked_details(self, sel_items, sender):
+        if sel_items:
+            sel_item = sel_items[0]
+            entry = db_operations.get_entry_details(
+                column_name='*',
+                address=sel_item.text(0))
 
             if sender == "blocked_list":
-                self.bd_unblock_sel_data_button.disconnect()
+                self.bd_unblock_button.disconnect()
                 self.bd_unblocked_tree.clearSelection()
-                self.bd_unblock_sel_data_button.setEnabled(True)
-                self.bd_block_sel_data_button.setEnabled(False)
-                self.bd_unblock_sel_data_button.clicked.connect(
+                self.bd_unblock_button.setEnabled(True)
+                self.bd_block_button.setEnabled(False)
+                self.bd_unblock_button.clicked.connect(
                     lambda: self.perform_blocking_operations(
-                        item=sel_blocked_item_detail,
+                        entry=entry,
                         sender="unblock_button"))
 
             elif sender == "unblocked_list":
-                self.bd_block_sel_data_button.disconnect()
+                self.bd_block_button.disconnect()
                 self.bd_blocked_tree.clearSelection()
-                self.bd_unblock_sel_data_button.setEnabled(False)
-                self.bd_block_sel_data_button.setEnabled(True)
-                self.bd_block_sel_data_button.clicked.connect(
+                self.bd_unblock_button.setEnabled(False)
+                self.bd_block_button.setEnabled(True)
+                self.bd_block_button.clicked.connect(
                     lambda: self.perform_blocking_operations(
-                        item=sel_blocked_item_detail,
+                        entry=entry,
                         sender="block_button"))
 
-            self.bd_url_label.setText(
-                sel_blocked_item_detail[1])
+            self.bd_address_label.setText(
+                entry['address'])
             self.bd_op_time_label.setText(
-                sel_blocked_item_detail[3])
+                entry['operation_time'])
             self.bd_current_stat_label.setText(
-                sel_blocked_item_detail[4])
-            if sel_blocked_item_detail[4] == "blocked":
+                entry['current_status'])
+            if entry['current_status'] == "blocked":
                 self.bd_blocked_tree.setStyleSheet(self.b_qtreew_style)
                 self.bd_current_stat_label.setStyleSheet(
                     "color:#23B7E5;")
-            elif sel_blocked_item_detail[4] == "unblocked":
+            elif entry['current_status'] == "unblocked":
                 self.bd_unblocked_tree.setStyleSheet(self.u_qtreew_style)
                 self.bd_current_stat_label.setStyleSheet(
                     "color:#F05050;")
 
     def clear_all_details(self):
-        self.bd_url_label.clear()
+        self.bd_address_label.clear()
         self.bd_op_time_label.clear()
         self.bd_current_stat_label.clear()
 
-    def perform_blocking_operations(self, sender, item=None):
+    def perform_blocking_operations(self, sender, entry=None):
         try:
-            my_blocking_op_worker = workers.BlockingOperationWorker(
-                item=item,
+            my_blocking_op_worker = workers.BlockingOperationsWorker(
+                entry=entry,
                 sender=sender)
 
             if sender.find("all") != -1:
@@ -275,7 +271,7 @@ class BlockedDataPageWidget(QtWidgets.QWidget):
                 my_blocking_op_worker.finished.connect(
                     lambda: my_loading_ui.deleteLater())
 
-            my_blocking_op_worker.finished.connect(self.fillBlockedList)
+            my_blocking_op_worker.finished.connect(self.fill_blocked_list)
             my_blocking_op_worker.finished.connect(my_blocking_op_worker.wait)
             my_blocking_op_worker.finished.connect(my_blocking_op_worker.quit)
 
@@ -283,12 +279,59 @@ class BlockedDataPageWidget(QtWidgets.QWidget):
         except Exception as e:
             print(f"Error perform_blocking_operations(bd): {e}")
 
+    def add_data(self):
+        self.my_input_widget = input_dialog_ui.UiInputWidget()
+        result = self.my_input_widget.exec()
+
+        if result == QtWidgets.QDialog.DialogCode.Accepted:
+            self.user_input = self.my_input_widget.input_line.text()
+            self.check_user_input()
+
+    def check_user_input(self):
+        self.my_input_widget.hide()
+        self.my_loading_ui = loading_ui.UiLoading()
+
+        self.my_loading_ui.show()
+        my_check_input_type_worker = workers.CheckInputTypeWorker(
+            self.user_input)
+        my_check_input_type_worker.finished.connect(self.handle_worker)
+        my_check_input_type_worker.finished.connect(self.my_loading_ui.close)
+        my_check_input_type_worker.finished.connect(
+            my_check_input_type_worker.wait)
+        my_check_input_type_worker.finished.connect(
+            my_check_input_type_worker.quit)
+        my_check_input_type_worker.start()
+
+    def handle_worker(self, input_type):
+        if input_type != "unknown":
+            self.block_input(self.user_input, input_type)
+
+        else:
+            ok = QtWidgets.QMessageBox.warning(
+                None, 'Warning', 'Input is not an IP or Domain')
+            if ok:
+                self.add_data()
+
+    def block_input(self, user_input, input_type):
+        entry = [user_input, input_type]
+        my_blocking_op_worker = workers.BlockingOperationsWorker(
+            entry=entry, sender="add_button")
+        my_blocking_op_worker.finished.connect(lambda:
+                                               self.show_messagebox())
+        my_blocking_op_worker.finished.connect(self.fill_blocked_list)
+        my_blocking_op_worker.finished.connect(my_blocking_op_worker.wait)
+        my_blocking_op_worker.finished.connect(my_blocking_op_worker.quit)
+        my_blocking_op_worker.start()
+
+    def show_messagebox(self):
+        QtWidgets.QMessageBox.information(
+            None, 'Add', 'Succesfully Added')
+
 
 if __name__ == "__main__":
-    import sys
     app = QtWidgets.QApplication([])
 
     main_window = BlockedDataPageWidget()
     main_window.show()
-    main_window.fillBlockedList()
-    sys.exit(app.exec())
+    main_window.fill_blocked_list()
+    app.exec()

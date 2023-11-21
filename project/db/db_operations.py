@@ -3,12 +3,15 @@ import os
 
 
 user_name = os.getlogin()
-db_directory = os.path.join('C:\\Users', user_name, 'AppData', 'Local', 'SurfSentry')
+db_directory = os.path.join('C:\\Users', user_name,
+                            'AppData', 'Local', 'SurfSentry')
 db_path = os.path.join(db_directory, 'surfsentry_db.db')
 os.makedirs(db_directory, exist_ok=True)
-def create_tables():
+
+
+def create_db():
     """
-    Creates a SQLite database if it doesn't exist, along with the specified table.
+    Creates a SQLite database if it doesn't exist.
     """
     try:
         with sqlite3.connect(db_path) as conn:
@@ -16,31 +19,25 @@ def create_tables():
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS malicious_data (
                     id INTEGER PRIMARY KEY,
-                    data_id INTEGER,
+                    data_id INTEGER UNIQUE,
                     data_type TEXT,
-                    url TEXT,
+                    address TEXT UNIQUE,
                     mal_type TEXT,
                     desc TEXT,
-                    criticality_level INTEGER,
+                    severity INTEGER,
                     source TEXT,
-                    date TEXT,
-                    link TEXT
+                    data_date TEXT,
+                    current_status TEXT,
+                    operation_time TEXT,
+                    update_date TEXT,
+                    link TEXT 
                 )
             ''')
-            cursor.execute('''
-            CREATE TABLE IF NOT EXISTS blocked_data (
-                id INTEGER PRIMARY KEY,
-                url TEXT,
-                data_type TEXT,
-                operation_time TEXT,
-                current_status TEXT
-            )
-        ''')
     except sqlite3.Error as e:
-        print(f"Error create_tables: {e}")
+        print(f"Error create_db: {e}")
 
 
-def save_to_mal_table(item):
+def save_to_table(entry):
     """
     Saves data to the malicious_data table in the database.
     """
@@ -50,106 +47,147 @@ def save_to_mal_table(item):
             cursor = conn.cursor()
             cursor.execute('''
                 INSERT INTO malicious_data 
-                (data_id, data_type, url, mal_type, desc, criticality_level, source, date, link)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (data_id, data_type, address, mal_type, desc, severity, source, data_date, current_status, operation_time, update_date, link)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ''', (
-                item['data_id'], item['data_type'], item['url'], item['mal_type'],
-                item['desc'], item['criticality_level'], item['source'],
-                item['date'], item['link']
+                entry['data_id'], entry['data_type'], entry['address'], entry['mal_type'],
+                entry['desc'], entry['severity'], entry['source'],
+                entry['data_date'], entry['current_status'], entry['op_time'], entry['update_date'], entry['link']
             ))
 
     except sqlite3.Error as e:
-        print(f"Error save_to_mal_data_table: {e}")
+        print(f"Error save_to_table: {e}")
 
 
-def save_to_blocked_table(item,op_time):
-    try:
-        with sqlite3.connect(db_path) as conn:
-            cursor = conn.cursor()
-            cursor.execute('''
-                INSERT INTO blocked_data 
-                (url, data_type, operation_time, current_status)
-                VALUES (?, ?, ?, ?)
-            ''', (
-                item[3], item[2], op_time, "unblocked"
-            ))
-    except sqlite3.Error as e:
-        print(f"Error save_to_blocked_table: {e}")
-
-
-def get_data_by_column_name(column_name, table_name):
+def update_entry_status(address, new_status, op_time):
     """
-    Retrieves data from the specified table by a specific column.
+    Update the malicious_data table entry.
     """
     try:
         with sqlite3.connect(db_path) as conn:
             cursor = conn.cursor()
-            cursor.execute(f'SELECT {column_name} FROM {table_name}')
-            data = cursor.fetchall()
-            return data
+            cursor.execute(
+                "UPDATE malicious_data SET current_status=?,operation_time=? WHERE address=?", (new_status, op_time, address))
+            conn.commit()
     except sqlite3.Error as e:
-        print(f"Error get_data_by_column_name: {e}")
+        print(f"Error update_entry_status: {e}")
+
+
+def get_last_entry_date():
+    try:
+        with sqlite3.connect(db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                'SELECT data_date FROM malicious_data ORDER BY data_id DESC LIMIT 1')
+            entry = cursor.fetchone()
+            return entry
+    except sqlite3.Error as e:
+        print(f"Error get_last_entry_date: {e}")
         return None
 
 
-def get_one_data_detail(column_name, condition_column, condition_value, table_name):
+def get_data_by_specified_condition(column_name, condition_column, condition_value):
+    """
+    Retrieves data from the malicious_data table by a specific column and condition.
+    """
+    try:
+        conn = sqlite3.connect(db_path)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        cursor.execute(f"SELECT {column_name} FROM malicious_data WHERE {condition_column} = {condition_value}")
+        data = cursor.fetchall()
+        if data:
+            data_dict = [dict(row) for row in data]
+            return data_dict
+    except sqlite3.Error as e:
+        print(f"Error get_data_by_specified_condition: {e}")
+        return None
+    finally:
+        conn.close()
+
+
+def get_data_by_column_name(column_name):
+    """
+    Retrieves data from the malicious_data table by a specific column.
+    """
+    try:
+        conn = sqlite3.connect(db_path)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        cursor.execute(f"SELECT {column_name} FROM malicious_data")
+        data = cursor.fetchall()
+        if data:
+            data_dict = [dict(row) for row in data]
+            return data_dict
+    except sqlite3.Error as e:
+        print(f"Error get_data_by_column_name: {e}")
+        return None
+    finally:
+        conn.close()
+
+
+def get_entry_details(column_name, address):
     """
     Retrieves data from the specified table by a specific condition.
     """
     try:
-        with sqlite3.connect(db_path) as conn:
-            cursor = conn.cursor()
-            cursor.execute(f'SELECT {column_name} FROM {table_name} WHERE {
-                           condition_column} = ?', (condition_value,))
-            data = cursor.fetchone()
-            return data
+
+        conn = sqlite3.connect(db_path)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+
+        cursor.execute(
+            f"SELECT {column_name} FROM malicious_data WHERE address = ?", (address,))
+
+        entry = cursor.fetchone()
+        if entry:
+            entry_dict = dict(entry)
+            return entry_dict
     except sqlite3.Error as e:
-        print(f"Error get_one_data_detail: {e}")
+        print(f"Error get_entry_details: {e}")
         return None
+    finally:
+        conn.close()
 
 
-def clear_table_by_table_name(table_name):
+def remove_entry(address):
     """
-    Clears all records from the specified table.
+    Remove the malicious_data table entry.
     """
     try:
         with sqlite3.connect(db_path) as conn:
             cursor = conn.cursor()
-            if table_name == 'malicious_data':
-                cursor.execute(f'DELETE FROM malicious_data')
-            elif table_name == 'blocked_data':
-                cursor.execute(f'DELETE FROM blocked_data')
+            cursor.execute(
+                f"DELETE FROM malicious_data WHERE address = ?", (address,))
+            conn.commit()
     except sqlite3.Error as e:
-        print(f"Error clear_tables: {e}")
+        print(f"Error remove_entry: {e}")
 
 
-def drop_table(table_name):
+def clear_table():
     """
-    Drops the specified table if it exists.
+    Clears all records from the malicious_data table.
     """
     try:
         with sqlite3.connect(db_path) as conn:
             cursor = conn.cursor()
-            cursor.execute(f'DROP TABLE IF EXISTS {table_name}')
+            cursor.execute("DELETE FROM malicious_data")
+    except sqlite3.Error as e:
+        print(f"Error clear_table: {e}")
+
+
+def drop_table():
+    """
+    Drops the malicious_data table if it exists.
+    """
+    try:
+        with sqlite3.connect(db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute("DROP TABLE IF EXISTS malicious_data")
     except sqlite3.Error as e:
         print(f"Error drop_table: {e}")
-
-
-def update_blocked_table(url, new_status,op_time):
-    try:
-        with sqlite3.connect(db_path) as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT * FROM blocked_data WHERE url=?", (url,))
-            data = cursor.fetchone()
-            if data:
-                cursor.execute(
-                    "UPDATE blocked_data SET current_status=?,operation_time=? WHERE id=?", (new_status, op_time, data[0]))
-                conn.commit()
-
-            else:
-                print(f"URL does not exist: {url}")
-    except sqlite3.Error as e:
-        print(f"Error update_blocked_table: {e}")
 
 
 def custom_query(query):

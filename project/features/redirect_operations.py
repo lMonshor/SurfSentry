@@ -3,7 +3,6 @@ import socketserver
 from urllib.parse import urlparse, parse_qs
 import threading
 import os
-import sys
 import db.db_operations
 from features import blocking_operations
 
@@ -45,7 +44,9 @@ class MaliciousHandler(http.server.SimpleHTTPRequestHandler):
             column_name='address,data_type',
             address=url)
         if entry:
-            blocking_operations.remove_entry(entry=entry)
+            blocking_operations.manage_entry(
+                entry=entry,
+                action='remove')
 
 
 def start_server():

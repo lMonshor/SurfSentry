@@ -1,6 +1,6 @@
 import sqlite3
 import os
-
+from features import helper_methods, blocking_operations
 
 user_name = os.getlogin()
 db_directory = os.path.join('C:\\Users', user_name,
@@ -19,7 +19,7 @@ def create_db():
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS malicious_data (
                     id INTEGER PRIMARY KEY,
-                    data_id INTEGER UNIQUE,
+                    data_id TEXT,
                     data_type TEXT,
                     address TEXT UNIQUE,
                     mal_type TEXT,
@@ -57,6 +57,7 @@ def save_to_table(entry):
 
     except sqlite3.Error as e:
         print(f"Error save_to_table: {e}")
+        return None
 
 
 def update_entry_status(address, new_status, op_time):
@@ -94,8 +95,9 @@ def get_data_by_specified_condition(column_name, condition_column, condition_val
         conn = sqlite3.connect(db_path)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
-        
-        cursor.execute(f"SELECT {column_name} FROM malicious_data WHERE {condition_column} = {condition_value}")
+
+        cursor.execute(f"SELECT {column_name} FROM malicious_data WHERE {
+                       condition_column} = ?", (condition_value,))
         data = cursor.fetchall()
         if data:
             data_dict = [dict(row) for row in data]
@@ -115,7 +117,7 @@ def get_data_by_column_name(column_name):
         conn = sqlite3.connect(db_path)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
-        
+
         cursor.execute(f"SELECT {column_name} FROM malicious_data")
         data = cursor.fetchall()
         if data:
@@ -188,6 +190,46 @@ def drop_table():
             cursor.execute("DROP TABLE IF EXISTS malicious_data")
     except sqlite3.Error as e:
         print(f"Error drop_table: {e}")
+
+
+def check_address_exists(address):
+    """
+    Checks if the given address already exists in the database.
+    """
+    try:
+        with sqlite3.connect(db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT COUNT(*) FROM malicious_data WHERE address = ?", (address,))
+            count = cursor.fetchone()[0]
+            if count > 0:
+                return True
+            else:
+                return False
+    except sqlite3.Error as e:
+        print(f"Error check_address_exists: {e}")
+        return None
+
+
+def clear_old_data():
+    """
+    Clears the outdated data that doesn't match today's date in the database..
+    """
+    today = helper_methods.get_current_date_utc().split()[0]
+    data = get_data_by_specified_condition(
+        column_name='address,data_date',
+        condition_column='source',
+        condition_value='"USOM"')
+
+    if data:
+        for entry in data:
+            address = entry['address']
+            entry_date = entry['data_date']
+            
+            if entry_date.split()[0] != today:
+                blocking_operations.manage_entry(
+                    entry=entry, operation='remove')
+                remove_entry(address=address)
 
 
 def custom_query(query):

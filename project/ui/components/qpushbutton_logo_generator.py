@@ -18,7 +18,7 @@ ICONS = {
 }
 
 
-def create_logo_button(parent, icon_name, on_click=None, geometry=None):
+def create_logo_button(parent, icon_name, on_click=None, geometry=None, enabled=True):
     button = QtWidgets.QPushButton(parent=parent)
     button.setStyleSheet(qpushbuttons_styles.pages_button_style)
     button.setText('')
@@ -30,4 +30,6 @@ def create_logo_button(parent, icon_name, on_click=None, geometry=None):
         button.setGeometry(geometry)
     if on_click:
         button.clicked.connect(on_click)
+
+    button.setEnabled(enabled)
     return button

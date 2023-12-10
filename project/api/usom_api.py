@@ -29,25 +29,29 @@ def get_malicious_data(loading_ui=None):
         date = date[0]
         request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={
             date}"
+
     else:
         request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={
             today}"
 
     page_count_data = make_request(request_url=request_url)
+
     if page_count_data and "pageCount" in page_count_data and "totalCount" in page_count_data:
         page_count = page_count_data["pageCount"]
         total_count = page_count_data["totalCount"]
+
         if total_count > 1:
             for i in range(1, page_count+1):
+
                 component_hcenterer.center_component_horizontally(
                     component=loading_ui.loading_title,
                     text=f"Getting Malicious Data from USOM Please Wait...\nPage: {
                         i}/{page_count}"
                 )
 
-                request_url = f"{request_url}&page={i}"
-                raw_data = make_request(request_url=request_url)
+                new_request_url = f"{request_url}&page={i}"
+                raw_data = make_request(request_url=new_request_url)
 
                 if raw_data is not None:
-                    data_filtering_operations.fill_table(
+                    data_filtering_operations.fill_db(
                         raw_data['models'])

@@ -33,9 +33,9 @@ if __name__ == '__main__':
     my_update_data_worker.finished.connect(my_update_data_worker.wait)
     my_update_data_worker.finished.connect(my_update_data_worker.quit)
     my_update_data_worker.finished.connect(
-        my_pref_ui.my_stacked_widget.my_mal_data_page.fill_mal_list)
+        my_pref_ui.my_stacked_widget.my_mal_data_page.fill_lists)
     my_update_data_worker.finished.connect(
-        my_pref_ui.my_stacked_widget.my_blocked_data_page.fill_blocked_list)
+        my_pref_ui.my_stacked_widget.my_blocked_data_page.fill_lists)
     my_update_data_worker.finished.connect(my_loading_ui.deleteLater)
     my_update_data_worker.start()
 

@@ -1,16 +1,15 @@
-from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6 import QtCore, QtWidgets
 from db import db_operations
 from ui.components import qlabel_generator, qpushbutton_generator, qframe_line_generator, qtreewidget_generator, qlayout_qwidget_generator
 from styles.components_styles import qfonts_styles, qlabels_styles, qtreewidget_styles
-from styles.ui_styles import default_styles
 from features import helper_methods, workers
 from ui.loading_ui import loading_ui
-from ui.information_ui import information_ui
 
 
 class MalDataPageWidget(QtWidgets.QWidget):
 
-    def __init__(self):
+    def __init__(self, my_blocked_data_page):
+        self.my_blocked_data_page = my_blocked_data_page
         super().__init__()
 
         self.initUI()
@@ -128,7 +127,7 @@ class MalDataPageWidget(QtWidgets.QWidget):
             parent=self,
             geometry=(QtCore.QRect(70, 471, 191, 27)),
             text="Update Data",
-            on_click=(self.update_data))
+            on_click=(self.perform_update_data))
 
         self.md_source_button = qpushbutton_generator.create_button(
             parent=self,
@@ -181,34 +180,35 @@ class MalDataPageWidget(QtWidgets.QWidget):
         self.md_inf_glayout.addWidget(self.md_colon5, 4, 1, 1, 1)
 
         self.md_tree.itemSelectionChanged.connect(
-            lambda: self.fill_mal_details(self.md_tree.selectedItems()))
+            lambda: self.fill_details(self.md_tree.selectedItems()))
 
-    def fill_mal_list(self):
+    def fill_lists(self):
 
         self.md_tree.clear()
         self.md_tree.clearSelection()
         data = db_operations.get_data_by_column_name(
             column_name="address,data_type")
         category_items = {}
-        
-        for entry in data:
 
-            if entry['data_type'] not in category_items:
-                if entry['data_type'] == "ip":
-                    category_item = QtWidgets.QTreeWidgetItem(
-                        self.md_tree, ["Malicious IPs"])
-                else:
-                    category_item = QtWidgets.QTreeWidgetItem(
-                        self.md_tree, ["Malicious Domains"])
-                category_items[entry['data_type']] = category_item
+        if data:
+            for entry in data:
 
-            QtWidgets.QTreeWidgetItem(
-                category_items[entry['data_type']], [entry['address']])
+                if entry['data_type'] not in category_items:
+                    if entry['data_type'] == "ip":
+                        category_item = QtWidgets.QTreeWidgetItem(
+                            self.md_tree, ["Malicious IPs"])
+                    else:
+                        category_item = QtWidgets.QTreeWidgetItem(
+                            self.md_tree, ["Malicious Domains"])
+                    category_items[entry['data_type']] = category_item
 
-        self.md_tree.sortItems(
-            0,  QtCore.Qt.SortOrder.AscendingOrder)
+                QtWidgets.QTreeWidgetItem(
+                    category_items[entry['data_type']], [entry['address']])
 
-    def fill_mal_details(self, sel_items):
+            self.md_tree.sortItems(
+                0,  QtCore.Qt.SortOrder.AscendingOrder)
+
+    def fill_details(self, sel_items):
         if sel_items:
             sel_item = sel_items[0]
             if sel_item.parent() is not None:
@@ -219,22 +219,24 @@ class MalDataPageWidget(QtWidgets.QWidget):
                 self.md_source_button.disconnect()
                 self.md_source_button.clicked.connect(
                     lambda: helper_methods.open_custom_page(entry['link']))
-
                 self.md_address.setText(entry['address'])
                 self.md_type_label.setText(entry['mal_type'])
                 self.md_desc_label.setText(entry['desc'])
+                
                 if entry['severity'] <= 3:
                     self.md_tree.setStyleSheet(
                         self.l_qtreew_style)
                     self.md_severity_title.setText("LOW")
                     self.md_severity_title.setStyleSheet(
                         "background-color: #23B7E5;color:white;")
+                
                 elif 4 <= entry['severity'] <= 7:
                     self.md_tree.setStyleSheet(
                         self.m_qtreew_style)
                     self.md_severity_title.setText("MEDIUM")
                     self.md_severity_title.setStyleSheet(
                         "background-color: #FF902B;color:white;")
+                
                 else:
                     self.md_tree.setStyleSheet(
                         self.h_qtreew_style)
@@ -243,6 +245,7 @@ class MalDataPageWidget(QtWidgets.QWidget):
                         "background-color: #F05050;color:white;")
                 self.md_source_label.setText(entry['source'])
                 self.md_date_label.setText(entry['data_date'])
+            
             else:
                 self.md_tree.setStyleSheet(self.qtreew_style)
                 self.clear_all_details()
@@ -254,22 +257,14 @@ class MalDataPageWidget(QtWidgets.QWidget):
         self.md_date_label.clear()
         self.md_desc_label.clear()
 
-    def update_data(self):
+    def perform_update_data(self):
         my_loading_ui = loading_ui.UiLoading()
         my_loading_ui.show()
         my_update_data_worker = workers.UpdateDataWorker(
             my_loading_ui=my_loading_ui)
         my_update_data_worker.finished.connect(my_update_data_worker.wait)
         my_update_data_worker.finished.connect(my_update_data_worker.quit)
-        my_update_data_worker.finished.connect(self.fill_mal_list)
+        my_update_data_worker.finished.connect(self.fill_lists)
         my_update_data_worker.finished.connect(my_loading_ui.deleteLater)
+        my_update_data_worker.finished.connect(self.my_blocked_data_page.fill_lists)
         my_update_data_worker.start()
-
-
-if __name__ == "__main__":
-    app = QtWidgets.QApplication([])
-
-    main_window = MalDataPageWidget()
-    main_window.show()
-
-    app.exec()

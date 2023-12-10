@@ -49,13 +49,3 @@ class UiSettings(QtWidgets.QWidget):
     def open_pref_ui(self):
         if not self.my_pref_ui.isVisible():
             self.my_pref_ui.show()
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication([])
-
-    main_window = UiSettings()
-    main_window.show()
-
-    sys.exit(app.exec())

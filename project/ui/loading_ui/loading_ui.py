@@ -12,9 +12,8 @@ class UiLoading(QtWidgets.QDialog):
 
     def initUI(self):
         self.setFixedSize(410, 140)
-        self.setStyleSheet(default_styles.dark_style)
-        self.setWindowFlags(
-            QtCore.Qt.WindowType.WindowStaysOnTopHint)
+        self.setStyleSheet(default_styles.light_style)
+        self.setWindowFlags(QtCore.Qt.WindowType.WindowStaysOnTopHint)
         self.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
 
         self.loading_title = qlabel_generator.create_label(
@@ -61,9 +60,9 @@ class UiLoading(QtWidgets.QDialog):
                 self.loading_prg_bar_direction)
             self.loading_prog_bar.setValue(value)
 
+
 if __name__ == '__main__':
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
+    app = QtWidgets.QApplication([])
     ui = UiLoading()
     ui.show()
     app.exec()

@@ -1,6 +1,6 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from ui.components import qlabel_generator, qlabel_logo_generator, qpushbutton_logo_generator, component_hcenterer
-from features import blocking_operations, redirect_operations
+from features import redirect_operations
 from styles.components_styles import qpushbuttons_styles, qfonts_styles, qlabels_styles
 from styles.ui_styles import default_styles
 from ui.components import toggle_button_generator
@@ -111,58 +111,53 @@ class UiPopup(QtWidgets.QWidget):
                 text="Protection is Stopping...")
             sender = "switch_closed"
 
-        self.perform_blocking_operations(sender)
+        self.create_worker(sender)
 
-    def perform_blocking_operations(self, sender):
-        try:
-            my_blocking_op_worker = workers.BlockingOperationsWorker(
-                sender=sender)
-            if sender == "switch_opened":
-                my_blocking_op_worker.finished.connect(lambda:
-                                                       self.popup_ctrl_status_title.setStyleSheet(qlabels_styles.popup_title_opened_color))
-                my_blocking_op_worker.finished.connect(lambda:
-                                                       component_hcenterer.center_component_horizontally(
-                                                           component=self.popup_ctrl_status_title,
-                                                           text="Connected"))
-                my_blocking_op_worker.finished.connect(lambda:
-                                                       component_hcenterer.center_component_horizontally(
-                                                           component=self.popup_ctrl_status_desc,
-                                                           text="Your Internet is Secure"))
-                my_blocking_op_worker.finished.connect(
-                    self.my_tray_app_ui.set_icon_active)
-                my_blocking_op_worker.finished.connect(
-                    redirect_operations.start_server)
-            else:
-                my_blocking_op_worker.finished.connect(lambda:
-                                                       self.popup_ctrl_status_title.setStyleSheet(qlabels_styles.title_color))
-                my_blocking_op_worker.finished.connect(lambda:
-                                                       component_hcenterer.center_component_horizontally(
-                                                           component=self.popup_ctrl_status_title,
-                                                           text="Disconnected"))
-                my_blocking_op_worker.finished.connect(lambda:
-                                                       component_hcenterer.center_component_horizontally(
-                                                           component=self.popup_ctrl_status_desc,
-                                                           text="Your Internet is not Secure"))
-                my_blocking_op_worker.finished.connect(
-                    self.my_tray_app_ui.set_icon_passive)
-                my_blocking_op_worker.finished.connect(
-                    redirect_operations.stop_server)
+    def create_worker(self, sender):
+        my_blocking_op_worker = workers.BlockingOperationsWorker(
+            sender=sender)
 
+        if sender == "switch_opened":
             my_blocking_op_worker.finished.connect(
-                lambda: self.popup_ctrl_toggle_button.setEnabled(True))
-            my_blocking_op_worker.finished.connect(my_blocking_op_worker.wait)
-            my_blocking_op_worker.finished.connect(my_blocking_op_worker.quit)
+                lambda:
+                self.popup_ctrl_status_title.setStyleSheet(qlabels_styles.popup_title_opened_color))
+            my_blocking_op_worker.finished.connect(
+                lambda:
+                component_hcenterer.center_component_horizontally(
+                    component=self.popup_ctrl_status_title,
+                    text="Connected"))
+            my_blocking_op_worker.finished.connect(
+                lambda:
+                component_hcenterer.center_component_horizontally(
+                    component=self.popup_ctrl_status_desc,
+                    text="Your Internet is Secure"))
+            my_blocking_op_worker.finished.connect(
+                self.my_tray_app_ui.set_icon_active)
+            my_blocking_op_worker.finished.connect(
+                redirect_operations.start_server)
 
-            my_blocking_op_worker.start()
-        except Exception as e:
-            print(f"Error perform_blocking_operations(popup): {e}")
+        else:
+            my_blocking_op_worker.finished.connect(
+                lambda:
+                self.popup_ctrl_status_title.setStyleSheet(qlabels_styles.title_color))
+            my_blocking_op_worker.finished.connect(
+                lambda:
+                component_hcenterer.center_component_horizontally(
+                    component=self.popup_ctrl_status_title,
+                    text="Disconnected"))
+            my_blocking_op_worker.finished.connect(
+                lambda:
+                component_hcenterer.center_component_horizontally(
+                    component=self.popup_ctrl_status_desc,
+                    text="Your Internet is not Secure"))
+            my_blocking_op_worker.finished.connect(
+                self.my_tray_app_ui.set_icon_passive)
+            my_blocking_op_worker.finished.connect(
+                redirect_operations.stop_server)
 
+        my_blocking_op_worker.finished.connect(
+            lambda: self.popup_ctrl_toggle_button.setEnabled(True))
+        my_blocking_op_worker.finished.connect(my_blocking_op_worker.wait)
+        my_blocking_op_worker.finished.connect(my_blocking_op_worker.quit)
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication([])
-
-    main_window = UiPopup()
-    main_window.show()
-
-    sys.exit(app.exec())
+        my_blocking_op_worker.start()

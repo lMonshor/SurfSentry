@@ -15,10 +15,9 @@ class UpdateDataWorker(QtCore.QThread):
     def run(self):
         try:
             db_operations.create_db()
-            blocking_operations.remove_all_entries()
-            data_filtering_operations.clear_old_data()
+            db_operations.clear_old_data()
             usom_api.get_malicious_data(loading_ui=self.my_loading_ui)
-            blocking_operations.add_all_entries()
+            blocking_operations.manage_all_entries(action='fill',condition_value='unblocked')
 
         except Exception as e:
             print(f"Error run(UpdateDataWorker): {e}")
@@ -37,22 +36,40 @@ class BlockingOperationsWorker(QtCore.QThread):
     def run(self):
         try:
             if self.entry is not None:
-
-                if self.sender == "unblock_button":
-                    blocking_operations.remove_entry(
-                        entry=self.entry)
+                
+                if self.sender == "unblock_button" or self.sender == 'remove_button':
+                    blocking_operations.manage_entry(
+                        entry=self.entry,
+                        action='remove')
+                
                 elif self.sender == "block_button" or self.sender == "add_button":
-                    blocking_operations.add_entry(
-                        entry=self.entry)
+                    blocking_operations.manage_entry(
+                        entry=self.entry,
+                        action='add')
             else:
                 if self.sender == "unblock_all_button":
-                    blocking_operations.remove_all_entries()
+                    blocking_operations.manage_all_entries(
+                        action='clear',
+                        condition_value='blocked'
+                    )
+                
                 elif self.sender == "block_all_button":
-                    blocking_operations.add_all_entries()
+                    blocking_operations.manage_all_entries(
+                        action='fill',
+                        condition_value='unblocked'
+                    )
+                
                 elif self.sender == self.sender == "switch_opened":
-                    blocking_operations.start_protection()
+                    blocking_operations.manage_all_entries(
+                        action='block',
+                        condition_value='blocked'
+                    )
+                
                 elif self.sender == "switch_closed":
-                    blocking_operations.stop_protection()
+                    blocking_operations.manage_all_entries(
+                        action='unblock',
+                        condition_value='blocked'
+                    )
 
         except Exception as e:
             print(f"Error run(BlockingOperationsWorker): {e}")
@@ -86,31 +103,3 @@ class CheckInputTypeWorker(QtCore.QThread):
             print(f"Error run(CheckTypeWorker): {e}")
         finally:
             self.finished.emit(input_type)
-
-# class StartStopProtectionWorker(QtCore.QThread):
-#     finished = QtCore.pyqtSignal()
-
-#     def __init__(self, sender, item=None):
-#         self.item = item
-#         self.sender = sender
-#         super().__init__()
-
-#     def run(self):
-#         try:
-#             if self.item is not None:
-
-#                 if self.sender == "unblock_button":
-#                     blocking_operations.unblock_entry(
-#                         self.item)
-#                 elif self.sender == "block_button" or self.sender == "add_button":
-#                     blocking_operations.block_entry(
-#                         self.item,sender=self.sender)
-#             else:
-#                 if self.sender == "unblock_all_button" or self.sender == "switch_closed":
-#                     blocking_operations.unblock_all_entries()
-#                 elif self.sender == "block_all_button" or self.sender == "switch_opened":
-#                     blocking_operations.block_all_entries()
-#         except Exception as e:
-#             print(f"Error run(BlockingOperationWorker): {e}")
-#         finally:
-#             self.finished.emit()

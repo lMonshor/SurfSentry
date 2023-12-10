@@ -49,14 +49,3 @@ class MenuWidget(QtWidgets.QWidget):
         self.menu_button_vlayout.addWidget(self.menu_bd_button)
         self.menu_button_vlayout.addWidget(self.menu_fb_button)
         self.menu_button_vlayout.addWidget(self.menu_ab_button)
-
-    
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication([])
-
-    main_window = MenuWidget()
-    main_window.show()
-
-    sys.exit(app.exec())

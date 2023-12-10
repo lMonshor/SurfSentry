@@ -20,7 +20,9 @@ class StackedWidget(QtWidgets.QStackedWidget):
 
         self.my_general_page = general_page.GeneralPageWidget()
         self.my_blocked_data_page = blocked_data_page.BlockedDataPageWidget()
-        self.my_mal_data_page = mal_data_page.MalDataPageWidget()
+        self.my_mal_data_page = mal_data_page.MalDataPageWidget(
+            my_blocked_data_page=self.my_blocked_data_page
+        )
         self.my_feedback_page = feedback_page.FeedbackPageWidget()
         self.my_about_page = about_page.AboutPageWidget()
 

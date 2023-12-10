@@ -54,13 +54,3 @@ class AboutPageWidget(QtWidgets.QWidget):
         self.ab_first_hline = qframe_line_generator.create_frame_line(
             parent=self,
             geometry=(QtCore.QRect(48, 335, 672, 1)))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication([])
-
-    main_window = AboutPageWidget()
-    main_window.show()
-
-    sys.exit(app.exec())

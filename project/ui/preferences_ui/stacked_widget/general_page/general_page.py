@@ -1,6 +1,6 @@
 from PyQt6 import QtCore, QtWidgets
-from ui.components import qlayout_qwidget_generator, qlabel_generator,qframe_line_generator
-from styles.components_styles import qfonts_styles,qlabels_styles
+from ui.components import qlayout_qwidget_generator, qlabel_generator, qframe_line_generator
+from styles.components_styles import qfonts_styles, qlabels_styles
 
 
 class GeneralPageWidget(QtWidgets.QWidget):
@@ -116,10 +116,10 @@ class GeneralPageWidget(QtWidgets.QWidget):
             color=qlabels_styles.title_color,
             text=":")
 
-        self.gen_first_hline =  qframe_line_generator.create_frame_line(
+        self.gen_first_hline = qframe_line_generator.create_frame_line(
             parent=self,
             geometry=(QtCore.QRect(48, 300, 672, 1)))
-        
+
         self.top_glayout.addWidget(self.gen_ip_title, 0, 0, 1, 1)
         self.top_glayout.addWidget(self.gen_colon1, 0, 1, 1, 1)
         self.top_glayout.addWidget(self.gen_ip_label, 0, 2, 1, 1)
@@ -136,13 +136,3 @@ class GeneralPageWidget(QtWidgets.QWidget):
         self.bottom_glayout.addWidget(self.gen_last_upt_title, 2, 0, 1, 1)
         self.bottom_glayout.addWidget(self.gen_colon5, 2, 1, 1, 1)
         self.bottom_glayout.addWidget(self.gen_last_upt_label, 2, 2, 1, 1)
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication([])
-
-    main_window = GeneralPageWidget()
-    main_window.show()
-
-    sys.exit(app.exec())

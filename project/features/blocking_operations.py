@@ -14,47 +14,37 @@ def update_hosts_file(action, address=None, domain_addresses=None):
         with open(HOSTS_PATH, 'r+') as hosts_file:
             lines = hosts_file.readlines()
             hosts_file.seek(0)
-            if action == 'add':
-                hosts_file.write(f'#127.0.0.1 {address}\n')
-                db_operations.update_entry_status(
-                    address=address, new_status='blocked', op_time=operation_time)
-                hosts_file.writelines(lines)
-                print(f'added domain: {address}\n')
 
-            elif action == 'fill':
-                for addr in domain_addresses:
+            if action in ['add', 'remove']:
+                domains = [address]
+            else:
+                domains = domain_addresses
+
+            if action in ['add', 'fill']:
+                for addr in domains:
                     hosts_file.write(f'#127.0.0.1 {addr}\n')
                     db_operations.update_entry_status(
                         address=addr, new_status='blocked', op_time=operation_time)
                     print(f'added domain: {addr}\n')
+
                 hosts_file.writelines(lines)
 
-            elif action == 'remove':
+            elif action in ['remove', 'clear']:
                 modified_lines = []
-                for line in lines:
-                    found = False
-                    if f'#127.0.0.1 {address}' in line.strip():
-                        db_operations.update_entry_status(
-                            address=address, new_status='unblocked', op_time=operation_time)
-                        found = True
-                    if not found:
-                        modified_lines.append(line)
-                hosts_file.writelines(modified_lines)
-                print(f'removed domain: {address}\n')
 
-            elif action == 'clear':
-                modified_lines = []
                 for line in lines:
                     found = False
-                    for addr in domain_addresses:
-                        if f'#127.0.0.1 {addr}' in line.strip():
-                            db_operations.update_entry_status(
-                                address=addr, new_status='unblocked', op_time=operation_time)
-                            print(f'removed domain: {addr}\n')
-                            found = True
-                            break
+                    for addr in domains:
+                        if '127.0.0.1' in line:
+                            if addr == line.split()[1]:
+                                db_operations.update_entry_status(
+                                    address=addr, new_status='unblocked', op_time=operation_time)
+                                print(f'removed domain: {addr}\n')
+                                found = True
+                                break
                     if not found:
                         modified_lines.append(line)
+
                 hosts_file.writelines(modified_lines)
 
             hosts_file.truncate()

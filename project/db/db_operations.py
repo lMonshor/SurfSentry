@@ -35,6 +35,8 @@ def create_db():
             ''')
     except sqlite3.Error as e:
         print(f"Error create_db: {e}")
+    finally:
+        conn.close()
 
 
 def save_to_table(entry):
@@ -57,7 +59,8 @@ def save_to_table(entry):
 
     except sqlite3.Error as e:
         print(f"Error save_to_table: {e}")
-        return None
+    finally:
+        conn.close()
 
 
 def update_entry_status(address, new_status, op_time):
@@ -72,19 +75,26 @@ def update_entry_status(address, new_status, op_time):
             conn.commit()
     except sqlite3.Error as e:
         print(f"Error update_entry_status: {e}")
+    finally:
+        conn.close()
 
 
-def get_last_entry_date():
+def get_latest_entry_date():
     try:
         with sqlite3.connect(db_path) as conn:
             cursor = conn.cursor()
             cursor.execute(
                 'SELECT data_date FROM malicious_data ORDER BY data_id DESC LIMIT 1')
-            entry = cursor.fetchone()
-            return entry
+            latest_date = cursor.fetchone()
+            if latest_date:
+                return latest_date
+            else:
+                return None
     except sqlite3.Error as e:
-        print(f"Error get_last_entry_date: {e}")
+        print(f"Error get_latest_entry_date: {e}")
         return None
+    finally:
+        conn.close()
 
 
 def get_data_by_specified_condition(column_name, condition_column, condition_value):
@@ -102,6 +112,8 @@ def get_data_by_specified_condition(column_name, condition_column, condition_val
         if data:
             data_dict = [dict(row) for row in data]
             return data_dict
+        else:
+            return None
     except sqlite3.Error as e:
         print(f"Error get_data_by_specified_condition: {e}")
         return None
@@ -123,6 +135,8 @@ def get_data_by_column_name(column_name):
         if data:
             data_dict = [dict(row) for row in data]
             return data_dict
+        else:
+            return None
     except sqlite3.Error as e:
         print(f"Error get_data_by_column_name: {e}")
         return None
@@ -135,7 +149,6 @@ def get_entry_details(column_name, address):
     Retrieves data from the specified table by a specific condition.
     """
     try:
-
         conn = sqlite3.connect(db_path)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
@@ -147,6 +160,8 @@ def get_entry_details(column_name, address):
         if entry:
             entry_dict = dict(entry)
             return entry_dict
+        else:
+            return None
     except sqlite3.Error as e:
         print(f"Error get_entry_details: {e}")
         return None
@@ -166,6 +181,8 @@ def remove_entry(address):
             conn.commit()
     except sqlite3.Error as e:
         print(f"Error remove_entry: {e}")
+    finally:
+        conn.close()
 
 
 def clear_table():
@@ -178,6 +195,8 @@ def clear_table():
             cursor.execute("DELETE FROM malicious_data")
     except sqlite3.Error as e:
         print(f"Error clear_table: {e}")
+    finally:
+        conn.close()
 
 
 def drop_table():
@@ -190,6 +209,8 @@ def drop_table():
             cursor.execute("DROP TABLE IF EXISTS malicious_data")
     except sqlite3.Error as e:
         print(f"Error drop_table: {e}")
+    finally:
+        conn.close()
 
 
 def check_address_exists(address):
@@ -205,10 +226,12 @@ def check_address_exists(address):
             if count > 0:
                 return True
             else:
-                return False
+                return None
     except sqlite3.Error as e:
         print(f"Error check_address_exists: {e}")
         return None
+    finally:
+        conn.close()
 
 
 def clear_old_data():
@@ -225,11 +248,53 @@ def clear_old_data():
         for entry in data:
             address = entry['address']
             entry_date = entry['data_date']
-            
+
             if entry_date.split()[0] != today:
                 blocking_operations.manage_entry(
                     entry=entry, operation='remove')
                 remove_entry(address=address)
+
+
+def count_records(data_type):
+    """
+    Returns the number of records in the 'malicious_data' table.
+    """
+    try:
+        with sqlite3.connect(db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT COUNT(*) FROM malicious_data WHERE data_type = ?", (data_type,))
+            count = cursor.fetchone()[0]
+            if count or count == 0:
+                return count
+            else:
+                return None
+    except sqlite3.Error as e:
+        print(f"Error count_records: {e}")
+        return None
+    finally:
+        conn.close()
+
+
+def get_latest_update_date():
+    """
+    Returns the most recent 'update_date' value from the 'malicious_data' table.
+    """
+    try:
+        with sqlite3.connect(db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT update_date FROM malicious_data ORDER BY update_date DESC LIMIT 1")
+            latest_update = cursor.fetchone()
+            if latest_update:
+                return latest_update[0]
+            else:
+                return None
+    except sqlite3.Error as e:
+        print(f"Error get_latest_update_date: {e}")
+        return None
+    finally:
+        conn.close()
 
 
 def custom_query(query):
@@ -238,7 +303,12 @@ def custom_query(query):
             cursor = conn.cursor()
             cursor.execute(f'{query}')
             data = cursor.fetchall()
-            return data
+            if data:
+                return data
+            else:
+                return None
     except sqlite3.Error as e:
         print(f"Error custom_query: {e}")
         return None
+    finally:
+        conn.close()

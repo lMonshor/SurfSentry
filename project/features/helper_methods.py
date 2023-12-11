@@ -44,7 +44,8 @@ def send_email_feedback(email_address, subject, description):
         receiver = config.receiver_email
         password = config.password
 
-        message = (f"Email Address: {email_address.toPlainText()}\nSubject: {subject.toPlainText()}\nDescription: {description.toPlainText()}")
+        message = (f"Email Address: {email_address.toPlainText()}\nSubject: {
+                   subject.toPlainText()}\nDescription: {description.toPlainText()}")
 
         msg = MIMEText(message)
         msg['Subject'] = "Feedback"
@@ -85,3 +86,4 @@ def get_current_adapter():
                 return adapter
 
     return None
+

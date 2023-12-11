@@ -12,9 +12,11 @@ class UiLoading(QtWidgets.QDialog):
 
     def initUI(self):
         self.setFixedSize(410, 140)
-        self.setStyleSheet(default_styles.light_style)
+        self.setStyleSheet(default_styles.dark_style)
         self.setWindowFlags(QtCore.Qt.WindowType.WindowStaysOnTopHint)
         self.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
+        self.setWindowTitle(default_styles.window_title)
+        self.setWindowIcon(QtGui.QIcon(default_styles.window_icon))
 
         self.loading_title = qlabel_generator.create_label(
             parent=self,

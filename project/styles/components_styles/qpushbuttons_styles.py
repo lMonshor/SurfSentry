@@ -1,6 +1,6 @@
 pages_button_style = """
     QPushButton {
-        background-color: #393E46;
+        background-color: #27292D;
         color: white;
     }
 

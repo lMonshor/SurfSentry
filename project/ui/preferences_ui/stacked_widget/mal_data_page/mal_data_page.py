@@ -4,6 +4,7 @@ from ui.components import qlabel_generator, qpushbutton_generator, qframe_line_g
 from styles.components_styles import qfonts_styles, qlabels_styles, qtreewidget_styles
 from features import helper_methods, workers
 from ui.loading_ui import loading_ui
+from styles.ui_styles import default_styles
 
 
 class MalDataPageWidget(QtWidgets.QWidget):
@@ -15,6 +16,7 @@ class MalDataPageWidget(QtWidgets.QWidget):
         self.initUI()
 
     def initUI(self):
+        self.setStyleSheet(default_styles.dark_style)
         self.md_tree = qtreewidget_generator.create_tree_widget(
             parent=self,
             geometry=(QtCore.QRect(30, 30, 281, 421)),
@@ -30,7 +32,7 @@ class MalDataPageWidget(QtWidgets.QWidget):
             geometry=(QtCore.QRect(380, 30, 311, 31)),
             font=qfonts_styles.threat_font,
             color=qlabels_styles.title_color,
-            text="THREAT LEVEL"
+            text='Not avaliable'
         )
         self.md_severity_title.setFrameShadow(
             QtWidgets.QFrame.Shadow.Plain)
@@ -127,7 +129,7 @@ class MalDataPageWidget(QtWidgets.QWidget):
             parent=self,
             geometry=(QtCore.QRect(70, 471, 191, 27)),
             text="Update Data",
-            on_click=(self.perform_update_data))
+            on_click=(self.create_worker))
 
         self.md_source_button = qpushbutton_generator.create_button(
             parent=self,
@@ -183,9 +185,9 @@ class MalDataPageWidget(QtWidgets.QWidget):
             lambda: self.fill_details(self.md_tree.selectedItems()))
 
     def fill_lists(self):
-
         self.md_tree.clear()
-        self.md_tree.clearSelection()
+        
+
         data = db_operations.get_data_by_column_name(
             column_name="address,data_type")
         category_items = {}
@@ -209,46 +211,49 @@ class MalDataPageWidget(QtWidgets.QWidget):
                 0,  QtCore.Qt.SortOrder.AscendingOrder)
 
     def fill_details(self, sel_items):
+        self.clear_all_details()
         if sel_items:
             sel_item = sel_items[0]
             if sel_item.parent() is not None:
                 entry = db_operations.get_entry_details(
                     column_name='*',
                     address=sel_item.text(0))
-                self.md_source_button.setEnabled(True)
-                self.md_source_button.disconnect()
-                self.md_source_button.clicked.connect(
-                    lambda: helper_methods.open_custom_page(entry['link']))
-                self.md_address.setText(entry['address'])
-                self.md_type_label.setText(entry['mal_type'])
-                self.md_desc_label.setText(entry['desc'])
-                
-                if entry['severity'] <= 3:
-                    self.md_tree.setStyleSheet(
-                        self.l_qtreew_style)
-                    self.md_severity_title.setText("LOW")
-                    self.md_severity_title.setStyleSheet(
-                        "background-color: #23B7E5;color:white;")
-                
-                elif 4 <= entry['severity'] <= 7:
-                    self.md_tree.setStyleSheet(
-                        self.m_qtreew_style)
-                    self.md_severity_title.setText("MEDIUM")
-                    self.md_severity_title.setStyleSheet(
-                        "background-color: #FF902B;color:white;")
-                
-                else:
-                    self.md_tree.setStyleSheet(
-                        self.h_qtreew_style)
-                    self.md_severity_title.setText("HIGH")
-                    self.md_severity_title.setStyleSheet(
-                        "background-color: #F05050;color:white;")
-                self.md_source_label.setText(entry['source'])
-                self.md_date_label.setText(entry['data_date'])
-            
-            else:
-                self.md_tree.setStyleSheet(self.qtreew_style)
-                self.clear_all_details()
+
+                if entry:
+                    self.md_source_button.setEnabled(True)
+                    self.md_source_button.disconnect()
+                    self.md_source_button.clicked.connect(
+                        lambda: helper_methods.open_custom_page(entry['link']))
+                    self.md_address.setText(entry['address'])
+                    self.md_type_label.setText(entry['mal_type'])
+                    self.md_desc_label.setText(entry['desc'])
+
+                    if entry['severity'] <= 3:
+                        self.md_tree.setStyleSheet(
+                            self.l_qtreew_style)
+                        self.md_severity_title.setText("LOW")
+                        self.md_severity_title.setStyleSheet(
+                            qlabels_styles.md_threat_title_low_style)
+
+                    elif 4 <= entry['severity'] <= 7:
+                        self.md_tree.setStyleSheet(
+                            self.m_qtreew_style)
+                        self.md_severity_title.setText("MEDIUM")
+                        self.md_severity_title.setStyleSheet(
+                            qlabels_styles.md_threat_title_medium_style)
+
+                    else:
+                        self.md_tree.setStyleSheet(
+                            self.h_qtreew_style)
+                        self.md_severity_title.setText("HIGH")
+                        self.md_severity_title.setStyleSheet(
+                            qlabels_styles.md_threat_title_high_style)
+                    
+                    self.md_source_label.setText(entry['source'])
+                    self.md_date_label.setText(entry['data_date'])
+
+        else:
+            self.md_tree.setStyleSheet(self.qtreew_style)
 
     def clear_all_details(self):
         self.md_address.clear()
@@ -256,8 +261,11 @@ class MalDataPageWidget(QtWidgets.QWidget):
         self.md_type_label.clear()
         self.md_date_label.clear()
         self.md_desc_label.clear()
+        self.md_severity_title.setText('Not avaliable')
+        self.md_severity_title.setStyleSheet(
+            qlabels_styles.md_threat_title_style)
 
-    def perform_update_data(self):
+    def create_worker(self):
         my_loading_ui = loading_ui.UiLoading()
         my_loading_ui.show()
         my_update_data_worker = workers.UpdateDataWorker(
@@ -266,5 +274,16 @@ class MalDataPageWidget(QtWidgets.QWidget):
         my_update_data_worker.finished.connect(my_update_data_worker.quit)
         my_update_data_worker.finished.connect(self.fill_lists)
         my_update_data_worker.finished.connect(my_loading_ui.deleteLater)
-        my_update_data_worker.finished.connect(self.my_blocked_data_page.fill_lists)
+        my_update_data_worker.finished.connect(
+            self.my_blocked_data_page.fill_lists)
         my_update_data_worker.start()
+
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication([])
+
+    main_window = MalDataPageWidget()
+    main_window.fill_lists()
+    main_window.show()
+
+    app.exec()

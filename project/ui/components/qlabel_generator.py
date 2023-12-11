@@ -1,7 +1,7 @@
 from PyQt6 import QtCore, QtWidgets
 
 
-def create_label(parent, font, text='', geometry=None, color=None, wordwrap=False, copyable=False):
+def create_label(parent, font, text=None, geometry=None, color=None, wordwrap=False, copyable=False):
     label = QtWidgets.QLabel(parent=parent)
     if geometry:
         label.setGeometry(geometry)
@@ -14,7 +14,8 @@ def create_label(parent, font, text='', geometry=None, color=None, wordwrap=Fals
         label.setTextInteractionFlags(
             QtCore.Qt.TextInteractionFlag.TextSelectableByMouse)
     
-    if text != '':
+    if text:
         label.setText(text)
         label.adjustSize()
+    
     return label

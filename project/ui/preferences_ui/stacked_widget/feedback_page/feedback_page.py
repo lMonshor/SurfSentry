@@ -3,6 +3,7 @@ from ui.components import qpushbutton_generator, qlabel_generator, qframe_line_g
 from styles.components_styles import qfonts_styles, qlabels_styles, qtextedits_styles
 from features import helper_methods
 import re
+from styles.ui_styles import default_styles
 
 
 class FeedbackPageWidget(QtWidgets.QWidget):
@@ -12,6 +13,7 @@ class FeedbackPageWidget(QtWidgets.QWidget):
         self.initUI()
 
     def initUI(self):
+        self.setStyleSheet(default_styles.dark_style)
         self.fb_email_title = qlabel_generator.create_label(
             parent=self,
             geometry=(QtCore.QRect(30, 30, 90, 20)),
@@ -75,6 +77,8 @@ class FeedbackPageWidget(QtWidgets.QWidget):
 
 
         self.fb_email_text.textChanged.connect(self.check_plain_text_edits)
+        self.fb_subject_text.textChanged.connect(self.check_plain_text_edits)
+        self.fb_desc_text.textChanged.connect(self.check_plain_text_edits)
 
     def check_plain_text_edits(self):
         email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
@@ -91,7 +95,7 @@ class FeedbackPageWidget(QtWidgets.QWidget):
             self.fb_warning_label.clear()
 
         else:
-            self.fb_submit_fb_button.setDisabled(False)
+            self.fb_submit_fb_button.setEnabled(True)
             self.fb_warning_label.clear()
 
     def submit_feedback(self):

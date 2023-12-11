@@ -23,22 +23,21 @@ def make_request(request_url, retries=4):
 
 def get_malicious_data(loading_ui=None):
     today = helper_methods.get_current_date_utc().split()[0]
-    date = db_operations.get_last_entry_date()
+    latest_date = db_operations.get_latest_entry_date()
 
-    if date:
-        date = date[0]
+    if latest_date:
         request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={
-            date}"
+            latest_date}"
 
     else:
         request_url = f"https://www.usom.gov.tr/api/address/index?date_gte={
             today}"
 
-    page_count_data = make_request(request_url=request_url)
+    count_data = make_request(request_url=request_url)
 
-    if page_count_data and "pageCount" in page_count_data and "totalCount" in page_count_data:
-        page_count = page_count_data["pageCount"]
-        total_count = page_count_data["totalCount"]
+    if count_data and "pageCount" in count_data and "totalCount" in count_data:
+        page_count = count_data["pageCount"]
+        total_count = count_data["totalCount"]
 
         if total_count > 1:
             for i in range(1, page_count+1):

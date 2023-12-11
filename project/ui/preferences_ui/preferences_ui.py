@@ -12,7 +12,8 @@ class UiPreferences(QtWidgets.QMainWindow):
 
     def initUI(self):
         self.setFixedSize(940, 528)
-        self.setWindowTitle("Preferences")
+        self.setWindowTitle(default_styles.window_title)
+        self.setWindowIcon(QtGui.QIcon(default_styles.window_icon))
 
         self.central_widget, self.main_hlayout = qlayout_qwidget_generator.create_hlayout_widget(
             parent=self,

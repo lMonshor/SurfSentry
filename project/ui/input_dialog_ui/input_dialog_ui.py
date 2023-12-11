@@ -1,4 +1,4 @@
-from PyQt6 import QtCore, QtWidgets
+from PyQt6 import QtCore, QtWidgets, QtGui
 from styles.components_styles import qfonts_styles, qlabels_styles, qtextedits_styles
 from styles.ui_styles import default_styles
 from features import workers
@@ -10,25 +10,24 @@ import re
 
 class UiInputWidget(QtWidgets.QDialog):
     data_processed = QtCore.pyqtSignal()
-    
+
     def __init__(self):
         super().__init__()
         self.initUI()
 
     def initUI(self):
-        self.setFixedSize(420, 200)
-        self.setStyleSheet(default_styles.light_style)
-        self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
+        self.setFixedSize(420, 188)
+        self.setStyleSheet(default_styles.dark_style)
+        self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint |
+                            QtCore.Qt.WindowType.WindowStaysOnTopHint)
         self.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
 
         self.input_title = qlabel_generator.create_label(
             parent=self,
-            geometry=(QtCore.QRect(20, 10, 1, 1)),
             color=qlabels_styles.title_color,
             font=qfonts_styles.title_font,
             text="Add Data")
-
-        self.input_title.adjustSize()
+        self.input_title.setGeometry(QtCore.QRect(20, 10, 120, 28))
 
         self.input_fields_glayout_widget, self.input_fields_glayout = qlayout_qwidget_generator.create_glayout_widget(
             parent=self,
@@ -66,7 +65,7 @@ class UiInputWidget(QtWidgets.QDialog):
 
         self.input_address_text_warning_label = qlabel_generator.create_label(
             parent=self,
-            geometry=(QtCore.QRect(110, 150, 150, 20)),
+            geometry=(QtCore.QRect(110, 142, 150, 20)),
             font=qfonts_styles.body_font,
             color=qlabels_styles.warning_color,
         )
@@ -135,7 +134,7 @@ class UiInputWidget(QtWidgets.QDialog):
 
         self.input_button_fields_hloayout_widget, self.input_button_fields_hloayout = qlayout_qwidget_generator.create_hlayout_widget(
             parent=self,
-            geometry=(QtCore.QRect(0, 173, 420, 30)))
+            geometry=(QtCore.QRect(2, 160, 417, 30)))
 
         self.input_add_button = qpushbutton_generator.create_button(
             parent=self,
@@ -211,17 +210,13 @@ class UiInputWidget(QtWidgets.QDialog):
 
         my_blocking_op_worker = workers.BlockingOperationsWorker(
             entry=entry, sender="add_button")
-        my_blocking_op_worker.finished.connect(lambda:
-                                               self.show_messagebox(message=f'{address} successfully added.'))
+        my_blocking_op_worker.finished.connect(lambda: self.close())
+        my_blocking_op_worker.finished.connect(
+            lambda: self.data_processed.emit())
+
         my_blocking_op_worker.finished.connect(my_blocking_op_worker.wait)
         my_blocking_op_worker.finished.connect(my_blocking_op_worker.quit)
         my_blocking_op_worker.start()
-
-    def show_messagebox(self, message):
-        QtWidgets.QMessageBox.information(
-            None, 'Add', message)
-        self.close()
-        self.data_processed.emit()
 
 
 if __name__ == '__main__':

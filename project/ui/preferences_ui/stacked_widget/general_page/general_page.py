@@ -1,6 +1,10 @@
 from PyQt6 import QtCore, QtWidgets
 from ui.components import qlayout_qwidget_generator, qlabel_generator, qframe_line_generator
 from styles.components_styles import qfonts_styles, qlabels_styles
+from features import helper_methods
+from db import db_operations
+from styles.ui_styles import default_styles
+import public_ip as ip
 
 
 class GeneralPageWidget(QtWidgets.QWidget):
@@ -10,6 +14,8 @@ class GeneralPageWidget(QtWidgets.QWidget):
         self.initUI()
 
     def initUI(self):
+        self.setStyleSheet(default_styles.dark_style)
+
         self.gen_information_title = qlabel_generator.create_label(
             parent=self,
             geometry=(QtCore.QRect(30, 61, 222, 33)),
@@ -31,8 +37,7 @@ class GeneralPageWidget(QtWidgets.QWidget):
             parent=self.gen_top_glayout_widget,
             font=qfonts_styles.subtitle_font,
             color=qlabels_styles.label_color,
-            copyable=True,
-            text="255.255.255.255")
+            copyable=True)
 
         self.gen_adapter_title = qlabel_generator.create_label(
             parent=self.gen_top_glayout_widget,
@@ -40,8 +45,10 @@ class GeneralPageWidget(QtWidgets.QWidget):
             color=qlabels_styles.title_color,
             text="Current Adapter")
 
-        self.gen_adapter_cbox = QtWidgets.QComboBox(
-            parent=self.gen_top_glayout_widget)
+        self.gen_adapter_label = qlabel_generator.create_label(
+            parent=self.gen_top_glayout_widget,
+            font=qfonts_styles.subtitle_font,
+            color=qlabels_styles.label_color)
 
         self.gen_mal_inf_title = qlabel_generator.create_label(
             parent=self,
@@ -63,8 +70,7 @@ class GeneralPageWidget(QtWidgets.QWidget):
         self.gen_tot_domain_label = qlabel_generator.create_label(
             parent=self.gen_top_glayout_widget,
             font=qfonts_styles.subtitle_font,
-            color=qlabels_styles.label_color,
-            text="255")
+            color=qlabels_styles.label_color)
 
         self.gen_tot_ip_title = qlabel_generator.create_label(
             parent=self.gen_top_glayout_widget,
@@ -75,20 +81,18 @@ class GeneralPageWidget(QtWidgets.QWidget):
         self.gen_tot_ip_label = qlabel_generator.create_label(
             parent=self.gen_top_glayout_widget,
             font=qfonts_styles.subtitle_font,
-            color=qlabels_styles.label_color,
-            text="126")
+            color=qlabels_styles.label_color)
 
         self.gen_last_upt_title = qlabel_generator.create_label(
             parent=self.gen_top_glayout_widget,
             font=qfonts_styles.subtitle_font,
             color=qlabels_styles.title_color,
-            text="Last Update Time")
+            text="Last Update Date")
 
         self.gen_last_upt_label = qlabel_generator.create_label(
             parent=self.gen_top_glayout_widget,
             font=qfonts_styles.subtitle_font,
-            color=qlabels_styles.label_color,
-            text="2023-10-07 11:08")
+            color=qlabels_styles.label_color)
 
         self.gen_colon1 = qlabel_generator.create_label(
             parent=self.gen_top_glayout_widget,
@@ -125,7 +129,7 @@ class GeneralPageWidget(QtWidgets.QWidget):
         self.top_glayout.addWidget(self.gen_ip_label, 0, 2, 1, 1)
         self.top_glayout.addWidget(self.gen_adapter_title, 1, 0, 1, 1)
         self.top_glayout.addWidget(self.gen_colon2, 1, 1, 1, 1)
-        self.top_glayout.addWidget(self.gen_adapter_cbox, 1, 2, 1, 1)
+        self.top_glayout.addWidget(self.gen_adapter_label, 1, 2, 1, 1)
 
         self.bottom_glayout.addWidget(self.gen_tot_domain_title, 0, 0, 1, 1)
         self.bottom_glayout.addWidget(self.gen_colon3, 0, 1, 1, 1)
@@ -136,3 +140,27 @@ class GeneralPageWidget(QtWidgets.QWidget):
         self.bottom_glayout.addWidget(self.gen_last_upt_title, 2, 0, 1, 1)
         self.bottom_glayout.addWidget(self.gen_colon5, 2, 1, 1, 1)
         self.bottom_glayout.addWidget(self.gen_last_upt_label, 2, 2, 1, 1)
+
+        self.fill_fields()
+
+    def fill_fields(self):
+        public_ip = ip.get()
+        current_adapter = helper_methods.get_current_adapter()
+        domain_count = str(db_operations.count_records(data_type='domain'))
+        ip_count = str(db_operations.count_records(data_type='ip'))
+        last_update_date = db_operations.get_latest_update_date()
+        
+        self.gen_ip_label.setText(public_ip)
+        self.gen_adapter_label.setText(current_adapter)
+        self.gen_tot_domain_label.setText(domain_count)
+        self.gen_tot_ip_label.setText(ip_count)
+        self.gen_last_upt_label.setText(last_update_date)
+        
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication([])
+
+    main_window = GeneralPageWidget()
+    main_window.show()
+
+    app.exec()

@@ -168,18 +168,46 @@ class BlockedDataPageWidget(QtWidgets.QWidget):
 
     def fill_lists(self):
         self.bd_blocked_tree.clear()
-        self.bd_blocked_tree.clearSelection()
         self.bd_unblocked_tree.clear()
-        self.bd_unblocked_tree.clearSelection()
+
+        blocked_ips = []
+        blocked_domains = []
+        unblocked_ips = []
+        unblocked_domains = []
 
         data = db_operations.get_data_by_column_name(
-            column_name='address,current_status',)
+            column_name='address,current_status,data_type')
 
         if data:
             for entry in data:
-                addr, current_status = entry['address'], entry['current_status']
-                tree_widget = self.bd_blocked_tree if current_status == "blocked" else self.bd_unblocked_tree
-                QtWidgets.QTreeWidgetItem(tree_widget, [addr])
+                addr = entry['address']
+                data_type = entry['data_type']
+                current_status = entry['current_status']
+
+                if data_type == 'ip':
+                    if current_status == 'blocked':
+                        blocked_ips.append(addr)
+                    else:
+                        unblocked_ips.append(addr)
+
+                else:
+                    if current_status == 'blocked':
+                        blocked_domains.append(addr)
+                    else:
+                        unblocked_domains.append(addr)
+
+            blocked_ips.sort()
+            blocked_domains.sort()
+            unblocked_ips.sort()
+            unblocked_domains.sort()
+
+            sorted_blocked_data = blocked_ips + blocked_domains
+            sorted_unblocked_data = unblocked_ips + unblocked_domains
+
+            for entry in sorted_blocked_data:
+                QtWidgets.QTreeWidgetItem(self.bd_blocked_tree, [entry])
+            for entry in sorted_unblocked_data:
+                QtWidgets.QTreeWidgetItem(self.bd_unblocked_tree, [entry])
 
         self.set_button_states()
 
@@ -198,49 +226,51 @@ class BlockedDataPageWidget(QtWidgets.QWidget):
                 column_name='*',
                 address=sel_item.text(0))
 
-            self.bd_remove_button.disconnect()
-            self.bd_remove_button.setEnabled(True)
-            self.bd_remove_button.clicked.connect(lambda: self.create_worker(
-                entry=entry,
-                sender='remove_button'
-            ))
+            if entry:
 
-            if sender == "blocked_list":
-                self.bd_unblock_button.disconnect()
-                self.bd_unblocked_tree.clearSelection()
-                self.bd_unblock_button.setEnabled(True)
-                self.bd_block_button.setEnabled(False)
-                self.bd_unblock_button.clicked.connect(
-                    lambda: self.create_worker(
-                        entry=entry,
-                        sender="unblock_button"))
+                self.bd_remove_button.disconnect()
+                self.bd_remove_button.setEnabled(True)
+                self.bd_remove_button.clicked.connect(lambda: self.create_worker(
+                    entry=entry,
+                    sender='remove_button'
+                ))
 
-            elif sender == "unblocked_list":
-                self.bd_block_button.disconnect()
-                self.bd_blocked_tree.clearSelection()
-                self.bd_unblock_button.setEnabled(False)
-                self.bd_block_button.setEnabled(True)
-                self.bd_block_button.clicked.connect(
-                    lambda: self.create_worker(
-                        entry=entry,
-                        sender="block_button"))
+                if sender == "blocked_list":
+                    self.bd_unblock_button.disconnect()
+                    self.bd_unblocked_tree.clearSelection()
+                    self.bd_unblock_button.setEnabled(True)
+                    self.bd_block_button.setEnabled(False)
+                    self.bd_unblock_button.clicked.connect(
+                        lambda: self.create_worker(
+                            entry=entry,
+                            sender="unblock_button"))
 
-            self.bd_address_label.setText(
-                entry['address'])
-            self.bd_op_time_label.setText(
-                entry['operation_time'])
-            self.bd_current_stat_label.setText(
-                entry['current_status'])
+                elif sender == "unblocked_list":
+                    self.bd_block_button.disconnect()
+                    self.bd_blocked_tree.clearSelection()
+                    self.bd_unblock_button.setEnabled(False)
+                    self.bd_block_button.setEnabled(True)
+                    self.bd_block_button.clicked.connect(
+                        lambda: self.create_worker(
+                            entry=entry,
+                            sender="block_button"))
 
-            if entry['current_status'] == "blocked":
-                self.bd_blocked_tree.setStyleSheet(self.b_qtreew_style)
-                self.bd_current_stat_label.setStyleSheet(
-                    "color:#23B7E5;")
+                self.bd_address_label.setText(
+                    entry['address'])
+                self.bd_op_time_label.setText(
+                    entry['operation_time'])
+                self.bd_current_stat_label.setText(
+                    entry['current_status'])
 
-            elif entry['current_status'] == "unblocked":
-                self.bd_unblocked_tree.setStyleSheet(self.u_qtreew_style)
-                self.bd_current_stat_label.setStyleSheet(
-                    "color:#F05050;")
+                if entry['current_status'] == "blocked":
+                    self.bd_blocked_tree.setStyleSheet(self.b_qtreew_style)
+                    self.bd_current_stat_label.setStyleSheet(
+                        "color:#23B7E5;")
+
+                elif entry['current_status'] == "unblocked":
+                    self.bd_unblocked_tree.setStyleSheet(self.u_qtreew_style)
+                    self.bd_current_stat_label.setStyleSheet(
+                        "color:#F05050;")
 
     def create_worker(self, sender, entry=None):
         my_blocking_op_worker = workers.BlockingOperationsWorker(

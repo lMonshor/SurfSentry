@@ -9,8 +9,9 @@ from styles.ui_styles import default_styles
 
 class MalDataPageWidget(QtWidgets.QWidget):
 
-    def __init__(self, my_blocked_data_page):
+    def __init__(self, my_blocked_data_page, my_general_page):
         self.my_blocked_data_page = my_blocked_data_page
+        self.my_general_page = my_general_page
         super().__init__()
 
         self.initUI()
@@ -186,7 +187,6 @@ class MalDataPageWidget(QtWidgets.QWidget):
 
     def fill_lists(self):
         self.md_tree.clear()
-        
 
         data = db_operations.get_data_by_column_name(
             column_name="address,data_type")
@@ -209,6 +209,8 @@ class MalDataPageWidget(QtWidgets.QWidget):
 
             self.md_tree.sortItems(
                 0,  QtCore.Qt.SortOrder.AscendingOrder)
+        
+        self.my_general_page.fill_fields()
 
     def fill_details(self, sel_items):
         self.clear_all_details()
@@ -248,7 +250,7 @@ class MalDataPageWidget(QtWidgets.QWidget):
                         self.md_severity_title.setText("HIGH")
                         self.md_severity_title.setStyleSheet(
                             qlabels_styles.md_threat_title_high_style)
-                    
+
                     self.md_source_label.setText(entry['source'])
                     self.md_date_label.setText(entry['data_date'])
 

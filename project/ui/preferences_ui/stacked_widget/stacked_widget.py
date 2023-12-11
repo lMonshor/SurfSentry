@@ -21,7 +21,8 @@ class StackedWidget(QtWidgets.QStackedWidget):
         self.my_general_page = general_page.GeneralPageWidget()
         self.my_blocked_data_page = blocked_data_page.BlockedDataPageWidget()
         self.my_mal_data_page = mal_data_page.MalDataPageWidget(
-            my_blocked_data_page=self.my_blocked_data_page
+            my_blocked_data_page=self.my_blocked_data_page,
+            my_general_page=self.my_general_page
         )
         self.my_feedback_page = feedback_page.FeedbackPageWidget()
         self.my_about_page = about_page.AboutPageWidget()
@@ -39,7 +40,7 @@ class StackedWidget(QtWidgets.QStackedWidget):
         self.setCurrentIndex(0)
 
         self.setCurrentWidget(self.my_general_page)
-        
+
         self.my_menu_widget.menu_gen_button.clicked.connect(
             lambda: self.setCurrentWidget(self.my_general_page))
         self.my_menu_widget.menu_ab_button.clicked.connect(
@@ -50,6 +51,7 @@ class StackedWidget(QtWidgets.QStackedWidget):
             lambda: self.setCurrentWidget(self.my_blocked_data_page))
         self.my_menu_widget.menu_fb_button.clicked.connect(
             lambda: self.setCurrentWidget(self.my_feedback_page))
+
 
 if __name__ == "__main__":
     import sys

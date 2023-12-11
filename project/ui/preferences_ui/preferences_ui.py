@@ -31,6 +31,11 @@ class UiPreferences(QtWidgets.QMainWindow):
 
         self.setCentralWidget(self.central_widget)
         
+    def closeEvent(self, event):
+        self.hide()
+        event.ignore()
+        
+        
 
 if __name__ == "__main__":
     import sys
